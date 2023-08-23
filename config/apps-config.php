@@ -1,5 +1,5 @@
 <?php
-$hostname = "localhost";
+$hostname = "mandiricoal.co.id";
 $username = "mandiricoal";
 $password = "Mandiricoal2022!";
 $database = "podema";

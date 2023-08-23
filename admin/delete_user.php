@@ -8,16 +8,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 
 require_once 'config.php';
 
-$host = "localhost";
-$db   = "podema";
-$user = "root";
-$pass = "";
-
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['user_id'])) {
     $userId = $_GET['user_id'];
 
