@@ -1,7 +1,7 @@
 <?php
 
 require_once('tcpdf/tcpdf.php');
-require_once 'admin/config.php';
+require_once ('admin/config.php');
 
 $result = mysqli_query($conn, "SELECT assess_laptop.*, operating_sistem_laptop.os_name, processor_laptop.processor_name, batterylife_laptop.battery_name, device_age_laptop.age_name, issue_software_laptop.issue_name, ram_laptop.ram_name, 
                               storage_laptop.storage_name, keyboard_laptop.keyboard_name, screen_laptop.screen_name, touchpad_laptop.touchpad_name, audio_laptop.audio_name, body_laptop.body_name

@@ -43,7 +43,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <h1 style="justify-self: center;">Assessment for PC Desktop Replacement</h1>
     </div>
     <?php 
-    require_once('./admin/config.php'); // Sesuaikan path dengan lokasi file config.php
+    require_once('./admin/config.php');
     
     if ($conn->connect_error) {
         die("Koneksi ke database gagal: " . $conn->connect_error);

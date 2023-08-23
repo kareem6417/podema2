@@ -1,7 +1,7 @@
 <?php
 
 require_once('tcpdf/tcpdf.php');
-require_once 'admin/config.php';
+require_once('admin/config.php');
 
 $query = $conn->prepare("SELECT * FROM form_inspeksi ORDER BY no DESC LIMIT 1");
 $query->execute();

@@ -47,7 +47,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <div style="flex: 1;">
                 <label for="name">Nama Pengguna<span style="color: crimson;">*</span></label>
                 <?php
-                    require_once './config/apps-config.php';
+                    require_once 'config.php';
 
                     $result = mysqli_query($conn, "SELECT * FROM users ORDER BY name ASC");
                     if ($result) {
@@ -88,7 +88,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
             
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM operating_sistem_laptop");
             if ($result) {
@@ -107,7 +107,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
 
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM processor_laptop");
             if ($result) {
@@ -126,7 +126,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
             
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM batterylife_laptop");
             if ($result) {
@@ -145,7 +145,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
                         
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM device_age_laptop");
             if ($result) {
@@ -164,7 +164,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
                         
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM issue_software_laptop");
             if ($result) {
@@ -183,7 +183,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
 
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM ram_laptop");
             if ($result) {
@@ -202,7 +202,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Select ---</option>
             <?php
             
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM storage_laptop");
             if ($result) {
@@ -221,7 +221,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
             
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM keyboard_laptop");
             if ($result) {
@@ -240,7 +240,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
             
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM screen_laptop");
             if ($result) {
@@ -259,7 +259,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
             
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM touchpad_laptop");
             if ($result) {
@@ -278,7 +278,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
 
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM audio_laptop");
             if ($result) {
@@ -297,7 +297,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
             
-            require_once './config/apps-config.php';
+            require_once 'config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM body_laptop");
             if ($result) {
