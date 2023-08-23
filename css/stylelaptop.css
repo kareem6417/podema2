@@ -1,0 +1,144 @@
+    body {
+    background-image: url(techlogo.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #f1f1f1;
+    font-family: "Hauora";
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu {
+            background-color: #6495ED;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .menu li {
+            margin-right: 10px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: black;
+            padding: 8px 16px;
+            border-radius: 3px;
+            transition: background-color 0.5s ease;
+        }
+
+        .menu li a:hover {
+            background-color: #F8F8FF;
+        }
+
+        .menu li a.active {
+            background-color: #000;
+        }
+
+        .content {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        }
+
+        h1 {
+        color: #333;
+        text-align: center;
+        }
+
+        label {
+        display: block;
+        margin-top: 10px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            height: 30px;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #cccccc69;
+            background-color: white; 
+            transition: background-color 0.3s ease; 
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            background-color: #cccccc69; 
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: #6495ED;
+        color: black;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.5s ease;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+        background-color: #F8F8FF;
+        color: black
+        }
+
+        .label-os {
+        font-weight: bold;
+        color: crimson;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #6495ED;
+            color: #fff;
+            min-width: 140px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        top: 65px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .disabled {
+            background-color: #807d7d;
+            pointer-events: none;
+            opacity: 0.6;
+        }
