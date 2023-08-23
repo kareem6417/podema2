@@ -1,15 +1,6 @@
 <?php
+
 require_once 'config.php';
-
-$host = "localhost";
-$db   = "podema";
-$user = "root";
-$pass = "";
-
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
-}
 
 $keyword = $_GET['keyword'];
 
@@ -27,4 +18,6 @@ if ($result->num_rows > 0) {
 
 // Mengirimkan hasil pencarian sebagai respons JSON
 echo json_encode($users);
+
+$conn->close(); // Menutup koneksi database setelah penggunaan
 ?>

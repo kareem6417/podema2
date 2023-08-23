@@ -1,8 +1,6 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "podema");
-if (!$conn) {
-    die("Koneksi database gagal: " . mysqli_connect_error());
-}
+
+require_once 'config.php';
 
 $searchQuery = $_GET['search'];
 $query = "SELECT * FROM users WHERE nama LIKE '%$searchQuery%'";

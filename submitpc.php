@@ -17,13 +17,8 @@ $typemonitor = $_POST["typemonitor"];
 $sizemonitor = $_POST["sizemonitor"];
 $score = $typepc + $os + $processor + $vga + $age + $issue + $ram + $storage + $typemonitor + $sizemonitor;
 // $score = $pctype + $os + $processor + $vga + $age + $issue + $ram + $storage + $typemonitor + $sizemonitor;
- 
-$host = "localhost";
-$user = "root"; 
-$pass = "";
-$db = "podema";
 
-$conn = new mysqli($host, $user, $pass, $db);
+require_once('/admin/config.php');
 
 if (!$conn) {
     die("Koneksi gagal");

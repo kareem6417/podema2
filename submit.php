@@ -19,12 +19,7 @@ $audio = $_POST["audio"];
 $body = $_POST["body"];
 $score = $os + $processor + $batterylife + $age + $issue + $ram + $storage + $keyboard + $screen + $touchpad + $audio + $body;
 
-$host = "localhost";
-$user = "root"; 
-$pass = ""; 
-$db = "podema";
-
-$conn = new mysqli($host, $user, $pass, $db);
+require_once('/admin/config.php');
 
 if (!$conn) {
     die("Koneksi gagal");

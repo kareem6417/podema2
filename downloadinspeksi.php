@@ -1,12 +1,7 @@
 <?php
 
 require_once('tcpdf/tcpdf.php');
-
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "podema";
-$conn = new mysqli($host, $user, $pass, $db);
+require_once 'admin/config.php';
 
 $query = $conn->prepare("SELECT * FROM form_inspeksi ORDER BY no DESC LIMIT 1");
 $query->execute();

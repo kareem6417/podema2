@@ -67,24 +67,18 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 <div style="flex: 1;">
                     <label for="nama_user">Nama Pengguna<span style="color: crimson;">*</span></label>
                     <?php
-                    $conn_podema = mysqli_connect("localhost", "root", "", "podema");
+                        require_once './config/apps-config.php';
 
-                    if (!$conn_podema) {
-                        die("Koneksi database podema gagal: " . mysqli_connect_error());
-                    }
-
-                    $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
-                    if ($result) {
-                        echo '<select id="name" name="nama_user" style="height: 38px; width: 84%;" required>';
-                        echo '<option value="">--- Select ---</option>';
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo '<option value="' . $row['name'] . '">' . $row['name'] . '</option>';
+                        $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
+                        if ($result) {
+                            echo '<select id="name" name="nama_user" style="height: 38px; width: 84%;" required>';
+                            echo '<option value="">--- Select ---</option>';
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '<option value="' . $row['name'] . '">' . $row['name'] . '</option>';
+                            }
+                            echo '</select>';
+                            mysqli_free_result($result);
                         }
-                        echo '</select>';
-                        mysqli_free_result($result);
-                    }
-
-                    mysqli_close($conn_podema);
                     ?>
                     <br>
                     <label for="status">Posisi/Divisi<span style="color: crimson;">*</span></label>

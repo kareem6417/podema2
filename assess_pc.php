@@ -47,11 +47,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <div style="flex: 1;">
                 <label for="name">Nama Pengguna<span style="color: crimson;">*</span></label>
                 <?php
-                    $conn_podema = mysqli_connect("localhost", "root", "", "podema");
-
-                    if (!$conn_podema) {
-                        die("Koneksi database userdata gagal: " . mysqli_connect_error());
-                    }
+                    
+                    require_once './config/apps-config.php';
 
                     $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
                     if ($result) {
@@ -90,7 +87,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="typepc" name="typepc" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
+            
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM pctype_pc");
 
@@ -106,7 +104,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="os" name="os" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
+
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM operating_sistem_pc");
 
@@ -122,7 +121,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="processor" name="processor" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
+
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM processor_pc");
 
@@ -138,7 +138,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="vga" name="vga" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
+                        
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM vga_pc");
 
@@ -154,7 +155,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="ram" name="ram" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
+
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM ram_pc");
 
@@ -170,7 +172,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="storage" name="storage" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
+
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM storage_pc");
 
@@ -186,7 +189,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="age" name="age" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
+
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM device_age_pc");
 
@@ -202,7 +206,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="typemonitor" name="typemonitor" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
+
+            require_once './config/apps-config.php';
 
             $result = mysqli_query ($conn, "SELECT * FROM typemonitor_pc");
 
@@ -218,7 +223,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="sizemonitor" name="sizemonitor" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
+
+            require_once './config/apps-config.php';
 
             $result = mysqli_query ($conn, "SELECT * FROM sizemonitor_pc");
 
@@ -234,7 +240,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="issue" name="issue" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
+
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM issue_software_pc");
 

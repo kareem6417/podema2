@@ -1,17 +1,17 @@
 <?php
 define('DB_HOST_LAPTOP', 'localhost');
-define('DB_USERNAME_LAPTOP', 'root');
-define('DB_PASSWORD_LAPTOP', '');
+define('DB_USERNAME_LAPTOP', 'mandiricoal');
+define('DB_PASSWORD_LAPTOP', 'Mandiricoal2022!');
 define('DB_NAME_LAPTOP', 'podema');
 
 define('DB_HOST_PC', 'localhost');
-define('DB_USERNAME_PC', 'root');
-define('DB_PASSWORD_PC', '');
+define('DB_USERNAME_PC', 'mandiricoal');
+define('DB_PASSWORD_PC', 'Mandiricoal2022!');
 define('DB_NAME_PC', 'podema');
 
 define('DB_HOST_INSPEKSI', 'localhost');
-define('DB_USERNAME_INSPEKSI', 'root');
-define('DB_PASSWORD_INSPEKSI', '');
+define('DB_USERNAME_INSPEKSI', 'mandiricoal');
+define('DB_PASSWORD_INSPEKSI', 'Mandiricoal2022!');
 define('DB_NAME_INSPEKSI', 'podema');
 
 try {

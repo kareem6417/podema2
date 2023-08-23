@@ -7,10 +7,7 @@ if (isset($_SESSION['login_attempt'])) {
     $_SESSION['login_attempt'] = 1;
 }
 
-$host = "localhost";
-$db   = "podema";
-$user = "root";
-$pass = "";
+require_once 'config.php';
 
 if (isset($_POST['reset'])) {
     unset($_POST['username']);

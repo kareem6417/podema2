@@ -42,12 +42,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <h2>Ringkasan Hasil Inspeksi Perangkat Anda</h2>
         <br>
     <?php
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "podema";
-    
-    $conn = new mysqli($host, $user, $pass, $db);
+    require_once('./admin/config.php');
     
     if ($conn->connect_error) {
         die("Koneksi ke database gagal: " . $conn->connect_error);

@@ -11,12 +11,7 @@ $rekomendasi = $_POST["rekomendasi"];
 
 $nama_user = isset($_POST["nama_user"]) ? $_POST["nama_user"] : '';
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "podema";
-
-$conn = new mysqli($host, $user, $pass, $db);
+require_once('/admin/config.php');
 
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);

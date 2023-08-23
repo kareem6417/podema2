@@ -6,10 +6,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     exit();
 }
 
-$host = "localhost";
-$db   = "podema";
-$user = "root";
-$pass = "";
+require_once 'admin/config.php';
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);

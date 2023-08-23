@@ -47,13 +47,9 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <div style="flex: 1;">
                 <label for="name">Nama Pengguna<span style="color: crimson;">*</span></label>
                 <?php
-                    $conn_podema = mysqli_connect("localhost", "root", "", "podema");
+                    require_once './config/apps-config.php';
 
-                    if (!$conn_podema) {
-                        die("Koneksi database userdata gagal: " . mysqli_connect_error());
-                    }
-
-                    $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
+                    $result = mysqli_query($conn, "SELECT * FROM users ORDER BY name ASC");
                     if ($result) {
                         echo '<select id="name" name="name" style="height: 40px; width: 83.5%;" required>';
                         echo '<option value="">--- Pilih ---</option>';
@@ -64,7 +60,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                         mysqli_free_result($result);
                     }
 
-                    mysqli_close($conn_podema);
+                    mysqli_close($conn);
                 ?>
                 <br>
                 <label for="company">Perusahaan</label>
@@ -91,11 +87,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="os" name="os" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
-
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+            
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM operating_sistem_laptop");
             if ($result) {
@@ -113,11 +106,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="processor" name="processor" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
 
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM processor_laptop");
             if ($result) {
@@ -135,11 +125,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="batterylife" name="batterylife" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
-
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+            
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM batterylife_laptop");
             if ($result) {
@@ -157,11 +144,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="age" name="age" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
-
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+                        
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM device_age_laptop");
             if ($result) {
@@ -179,11 +163,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="issue" name="issue" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
-
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+                        
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM issue_software_laptop");
             if ($result) {
@@ -201,11 +182,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="ram" name="ram" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
 
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM ram_laptop");
             if ($result) {
@@ -223,11 +201,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="storage" name="storage" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
-
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+            
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM storage_laptop");
             if ($result) {
@@ -245,11 +220,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="keyboard" name="keyboard" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
-
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+            
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM keyboard_laptop");
             if ($result) {
@@ -267,11 +239,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="screen" name="screen" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
-
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+            
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM screen_laptop");
             if ($result) {
@@ -289,11 +258,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="touchpad" name="touchpad" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
-
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+            
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM touchpad_laptop");
             if ($result) {
@@ -311,11 +277,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="audio" name="audio" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
 
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM audio_laptop");
             if ($result) {
@@ -333,11 +296,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="body" name="body" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "podema");
-
-            if (!$conn) {
-                die("Koneksi database gagal: " . mysqli_connect_error());
-            }
+            
+            require_once './config/apps-config.php';
 
             $result = mysqli_query($conn, "SELECT * FROM body_laptop");
             if ($result) {

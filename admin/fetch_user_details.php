@@ -1,9 +1,6 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "podema");
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once 'config.php';
 
 $user_id = $_GET['user_id'];
 
