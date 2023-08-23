@@ -7,10 +7,7 @@ if (isset($_SESSION['login_attempt'])) {
     $_SESSION['login_attempt'] = 1;
 }
 
-$hostname = "mandiricoal.co.id";
-$username = "mandiricoal";
-$password = "Mandiricoal2022!";
-$database = "podema";
+require_once 'config.php';
 
 $conn_podema = mysqli_connect($hostname, $username, $password, $database);
 
