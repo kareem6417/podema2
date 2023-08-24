@@ -65,7 +65,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                         mysqli_free_result($result);
                     }
 
-                    mysqli_close($conn);
+                    mysqli_close($conn_podema);
                 ?>
                 <br>
                 <label for="company">Perusahaan</label>
@@ -99,7 +99,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM operating_sistem_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM operating_sistem_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['os_score'] . "'>" . $row['os_name'] . "</option>";
@@ -107,7 +107,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select>
         <br>
@@ -122,7 +122,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM processor_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM processor_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['processor_score'] . "'>" . $row['processor_name'] . "</option>";
@@ -130,7 +130,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select>
         <br>
@@ -145,7 +145,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM batterylife_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM batterylife_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['battery_score'] . "'>" . $row['battery_name'] . "</option>";
@@ -153,7 +153,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select>
         <br>
@@ -168,7 +168,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM device_age_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM device_age_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['age_score'] . "'>" . $row['age_name'] . "</option>";
@@ -176,7 +176,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select>  
         <br>
@@ -191,7 +191,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM issue_software_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM issue_software_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['issue_score'] . "'>" . $row['issue_name'] . "</option>";
@@ -199,7 +199,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select>  
         <br>
@@ -214,7 +214,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM ram_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM ram_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['ram_score'] . "'>" . $row['ram_name'] . "</option>";
@@ -222,7 +222,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select>  
         <br>
@@ -237,7 +237,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM storage_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM storage_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['storage_score'] . "'>" . $row['storage_name'] . "</option>";
@@ -245,7 +245,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select> 
         <br>
@@ -260,7 +260,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM keyboard_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM keyboard_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['keyboard_score'] . "'>" . $row['keyboard_name'] . "</option>";
@@ -268,7 +268,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select>
         <br>
@@ -283,7 +283,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM screen_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM screen_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['screen_score'] . "'>" . $row['screen_name'] . "</option>";
@@ -291,7 +291,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select>
         <br>
@@ -306,7 +306,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM touchpad_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM touchpad_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['touchpad_score'] . "'>" . $row['touchpad_name'] . "</option>";
@@ -314,7 +314,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select>
         <br>
@@ -329,7 +329,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM audio_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM audio_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['audio_score'] . "'>" . $row['audio_name'] . "</option>";
@@ -337,7 +337,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select>
         <br>
@@ -352,7 +352,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
             }
 
-            $result = mysqli_query($conn, "SELECT * FROM body_laptop");
+            $result = mysqli_query($conn_podema, "SELECT * FROM body_laptop");
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<option value='" . $row['body_score'] . "'>" . $row['body_name'] . "</option>";
@@ -360,7 +360,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 mysqli_free_result($result);
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn_podema);
             ?>
         </select>
         <br>
