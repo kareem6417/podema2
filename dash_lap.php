@@ -6,7 +6,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     exit();
 }
 
-require_once 'admin/config.php';
+$host = "mandiricoal.net";
+$db   = "podema";
+$user = "podema";
+$pass = "podema2024@";
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
