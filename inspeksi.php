@@ -67,7 +67,12 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 <div style="flex: 1;">
                     <label for="nama_user">Nama Pengguna<span style="color: crimson;">*</span></label>
                     <?php
-                        require_once './config/apps-config.php';
+                    
+                        $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+
+                        if (!$conn_podema) {
+                            die("Koneksi database podema gagal: " . mysqli_connect_error());
+                        }
 
                         $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
                         if ($result) {
