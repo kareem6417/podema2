@@ -3,6 +3,11 @@ session_start();
 
 require_once 'config.php';
 
+$host = "mandiricoal.net";
+$db   = "podema";
+$user = "podema";
+$pass = "podema2024@";
+
 //assessment_laptop
 if (isset($_GET['user_id']) && isset($_GET['name'])) {
     $user_id = $_GET['user_id'];
