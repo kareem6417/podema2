@@ -47,13 +47,14 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <div style="flex: 1;">
                 <label for="name">Nama Pengguna<span style="color: crimson;">*</span></label>
                 <?php
+                    
                     $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
 
                     if (!$conn_podema) {
                         die("Koneksi database podema gagal: " . mysqli_connect_error());
                     }
-
-                    $result = mysqli_query($conn, "SELECT * FROM users ORDER BY name ASC");
+                    
+                    $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
                     if ($result) {
                         echo '<select id="name" name="name" style="height: 40px; width: 83.5%;" required>';
                         echo '<option value="">--- Pilih ---</option>';
