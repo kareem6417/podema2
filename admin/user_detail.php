@@ -1,12 +1,15 @@
 <?php
 session_start();
 
-require_once 'config.php';
+$servername = "mandiricoal.net";
+$username = "podema";
+$password = "podema2024@";
+$dbname = "podema";
 
-$host = "mandiricoal.net";
-$db   = "podema";
-$user = "podema";
-$pass = "podema2024@";
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Koneksi ke database podema gagal: " . $conn->connect_error);
+}
 
 //assessment_laptop
 if (isset($_GET['user_id']) && isset($_GET['name'])) {
