@@ -30,7 +30,7 @@ $users = fetchData("users");
 foreach ($users as $user) {
     $userInfos[$user['name']] = array(
         'company' => $user['company'],
-        'divisi' => $user['divisi']
+        'department' => $user['department']
     );
 }
 ?>
@@ -85,15 +85,15 @@ foreach ($users as $user) {
                 </select>
                 <br>
                 <label for="company">Perusahaan</label>
-                <input type="text" id="company" name="company" style="height: 20px; width: 80%;">
+                <input type="text" id="company" name="company" style="height: 20px; width: 80%;" readonly>
                 <br>
                 <label for="divisi">Divisi</label>
-                <input type="text" id="divisi" name="divisi" style="height: 20px; width: 80%;">
+                <input type="text" id="divisi" name="divisi" style="height: 20px; width: 80%;" readonly>
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
                         const nameDropdown = document.getElementById("name");
                         const companyInput = document.getElementById("company");
-                        const divisiInput = document.getElementById("divisi");
+                        const divisiInput = document.getElementById("department");
 
                         const userInfos = <?php echo json_encode($userInfos); ?>;
 
@@ -104,7 +104,7 @@ foreach ($users as $user) {
 
                                 if (selectedUser) {
                                     companyInput.value = selectedUser.company;
-                                    divisiInput.value = selectedUser.divisi;
+                                    divisiInput.value = selectedUser.department;
                                 }
                             } else {
                                 companyInput.value = "";
