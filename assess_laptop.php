@@ -19,7 +19,7 @@ if ($result) {
         $userInfos[] = array(
             'name' => $row['name'],
             'company' => $row['company'],
-            'division' => $row['division']
+            'divisi' => $row['divisi']
         );
     }
     mysqli_free_result($result);
