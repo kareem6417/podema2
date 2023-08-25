@@ -105,7 +105,7 @@ function createDropdownOptions($conn, $table, $valueField, $textField) {
                 <input type="text" id="serialnumber" name="serialnumber" style="height: 20px; width: 80%;">
                 <br>
             </div>
-            <script src="js/disabled-ep.js"></script>
+            <!-- <script src="js/disabled-ep.js"></script> -->
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
                 const nameDropdown = document.getElementById("name");
@@ -134,9 +134,25 @@ function createDropdownOptions($conn, $table, $valueField, $textField) {
         <label for="os">Sistem Operasi<span style="color: crimson;">*</span></label>
         <select id="os" name="os" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
-            <?php echo createDropdownOptions($conn_podema, "operating_sistem_laptop", "os_score", "os_name"); ?>
+            <?php
+            
+            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+
+            if (!$conn_podema) {
+                die("Koneksi database podema gagal: " . mysqli_connect_error());
+            }
+
+            $result = mysqli_query($conn_podema, "SELECT * FROM operating_sistem_laptop");
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<option value='" . $row['os_score'] . "'>" . $row['os_name'] . "</option>";
+                }
+                mysqli_free_result($result);
+            }
+
+            mysqli_close($conn_podema);
+            ?>
         </select>
-        <?php mysqli_close($conn_podema); ?>
         <br>
         <label for="processor">Processor<span style="color: crimson;">*</span></label>
         <select id="processor" name="processor" style="height: 40px;" required>
