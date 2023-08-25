@@ -1,8 +1,9 @@
 <?php
 
-$conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
-if (!$conn) {
-    die("Koneksi database gagal: " . mysqli_connect_error());
+$conn = new mysqli("mandiricoal.net", "podema", "podema2024@", "podema");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
 $user_id = $_GET['user_id'];
