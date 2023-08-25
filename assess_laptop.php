@@ -89,30 +89,7 @@ foreach ($users as $user) {
                 <br>
                 <label for="divisi">Divisi</label>
                 <input type="text" id="divisi" name="divisi" style="height: 20px; width: 80%;" readonly>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const nameDropdown = document.getElementById("name");
-                        const companyInput = document.getElementById("company");
-                        const divisiInput = document.getElementById("department");
-
-                        const userInfos = <?php echo json_encode($userInfos); ?>;
-
-                        nameDropdown.addEventListener("change", function () {
-                            const selectedName = nameDropdown.value;
-                            if (selectedName !== "") {
-                                const selectedUser = userInfos[selectedName];
-
-                                if (selectedUser) {
-                                    companyInput.value = selectedUser.company;
-                                    divisiInput.value = selectedUser.department;
-                                }
-                            } else {
-                                companyInput.value = "";
-                                divisiInput.value = "";
-                            }
-                        });
-                    });
-                </script>
+            <script src="js/disabled-ep.js"></script>
             </div>
             <div style="flex: 1;">
                 <label for="date">Tanggal Pemeriksaan<span style="color: crimson;">*</span></label>
