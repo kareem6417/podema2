@@ -112,22 +112,23 @@ mysqli_close($conn_podema);
                 const companyInput = document.getElementById("company");
                 const divisiInput = document.getElementById("divisi");
 
+                const userInfos = <?php echo json_encode($userInfos); ?>;
+
                 nameDropdown.addEventListener("change", function () {
                     const selectedName = nameDropdown.value;
                     if (selectedName !== "") {
-                    const userInfos = <?php echo json_encode($userInfos); ?>;
-                    const selectedUser = userInfos.find(user => user.name === selectedName);
+                        const selectedUser = userInfos.find(user => user.name === selectedName);
 
-                    if (selectedUser) {
-                        companyInput.value = selectedUser.company;
-                        divisiInput.value = selectedUser.divisi;
-                    }
+                        if (selectedUser) {
+                            companyInput.value = selectedUser.company;
+                            divisiInput.value = selectedUser.divisi;
+                        }
                     } else {
-                    companyInput.value = "";
-                    divisiInput.value = "";
+                        companyInput.value = "";
+                        divisiInput.value = "";
                     }
                 });
-                });
+            });
             </script>
         </div>
         <br>
