@@ -74,17 +74,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 <label for="divisi">Divisi</label>
                 <input type="text" id="divisi" name="divisi" style="height: 20px; width: 80%;" readonly>
             </div>
-            <div style="flex: 1;">
-                <label for="date">Tanggal Pemeriksaan<span style="color: crimson;">*</span></label>
-                <input type="date" id="date" name="date" style="height: 35px; width: 83%; font-family: Arial, sans-serif; font-size: 13.5px;" required>
-                <br>
-                <label for="type">Merk/Tipe Perangkat<span style="color: crimson;">*</span></label>
-                <input type="text" id="type" name="type" style="height: 20px; width: 80%;">
-                <br>
-                <label for="serialnumber">Nomor Serial</label>
-                <input type="text" id="serialnumber" name="serialnumber" style="height: 20px; width: 80%;">
-                <br>
-            </div>
             <script>
                 const nameInput = document.getElementById('name');
                 const companyInput = document.getElementById('company');
@@ -105,6 +94,17 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                     xhr.send();
                 });
             </script>
+            <div style="flex: 1;">
+                <label for="date">Tanggal Pemeriksaan<span style="color: crimson;">*</span></label>
+                <input type="date" id="date" name="date" style="height: 35px; width: 83%; font-family: Arial, sans-serif; font-size: 13.5px;" required>
+                <br>
+                <label for="type">Merk/Tipe Perangkat<span style="color: crimson;">*</span></label>
+                <input type="text" id="type" name="type" style="height: 20px; width: 80%;">
+                <br>
+                <label for="serialnumber">Nomor Serial</label>
+                <input type="text" id="serialnumber" name="serialnumber" style="height: 20px; width: 80%;">
+                <br>
+            </div>
         </div>
         <br>
         <label for="os">Sistem Operasi<span style="color: crimson;">*</span></label>
