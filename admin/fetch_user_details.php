@@ -1,6 +1,9 @@
 <?php
+$conn = new mysqli("localhost", "root", "", "userdata");
 
-require_once 'config.php';
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 $user_id = $_GET['user_id'];
 
