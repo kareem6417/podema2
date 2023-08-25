@@ -12,19 +12,20 @@ if (!$conn_podema) {
     die("Koneksi database podema gagal: " . mysqli_connect_error());
 }
 
-function createDropdownOptions($conn, $table, $valueField, $textField) {
-    $options = "";
-    $result = mysqli_query($conn, "SELECT * FROM $table");
-    
-    if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $options .= "<option value='" . $row[$valueField] . "'>" . $row[$textField] . "</option>";
-        }
-        mysqli_free_result($result);
+$result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
+$userInfos = array();
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $userInfos[] = array(
+            'name' => $row['name'],
+            'company' => $row['company'],
+            'division' => $row['division']
+        );
     }
-
-    return $options;
+    mysqli_free_result($result);
 }
+
+mysqli_close($conn_podema);
 ?>
 
 <!DOCTYPE html>
@@ -105,7 +106,7 @@ function createDropdownOptions($conn, $table, $valueField, $textField) {
                 <input type="text" id="serialnumber" name="serialnumber" style="height: 20px; width: 80%;">
                 <br>
             </div>
-            <!-- <script src="js/disabled-ep.js"></script> -->
+            <script src="js/disabled-ep.js"></script>
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
                 const nameDropdown = document.getElementById("name");
