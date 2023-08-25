@@ -110,7 +110,7 @@ mysqli_close($conn_podema);
                 document.addEventListener("DOMContentLoaded", function () {
                 const nameDropdown = document.getElementById("name");
                 const companyInput = document.getElementById("company");
-                const divisionInput = document.getElementById("divisi");
+                const divisiInput = document.getElementById("divisi");
 
                 nameDropdown.addEventListener("change", function () {
                     const selectedName = nameDropdown.value;
@@ -120,11 +120,11 @@ mysqli_close($conn_podema);
 
                     if (selectedUser) {
                         companyInput.value = selectedUser.company;
-                        divisionInput.value = selectedUser.division;
+                        divisiInput.value = selectedUser.divisi;
                     }
                     } else {
                     companyInput.value = "";
-                    divisionInput.value = "";
+                    divisiInput.value = "";
                     }
                 });
                 });
