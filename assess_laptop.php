@@ -85,10 +85,10 @@ foreach ($users as $user) {
                 </select>
                 <br>
                 <label for="company">Perusahaan</label>
-                <input type="text" id="company" name="company" style="height: 20px; width: 80%;" readonly>
+                <input type="text" id="company" name="company" style="height: 20px; width: 80%;">
                 <br>
                 <label for="divisi">Divisi</label>
-                <input type="text" id="divisi" name="divisi" style="height: 20px; width: 80%;" readonly>
+                <input type="text" id="divisi" name="divisi" style="height: 20px; width: 80%;">
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
                         const nameDropdown = document.getElementById("name");
@@ -100,7 +100,7 @@ foreach ($users as $user) {
                         nameDropdown.addEventListener("change", function () {
                             const selectedName = nameDropdown.value;
                             if (selectedName !== "") {
-                                const selectedUser = userInfos.find(user => user.name === selectedName);
+                                const selectedUser = userInfos[selectedName];
 
                                 if (selectedUser) {
                                     companyInput.value = selectedUser.company;
@@ -111,14 +111,6 @@ foreach ($users as $user) {
                                 divisiInput.value = "";
                             }
                         });
-
-=                        if (nameDropdown.value !== "") {
-                            const selectedUser = userInfos.find(user => user.name === nameDropdown.value);
-                            if (selectedUser) {
-                                companyInput.value = selectedUser.company;
-                                divisiInput.value = selectedUser.divisi;
-                            }
-                        }
                     });
                 </script>
             </div>
