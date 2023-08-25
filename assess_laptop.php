@@ -107,23 +107,26 @@ mysqli_close($conn_podema);
                 <br>
             </div>
             <script>
-                const nameInput = document.getElementById('name');
-                const companyInput = document.getElementById('company');
-                const divisiInput = document.getElementById('divisi');
+                document.addEventListener("DOMContentLoaded", function () {
+                const nameDropdown = document.getElementById("name");
+                const companyInput = document.getElementById("company");
+                const divisionInput = document.getElementById("divisi");
 
-                nameInput.addEventListener('change', () => {
-                    const selectedName = nameInput.value;
-                    const xhr = new XMLHttpRequest();
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            const userData = JSON.parse(xhr.responseText);
-                            companyInput.value = userData.company || "";
-                            divisiInput.value = userData.department || "";
-                        }
-                    };
-                    
-                    xhr.open("GET", "get_userdata.php?name=" + selectedName, true);
-                    xhr.send();
+                nameDropdown.addEventListener("change", function () {
+                    const selectedName = nameDropdown.value;
+                    if (selectedName !== "") {
+                    const userInfos = <?php echo json_encode($userInfos); ?>;
+                    const selectedUser = userInfos.find(user => user.name === selectedName);
+
+                    if (selectedUser) {
+                        companyInput.value = selectedUser.company;
+                        divisionInput.value = selectedUser.division;
+                    }
+                    } else {
+                    companyInput.value = "";
+                    divisionInput.value = "";
+                    }
+                });
                 });
             </script>
         </div>
