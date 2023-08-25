@@ -30,7 +30,7 @@ $users = fetchData("users");
 foreach ($users as $user) {
     $userInfos[$user['name']] = array(
         'company' => $user['company'],
-        'department' => $user['department']
+        'divisi' => $user['divisi']
     );
 }
 ?>
@@ -89,7 +89,26 @@ foreach ($users as $user) {
                 <br>
                 <label for="divisi">Divisi</label>
                 <input type="text" id="divisi" name="divisi" style="height: 20px; width: 80%;" readonly>
-            <script src="js/disabled-ep.js"></script>
+                <script>
+                    const nameInput = document.getElementById('name');
+                    const companyInput = document.getElementById('company');
+                    const divisiInput = document.getElementById('divisi');
+
+                    nameInput.addEventListener('change', () => {
+                        const selectedName = nameInput.value;
+                        const xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                const userData = JSON.parse(xhr.responseText);
+                                companyInput.value = userData.company || "";
+                                divisiInput.value = userData.department || "";
+                            }
+                        };
+                        
+                        xhr.open("GET", "get_userdata.php?name=" + selectedName, true);
+                        xhr.send();
+                    });
+                </script>
             </div>
             <div style="flex: 1;">
                 <label for="date">Tanggal Pemeriksaan<span style="color: crimson;">*</span></label>
