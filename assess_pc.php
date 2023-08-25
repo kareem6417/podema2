@@ -72,26 +72,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 <br>
                 <label for="divisi">Divisi</label>
                 <input type="text" id="divisi" name="divisi" style="height: 20px; width: 80%;" readonly>
-            <script>
-                const nameInput = document.getElementById('name');
-                const companyInput = document.getElementById('company');
-                const divisiInput = document.getElementById('divisi');
-
-                nameInput.addEventListener('change', () => {
-                    const selectedName = nameInput.value;
-                    const xhr = new XMLHttpRequest();
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            const userData = JSON.parse(xhr.responseText);
-                            companyInput.value = userData.company || "";
-                            divisiInput.value = userData.department || "";
-                        }
-                    };
-                    
-                    xhr.open("GET", "get_userdata.php?name=" + selectedName, true);
-                    xhr.send();
-                });
-            </script>
             </div>
             <div style="flex: 1;">
                 <label for="date">Tanggal Pemeriksaan<span style="color: crimson;">*</span></label>
@@ -104,6 +84,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 <input type="text" id="serialnumber" name="serialnumber" style="height: 20px; width: 80%;">
                 <br>
             </div>
+            <script src="js/disabled-ep.js"></script>
         </div>
         <br>
         <label for="typepc">Tipe PC<span style="color: crimson;">*</span></label>
