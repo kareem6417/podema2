@@ -107,29 +107,6 @@ mysqli_close($conn_podema);
                 <br>
             </div>
             <script src="js/disabled-ep.js"></script>
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                const nameDropdown = document.getElementById("name");
-                const companyInput = document.getElementById("company");
-                const divisionInput = document.getElementById("divisi");
-
-                nameDropdown.addEventListener("change", function () {
-                    const selectedName = nameDropdown.value;
-                    if (selectedName !== "") {
-                    const userInfos = <?php echo json_encode($userInfos); ?>;
-                    const selectedUser = userInfos.find(user => user.name === selectedName);
-
-                    if (selectedUser) {
-                        companyInput.value = selectedUser.company;
-                        divisionInput.value = selectedUser.division;
-                    }
-                    } else {
-                    companyInput.value = "";
-                    divisionInput.value = "";
-                    }
-                });
-                });
-            </script>
         </div>
         <br>
         <label for="os">Sistem Operasi<span style="color: crimson;">*</span></label>
