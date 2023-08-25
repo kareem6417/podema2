@@ -24,6 +24,15 @@ function fetchData($table) {
     }
     return $data;
 }
+
+$userInfos = array();
+$users = fetchData("users");
+foreach ($users as $user) {
+    $userInfos[$user['name']] = array(
+        'company' => $user['company'],
+        'divisi' => $user['divisi']
+    );
+}
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +100,7 @@ function fetchData($table) {
                     nameDropdown.addEventListener("change", function () {
                         const selectedName = nameDropdown.value;
                         if (selectedName !== "") {
-                            const selectedUser = userInfos.find(user => user.name === selectedName);
+                            const selectedUser = userInfos[selectedName];
 
                             if (selectedUser) {
                                 companyInput.value = selectedUser.company;
