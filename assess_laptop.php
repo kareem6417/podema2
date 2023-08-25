@@ -94,6 +94,30 @@ mysqli_close($conn_podema);
                 <br>
                 <label for="divisi">Divisi</label>
                 <input type="text" id="divisi" name="divisi" style="height: 20px; width: 80%;" readonly>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                    const nameDropdown = document.getElementById("name");
+                    const companyInput = document.getElementById("company");
+                    const divisiInput = document.getElementById("divisi");
+
+                    const userInfos = <?php echo json_encode($userInfos); ?>;
+
+                    nameDropdown.addEventListener("change", function () {
+                        const selectedName = nameDropdown.value;
+                        if (selectedName !== "") {
+                            const selectedUser = userInfos.find(user => user.name === selectedName);
+
+                            if (selectedUser) {
+                                companyInput.value = selectedUser.company;
+                                divisiInput.value = selectedUser.divisi;
+                            }
+                        } else {
+                            companyInput.value = "";
+                            divisiInput.value = "";
+                        }
+                    });
+                });
+                </script>
             </div>
             <div style="flex: 1;">
                 <label for="date">Tanggal Pemeriksaan<span style="color: crimson;">*</span></label>
@@ -106,30 +130,6 @@ mysqli_close($conn_podema);
                 <input type="text" id="serialnumber" name="serialnumber" style="height: 20px; width: 80%;">
                 <br>
             </div>
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                const nameDropdown = document.getElementById("name");
-                const companyInput = document.getElementById("company");
-                const divisiInput = document.getElementById("divisi");
-
-                const userInfos = <?php echo json_encode($userInfos); ?>;
-
-                nameDropdown.addEventListener("change", function () {
-                    const selectedName = nameDropdown.value;
-                    if (selectedName !== "") {
-                        const selectedUser = userInfos.find(user => user.name === selectedName);
-
-                        if (selectedUser) {
-                            companyInput.value = selectedUser.company;
-                            divisiInput.value = selectedUser.divisi;
-                        }
-                    } else {
-                        companyInput.value = "";
-                        divisiInput.value = "";
-                    }
-                });
-            });
-            </script>
         </div>
         <br>
         <label for="os">Sistem Operasi<span style="color: crimson;">*</span></label>
