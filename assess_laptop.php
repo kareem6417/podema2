@@ -91,27 +91,35 @@ foreach ($users as $user) {
                 <input type="text" id="divisi" name="divisi" style="height: 20px; width: 80%;" readonly>
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
-                    const nameDropdown = document.getElementById("name");
-                    const companyInput = document.getElementById("company");
-                    const divisiInput = document.getElementById("divisi");
+                        const nameDropdown = document.getElementById("name");
+                        const companyInput = document.getElementById("company");
+                        const divisiInput = document.getElementById("divisi");
 
-                    const userInfos = <?php echo json_encode($userInfos); ?>;
+                        const userInfos = <?php echo json_encode($userInfos); ?>;
 
-                    nameDropdown.addEventListener("change", function () {
-                        const selectedName = nameDropdown.value;
-                        if (selectedName !== "") {
-                            const selectedUser = userInfos[selectedName];
+                        nameDropdown.addEventListener("change", function () {
+                            const selectedName = nameDropdown.value;
+                            if (selectedName !== "") {
+                                const selectedUser = userInfos.find(user => user.name === selectedName);
 
+                                if (selectedUser) {
+                                    companyInput.value = selectedUser.company;
+                                    divisiInput.value = selectedUser.divisi;
+                                }
+                            } else {
+                                companyInput.value = "";
+                                divisiInput.value = "";
+                            }
+                        });
+
+=                        if (nameDropdown.value !== "") {
+                            const selectedUser = userInfos.find(user => user.name === nameDropdown.value);
                             if (selectedUser) {
                                 companyInput.value = selectedUser.company;
                                 divisiInput.value = selectedUser.divisi;
                             }
-                        } else {
-                            companyInput.value = "";
-                            divisiInput.value = "";
                         }
                     });
-                });
                 </script>
             </div>
             <div style="flex: 1;">
