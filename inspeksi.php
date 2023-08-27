@@ -68,7 +68,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                     <label for="nama_user">Nama Pengguna<span style="color: crimson;">*</span></label>
                     <?php
                     
-                        $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+                        $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
                         if (!$conn_podema) {
                             die("Koneksi database podema gagal: " . mysqli_connect_error());
