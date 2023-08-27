@@ -144,7 +144,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="os" name="os" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
@@ -166,7 +166,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="processor" name="processor" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
@@ -188,7 +188,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="batterylife" name="batterylife" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
@@ -210,7 +210,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="age" name="age" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
@@ -232,7 +232,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="issue" name="issue" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
@@ -254,7 +254,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="ram" name="ram" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
@@ -276,7 +276,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="storage" name="storage" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
@@ -298,7 +298,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="keyboard" name="keyboard" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
@@ -320,7 +320,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="screen" name="screen" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
@@ -342,7 +342,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="touchpad" name="touchpad" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
@@ -364,7 +364,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="audio" name="audio" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
@@ -386,7 +386,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="body" name="body" style="height: 40px;" required>
             <option value="">--- Select ---</option>
             <?php
-            $conn = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn) {
                 die("Koneksi database gagal: " . mysqli_connect_error());
