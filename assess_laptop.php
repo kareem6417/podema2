@@ -101,7 +101,8 @@ foreach ($users as $user) {
                             if (xhr.readyState === 4 && xhr.status === 200) {
                                 const userData = JSON.parse(xhr.responseText);
                                 companyInput.value = userData.company || "";
-                                divisiInput.value = userData.department || "";
+                                // Sebelumnya: divisiInput.value = userData.department || "";
+                                divisiInput.value = userData.divisi || "";
                             }
                         };
                         
