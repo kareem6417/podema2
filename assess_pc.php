@@ -48,7 +48,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 <label for="name">Nama Pengguna<span style="color: crimson;">*</span></label>
                 <?php
                     
-                    $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+                    $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
                     if (!$conn_podema) {
                         die("Koneksi database podema gagal: " . mysqli_connect_error());
@@ -92,7 +92,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
             
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn_podema) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
@@ -113,7 +113,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
 
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn_podema) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
@@ -134,7 +134,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
 
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn_podema) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
@@ -155,7 +155,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
                         
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn_podema) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
@@ -176,7 +176,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
 
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn_podema) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
@@ -197,7 +197,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
 
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn_podema) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
@@ -218,7 +218,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
 
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn_podema) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
@@ -239,7 +239,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
 
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn_podema) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
@@ -260,7 +260,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
 
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn_podema) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
@@ -281,7 +281,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <option value="">--- Pilih ---</option>
             <?php
 
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
             if (!$conn_podema) {
                 die("Koneksi database podema gagal: " . mysqli_connect_error());
