@@ -3,7 +3,7 @@ session_start();
 
 $servername = "mandiricoal.net";
 $username = "podema";
-$password = "podema2024@";
+$password = "Jam10pagi#";
 $dbname = "podema";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

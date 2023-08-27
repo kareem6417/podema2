@@ -6,7 +6,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     exit;
 }
 
-$conn_podema = mysqli_connect("mandiricoal.net", "podema", "podema2024@", "podema");
+$conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
 if (!$conn_podema) {
     die("Koneksi database podema gagal: " . mysqli_connect_error());
@@ -30,7 +30,7 @@ $users = fetchData("users");
 foreach ($users as $user) {
     $userInfos[$user['name']] = array(
         'company' => $user['company'],
-        'divisi' => $user['divisi']
+        'divisi' => $user['department']
     );
 }
 ?>
@@ -101,8 +101,7 @@ foreach ($users as $user) {
                             if (xhr.readyState === 4 && xhr.status === 200) {
                                 const userData = JSON.parse(xhr.responseText);
                                 companyInput.value = userData.company || "";
-                                // Sebelumnya: divisiInput.value = userData.department || "";
-                                divisiInput.value = userData.divisi || "";
+                                divisiInput.value = userData.department || "";
                             }
                         };
                         

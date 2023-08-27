@@ -10,7 +10,7 @@ if (isset($_SESSION['login_attempt'])) {
 $host = "mandiricoal.net";
 $db   = "podema";
 $user = "podema";
-$pass = "podema2024@";
+$pass = "Jam10pagi#";
 
 if (isset($_POST['reset'])) {
     unset($_POST['username']);

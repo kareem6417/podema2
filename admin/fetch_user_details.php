@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("mandiricoal.net", "podema", "podema2024@", "podema");
+$conn = new mysqli("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

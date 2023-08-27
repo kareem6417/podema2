@@ -4,7 +4,7 @@ require_once 'config.php';
 $host = "mandiricoal.net";
 $db   = "podema";
 $user = "podema";
-$pass = "podema2024@";
+$pass = "Jam10pagi#";
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
