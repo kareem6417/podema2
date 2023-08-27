@@ -1,5 +1,5 @@
 <?php
-$conn_podema = mysqli_connect("mandiricoal.co.id", "podema", "podema2024!", "podema");
+$conn_podema = mysqli_connect("mandiricoal.co.id", "podema", "Jam10pagi#", "podema");
 
 if (!$conn_podema) {
     die("Koneksi database podema gagal: " . mysqli_connect_error());

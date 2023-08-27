@@ -9,7 +9,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 $host = "mandiricoal.net";
 $db   = "podema";
 $user = "podema";
-$pass = "podema2024@";
+$pass = "Jam10pagi#";
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
