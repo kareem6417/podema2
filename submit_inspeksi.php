@@ -24,7 +24,7 @@ $sql = "INSERT INTO form_inspeksi (date, jenis, merk, lokasi, nama_user, status,
         VALUES ('$date', '$jenis', '$merk', '$lokasi', '$nama_user', '$status', '$serialnumber', '$informasi_keluhan', '$hasil_pemeriksaan', '$rekomendasi')";
 
 if ($conn->query($sql) === TRUE) {
-    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "../Assessment/File Upload Inspeksi/";
+    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/dev-podema/File Upload Inspeksi/";
     $file = $_FILES['upload_file']['name'];
     $path = pathinfo($file);
     $filename = $path['filename'];
