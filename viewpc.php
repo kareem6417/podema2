@@ -43,17 +43,17 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <h1 style="justify-self: center;">Assessment for PC Desktop Replacement</h1>
     </div>
     <?php 
-    
-    $host = "mandiricoal.net";
-    $user = "podema"; 
-    $pass = "Jam10pagi#"; 
-    $db = "podema"; 
-    
-    if ($conn->connect_error) {
-        die("Koneksi ke database gagal: " . $conn->connect_error);
-    }
-    
-    $query = mysqli_fetch_array($conn->query("SELECT * FROM assess_pc ORDER BY id DESC"));
+
+        $host = "mandiricoal.net";
+        $user = "podema"; 
+        $pass = "Jam10pagi#"; 
+        $db = "podema"; 
+        
+        if ($conn->connect_error) {
+            die("Koneksi ke database gagal: " . $conn->connect_error);
+        }
+        
+        $query = mysqli_fetch_array($conn->query("SELECT * FROM assess_pc ORDER BY id DESC"));
     ?>
     <form id="assessmentForm" method="post" action="submitpc.php">
     <h1>Score Hasil Assessment: <?= $query['score'] ?></h1>

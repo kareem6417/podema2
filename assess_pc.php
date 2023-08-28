@@ -5,10 +5,38 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     header("location: ./admin/login.php");
     exit;
 }
+
+$conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
+
+if (!$conn_podema) {
+    die("Koneksi database podema gagal: " . mysqli_connect_error());
+}
+
+function fetchData($table) {
+    global $conn_podema;
+    $data = array();
+    $result = mysqli_query($conn_podema, "SELECT * FROM $table");
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = $row;
+        }
+        mysqli_free_result($result);
+    }
+    return $data;
+}
+
+$userInfos = array();
+$users = fetchData("users");
+foreach ($users as $user) {
+    $userInfos[$user['name']] = array(
+        'company' => $user['company'],
+        'divisi' => $user['department']
+    );
+}
 ?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Assessment for PC Desktop Replacement</title>
     <link rel="stylesheet" type="text/css" href="css/stylelaptop.css">
@@ -47,31 +75,23 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <div style="flex: 1;">
                 <label for="name">Nama Pengguna<span style="color: crimson;">*</span></label>
                 <?php
-                    
-                    $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
+                    $users = fetchData("users");
 
-                    if (!$conn_podema) {
-                        die("Koneksi database podema gagal: " . mysqli_connect_error());
-                    }
-                    
-                    $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
-                    if ($result) {
-                        echo '<select id="name" name="name" style="height: 40px; width: 83.5%;" required>';
-                        echo '<option value="">--- Pilih ---</option>';
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo '<option value="' . $row['name'] . '">' . $row['name'] . '</option>';
-                        }
-                        echo '</select>';
-                        mysqli_free_result($result);
-                    }
+                    // Mengurutkan array $users berdasarkan nama
+                    usort($users, function ($a, $b) {
+                        return strcmp($a['name'], $b['name']);
+                    });
 
-                    mysqli_close($conn_podema);
+                    foreach ($users as $user) {
+                        echo '<option value="' . $user['name'] . '">' . $user['name'] . '</option>';
+                    }
                 ?>
                 <label for="company">Perusahaan</label>
                 <input type="text" id="company" name="company" style="height: 20px; width: 80%;" readonly>
                 <br>
                 <label for="divisi">Divisi</label>
                 <input type="text" id="divisi" name="divisi" style="height: 20px; width: 80%;" readonly>
+                <script src="js/disabled-ep.js"></script>
             </div>
             <div style="flex: 1;">
                 <label for="date">Tanggal Pemeriksaan<span style="color: crimson;">*</span></label>
@@ -84,27 +104,16 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 <input type="text" id="serialnumber" name="serialnumber" style="height: 20px; width: 80%;">
                 <br>
             </div>
-            <script src="js/disabled-ep.js"></script>
         </div>
         <br>
         <label for="typepc">Tipe PC<span style="color: crimson;">*</span></label>
         <select id="typepc" name="typepc" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-            
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
-
-            if (!$conn_podema) {
-                die("Koneksi database podema gagal: " . mysqli_connect_error());
-            }
-
-            $result = mysqli_query($conn_podema, "SELECT * FROM pctype_pc");
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='" . $row['pctype_score'] . "'>" . $row['pctype_name'] . "</option>";
-            }
-
-            mysqli_close($conn_podema);
+                $osList = fetchData("pctype_pc");
+                foreach ($osList as $os) {
+                    echo '<option value="' . $os['pctype_score'] . '">' . $os['pctype_name'] . '</option>';
+                }
             ?>
         </select>
         <br>
@@ -112,20 +121,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="os" name="os" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
-
-            if (!$conn_podema) {
-                die("Koneksi database podema gagal: " . mysqli_connect_error());
-            }
-
-            $result = mysqli_query($conn_podema, "SELECT * FROM operating_sistem_pc");
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='" . $row['os_score'] . "'>" . $row['os_name'] . "</option>";
-            }
-
-            mysqli_close($conn_podema);
+                $osList = fetchData("operating_sistem_pc");
+                foreach ($osList as $os) {
+                    echo '<option value="' . $os['os_score'] . '">' . $os['os_name'] . '</option>';
+                }
             ?>
         </select>
         <br>
@@ -133,20 +132,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="processor" name="processor" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
-
-            if (!$conn_podema) {
-                die("Koneksi database podema gagal: " . mysqli_connect_error());
-            }
-
-            $result = mysqli_query($conn_podema, "SELECT * FROM processor_pc");
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='" . $row['processor_score'] . "'>" . $row['processor_name'] . "</option>";
-            }
-
-            mysqli_close($conn_podema);
+                $osList = fetchData("processor_pc");
+                foreach ($osList as $os) {
+                    echo '<option value="' . $os['processor_score'] . '">' . $os['processor_name'] . '</option>';
+                }
             ?>
         </select>
         <br>
@@ -154,20 +143,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="vga" name="vga" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-                        
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
-
-            if (!$conn_podema) {
-                die("Koneksi database podema gagal: " . mysqli_connect_error());
-            }
-
-            $result = mysqli_query($conn_podema, "SELECT * FROM vga_pc");
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='" . $row['vga_score'] . "'>" . $row['vga_name'] . "</option>";
-            }
-
-            mysqli_close($conn_podema);
+                $osList = fetchData("vga_pc");
+                foreach ($osList as $os) {
+                    echo '<option value="' . $os['vga_score'] . '">' . $os['vga_name'] . '</option>';
+                }
             ?>
         </select>
         <br>
@@ -175,20 +154,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="ram" name="ram" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
-
-            if (!$conn_podema) {
-                die("Koneksi database podema gagal: " . mysqli_connect_error());
-            }
-
-            $result = mysqli_query($conn_podema, "SELECT * FROM ram_pc");
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='" . $row['ram_score'] . "'>" . $row['ram_name'] . "</option>";
-            }
-
-            mysqli_close($conn_podema);
+                $osList = fetchData("ram_pc");
+                foreach ($osList as $os) {
+                    echo '<option value="' . $os['ram_score'] . '">' . $os['ram_name'] . '</option>';
+                }
             ?>
         </select> 
         <br>
@@ -196,20 +165,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="storage" name="storage" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
-
-            if (!$conn_podema) {
-                die("Koneksi database podema gagal: " . mysqli_connect_error());
-            }
-
-            $result = mysqli_query($conn_podema, "SELECT * FROM storage_pc");
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='" . $row['storage_score'] . "'>" . $row['storage_name'] . "</option>";
-            }
-
-            mysqli_close($conn_podema);
+                $osList = fetchData("storage_pc");
+                foreach ($osList as $os) {
+                    echo '<option value="' . $os['storage_score'] . '">' . $os['storage_name'] . '</option>';
+                }
             ?>
         </select> 
         <br>
@@ -217,20 +176,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="age" name="age" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
-
-            if (!$conn_podema) {
-                die("Koneksi database podema gagal: " . mysqli_connect_error());
-            }
-
-            $result = mysqli_query($conn_podema, "SELECT * FROM device_age_pc");
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='" . $row['age_score'] . "'>" . $row['age_name'] . "</option>";
-            }
-
-            mysqli_close($conn_podema);
+                $osList = fetchData("device_age_pc");
+                foreach ($osList as $os) {
+                    echo '<option value="' . $os['age_score'] . '">' . $os['age_name'] . '</option>';
+                }
             ?>
         </select>  
         <br>
@@ -238,20 +187,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="typemonitor" name="typemonitor" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
-
-            if (!$conn_podema) {
-                die("Koneksi database podema gagal: " . mysqli_connect_error());
-            }
-
-            $result = mysqli_query ($conn_podema, "SELECT * FROM typemonitor_pc");
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='" . $row['monitor_score'] . "'>" . $row['monitor_name'] . "</option>";
-            }
-
-            mysqli_close($conn_podema);
+                $osList = fetchData("typemonitor_pc");
+                foreach ($osList as $os) {
+                    echo '<option value="' . $os['monitor_score'] . '">' . $os['monitor_name'] . '</option>';
+                }
             ?>
         </select>
         <br>
@@ -259,20 +198,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="sizemonitor" name="sizemonitor" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
-
-            if (!$conn_podema) {
-                die("Koneksi database podema gagal: " . mysqli_connect_error());
-            }
-
-            $result = mysqli_query ($conn_podema, "SELECT * FROM sizemonitor_pc");
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='" . $row['size_score'] . "'>" . $row['size_name'] . "</option>";
-            }
-
-            mysqli_close($conn_podema);
+                $osList = fetchData("sizemonitor_pc");
+                foreach ($osList as $os) {
+                    echo '<option value="' . $os['size_score'] . '">' . $os['size_name'] . '</option>';
+                }
             ?>
         </select>
         <br>
@@ -280,20 +209,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <select id="issue" name="issue" style="height: 40px;" required>
             <option value="">--- Pilih ---</option>
             <?php
-
-            $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
-
-            if (!$conn_podema) {
-                die("Koneksi database podema gagal: " . mysqli_connect_error());
-            }
-
-            $result = mysqli_query($conn_podema, "SELECT * FROM issue_software_pc");
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='" . $row['issue_score'] . "'>" . $row['issue_name'] . "</option>";
-            }
-
-            mysqli_close($conn_podema);
+                $osList = fetchData("issue_software_pc");
+                foreach ($osList as $os) {
+                    echo '<option value="' . $os['issue_score'] . '">' . $os['issue_name'] . '</option>';
+                }
             ?>
         </select>
         <br>

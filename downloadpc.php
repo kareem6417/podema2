@@ -1,7 +1,12 @@
 <?php
 
 require_once('tcpdf/tcpdf.php');
-require_once('admin/config.php');
+
+$host = "mandiricoal.net";
+$user = "podema"; 
+$pass = "Jam10pagi#";
+$db = "podema";
+$conn = new mysqli($host, $user, $pass, $db);
 
 $result = mysqli_query($conn, "SELECT assess_pc.*, pctype_pc.pctype_name, operating_sistem_pc.os_name, processor_pc.processor_name, vga_pc.vga_name, device_age_pc.age_name, 
                             issue_software_pc.issue_name, ram_pc.ram_name, 
