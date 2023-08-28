@@ -48,12 +48,11 @@ if ($conn->query($sql) === TRUE) {
     } else {
         if (move_uploaded_file($temp_name, $path_filename_ext)) {
             echo "File Anda berhasil diunggah.";
+            header('Location: view.php');
+            exit();
         } else {
             echo "Terjadi kesalahan saat mengunggah file.";
         }
-
-        header('Location: view.php');
-        exit();
     }
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
