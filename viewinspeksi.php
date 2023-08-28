@@ -42,7 +42,11 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <h2>Ringkasan Hasil Inspeksi Perangkat Anda</h2>
         <br>
     <?php
-    require_once('./admin/config.php');
+    
+    $host = "mandiricoal.net";
+    $user = "podema"; 
+    $pass = "Jam10pagi#"; 
+    $db = "podema"; 
     
     if ($conn->connect_error) {
         die("Koneksi ke database gagal: " . $conn->connect_error);

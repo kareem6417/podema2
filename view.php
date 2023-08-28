@@ -43,8 +43,11 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <h1 style="justify-self: center;">Assessment Penggantian Laptop</h1>
     </div>
     <?php 
-    require_once('./admin/config.php'); 
-    
+        $host = "mandiricoal.net";
+        $user = "podema"; 
+        $pass = "Jam10pagi#"; 
+        $db = "podema";   
+        
     $query = mysqli_fetch_array($conn->query("SELECT * FROM assess_laptop ORDER BY id DESC LIMIT 1"));
     ?>
         <h1>Score Hasil Assessment: <?= $query['score'] ?></h1>
