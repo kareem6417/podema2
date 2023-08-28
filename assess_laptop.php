@@ -78,6 +78,12 @@ foreach ($users as $user) {
                     <option value="">--- Pilih ---</option>
                     <?php
                     $users = fetchData("users");
+
+                    // Mengurutkan array $users berdasarkan nama
+                    usort($users, function ($a, $b) {
+                        return strcmp($a['name'], $b['name']);
+                    });
+
                     foreach ($users as $user) {
                         echo '<option value="' . $user['name'] . '">' . $user['name'] . '</option>';
                     }
