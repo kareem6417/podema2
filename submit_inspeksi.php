@@ -16,8 +16,12 @@ $user = "podema";
 $pass = "Jam10pagi#"; 
 $db = "podema";
 
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
+$conn = new mysqli($host, $user, $pass, $db);
+
+if (!$conn) {
+    die("Koneksi gagal");
+} else {
+    echo "Koneksi Berhasil";
 }
 
 $sql = "INSERT INTO form_inspeksi (date, jenis, merk, lokasi, nama_user, status, serialnumber, informasi_keluhan, hasil_pemeriksaan, rekomendasi)
@@ -37,7 +41,7 @@ if ($conn->query($sql) === TRUE) {
     } else {
         if (move_uploaded_file($temp_name, $path_filename_ext)) {
             echo "File Anda berhasil diunggah.";
-            echo '<meta http-equiv="refresh" content="0;url=view.php">';
+            echo '<meta http-equiv="refresh" content="0;url=viewinspeksi.php">';
             exit();
         } else {
             echo "Terjadi kesalahan saat mengunggah file.";
