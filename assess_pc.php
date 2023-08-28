@@ -75,6 +75,7 @@ foreach ($users as $user) {
             <div style="flex: 1;">
                 <label for="name">Nama Pengguna<span style="color: crimson;">*</span></label>
                 <select id="name" name="name" style="height: 40px; width: 83.5%;" required>
+                    <option value="">--- Pilih ---</option>
                 <?php
                     $users = fetchData("users");
 
