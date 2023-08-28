@@ -74,6 +74,7 @@ foreach ($users as $user) {
         <div style="display: flex; flex-wrap: wrap; gap: 30px;">
             <div style="flex: 1;">
                 <label for="name">Nama Pengguna<span style="color: crimson;">*</span></label>
+                <select id="name" name="name" style="height: 40px; width: 83.5%;" required>
                 <?php
                     $users = fetchData("users");
 
@@ -86,6 +87,8 @@ foreach ($users as $user) {
                         echo '<option value="' . $user['name'] . '">' . $user['name'] . '</option>';
                     }
                 ?>
+                </select>
+                <br>
                 <label for="company">Perusahaan</label>
                 <input type="text" id="company" name="company" style="height: 20px; width: 80%;" readonly>
                 <br>
