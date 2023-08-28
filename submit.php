@@ -19,8 +19,12 @@ $audio = $_POST["audio"];
 $body = $_POST["body"];
 $score = $os + $processor + $batterylife + $age + $issue + $ram + $storage + $keyboard + $screen + $touchpad + $audio + $body;
 
-require_once('/admin/config.php');
+$host = "mandiricoal.net";
+$user = "podema"; 
+$pass = "Jam10pagi#"; 
+$db = "podema";
 
+$conn = new mysqli($host, $user, $pass, $db);
 if (!$conn) {
     die("Koneksi gagal");
 } else {
