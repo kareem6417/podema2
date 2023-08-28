@@ -1,7 +1,12 @@
 <?php
 
 require_once('tcpdf/tcpdf.php');
-require_once('admin/config.php');
+
+$host = "mandiricoal.net";
+$user = "podema"; 
+$pass = "Jam10pagi#";
+$db = "podema";
+$conn = new mysqli($host, $user, $pass, $db);
 
 $query = $conn->prepare("SELECT * FROM form_inspeksi ORDER BY no DESC LIMIT 1");
 $query->execute();
