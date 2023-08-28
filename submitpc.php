@@ -23,6 +23,8 @@ $user = "podema";
 $pass = "Jam10pagi#"; 
 $db = "podema";
 
+$conn = new mysqli($host, $user, $pass, $db);
+
 if (!$conn) {
     die("Koneksi gagal");
 } else {
