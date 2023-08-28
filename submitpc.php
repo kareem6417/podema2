@@ -48,7 +48,7 @@ if ($conn->query($sql) === TRUE) {
     } else {
         if (move_uploaded_file($temp_name, $path_filename_ext)) {
             echo "File Anda berhasil diunggah.";
-            echo '<meta http-equiv="refresh" content="0;url=view.php">';
+            echo '<meta http-equiv="refresh" content="0;url=viewpc.php">';
             exit();
         } else {
             echo "Terjadi kesalahan saat mengunggah file.";

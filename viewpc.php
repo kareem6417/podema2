@@ -49,8 +49,9 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         $pass = "Jam10pagi#"; 
         $db = "podema"; 
         
+        $conn = new mysqli($host, $user, $pass, $db);
         if ($conn->connect_error) {
-            die("Koneksi ke database gagal: " . $conn->connect_error);
+            die("Koneksi database gagal: " . $conn->connect_error);
         }
         
         $query = mysqli_fetch_array($conn->query("SELECT * FROM assess_pc ORDER BY id DESC"));
