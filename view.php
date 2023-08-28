@@ -42,13 +42,18 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     <div style="display: grid; place-content: center;">
         <h1 style="justify-self: center;">Assessment Penggantian Laptop</h1>
     </div>
-    <?php 
+    <?php
         $host = "mandiricoal.net";
         $user = "podema"; 
         $pass = "Jam10pagi#"; 
-        $db = "podema";   
-        
-    $query = mysqli_fetch_array($conn->query("SELECT * FROM assess_laptop ORDER BY id DESC LIMIT 1"));
+        $db = "podema";
+
+        $conn = new mysqli($host, $user, $pass, $db);
+        if ($conn->connect_error) {
+            die("Koneksi database gagal: " . $conn->connect_error);
+        }
+
+        $query = mysqli_fetch_array($conn->query("SELECT * FROM assess_laptop ORDER BY id DESC LIMIT 1"));
     ?>
         <h1>Score Hasil Assessment: <?= $query['score'] ?></h1>
         <br>
