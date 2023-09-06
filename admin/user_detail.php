@@ -31,18 +31,18 @@ if (isset($_GET['user_id']) && isset($_GET['name'])) {
                             body.body_name AS body, 
                             a.score
                     FROM assess_laptop a
-                    LEFT JOIN operating_sistem_laptop os ON a.os = os.os_id
-                    LEFT JOIN processor_laptop processor ON a.processor = processor.processor_id
-                    LEFT JOIN batterylife_laptop batterylife ON a.batterylife = batterylife.battery_id
-                    LEFT JOIN device_age_laptop age ON a.age = age.age_id
-                    LEFT JOIN issue_software_laptop issue ON a.issue = issue.issue_id
-                    LEFT JOIN ram_laptop ram ON a.ram = ram.ram_id
-                    LEFT JOIN storage_laptop storage ON a.storage = storage.storage_id
-                    LEFT JOIN keyboard_laptop keyboard ON a.keyboard = keyboard.keyboard_id
-                    LEFT JOIN screen_laptop screen ON a.screen = screen.screen_id
-                    LEFT JOIN touchpad_laptop touchpad ON a.touchpad = touchpad.touchpad_id
-                    LEFT JOIN audio_laptop audio ON a.audio = audio.audio_id
-                    LEFT JOIN body_laptop body ON a.body = body.body_id
+                    LEFT JOIN operating_sistem_laptop os ON a.os = os.os_score
+                    LEFT JOIN processor_laptop processor ON a.processor = processor.processor_score
+                    LEFT JOIN batterylife_laptop batterylife ON a.batterylife = batterylife.battery_score
+                    LEFT JOIN device_age_laptop age ON a.age = age.age_score
+                    LEFT JOIN issue_software_laptop issue ON a.issue = issue.issue_score
+                    LEFT JOIN ram_laptop ram ON a.ram = ram.ram_score
+                    LEFT JOIN storage_laptop storage ON a.storage = storage.storage_score
+                    LEFT JOIN keyboard_laptop keyboard ON a.keyboard = keyboard.keyboard_score
+                    LEFT JOIN screen_laptop screen ON a.screen = screen.screen_score
+                    LEFT JOIN touchpad_laptop touchpad ON a.touchpad = touchpad.touchpad_score
+                    LEFT JOIN audio_laptop audio ON a.audio = audio.audio_score
+                    LEFT JOIN body_laptop body ON a.body = body.body_score
                     WHERE a.name = ?";
 
     $assessment_stmt = $conn->prepare($assessment_sql);
