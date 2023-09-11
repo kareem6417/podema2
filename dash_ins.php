@@ -118,7 +118,7 @@ try {
                 <tr>
                     <td><?php echo (($currentPage - 1) * $limit) + $count + 1; ?></td>
                     <td><?php echo $row['nama_user']; ?></td>
-                    <td><?php echo $row['status']; ?></td>
+                    <td><?php echo $row['lokasi'] . ' / ' . $row['status']; ?></td>
                     <td>
                         <?php
                         $issues = explode("\n", $row['informasi_keluhan']);
