@@ -61,5 +61,6 @@ document.getElementById('jenis').addEventListener('change', function() {
             portDiv.style.display = 'none';
             audioDiv.style.display = 'none';
             softwareDiv.style.display = 'none';
+            hasilDiv.style.display = 'block';
         }
     });
