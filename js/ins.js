@@ -39,10 +39,10 @@ document.getElementById('jenis').addEventListener('change', function() {
             touchpadDiv.style.display = 'none';
             bootingDiv.style.display = 'block';
             multiDiv.style.display = 'block';
-            tampungDiv.style.display = 'block';
-            isiDiv.style.display = 'block';
+            tampungDiv.style.display = 'none';
+            isiDiv.style.display = 'none';
             portDiv.style.display = 'block';
-            audioDiv.style.display = 'block';
+            audioDiv.style.display = 'none';
             softwareDiv.style.display = 'block';
             rekomDiv.style.display = 'block';
         } else {
