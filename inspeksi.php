@@ -134,11 +134,99 @@ function fetchDropdownOptions($table, $valueField, $textField) {
             <label for="informasi_keluhan">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
             <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
             <br>
-            <label for="casing_lap">Casing<span style="color: crimson;">*</span></label>
+            <label for="casing_lap">Casing:<span style="color: crimson;">*</span></label>
             <select id="casing_lap" name="casing_lap" style="height: 40px; width:98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
                     echo fetchDropdownOptions("ins_casing_lap", "casing_lap_score", "casing_lap_name");
+                ?>
+            </select>
+            <br>
+            <label for="layar_lap">Layar:<span style="color: crimson;">*</span></label>
+            <select id="layar_lap" name="layar_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_layar_lap", "layar_lap_score", "layar_lap_name");
+                ?>
+            </select>
+            <br>
+            <label for="engsel_lap">Engsel:<span style="color: crimson;">*</span></label>
+            <select id="engsel_lap" name="engsel_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_engsel_lap", "engsel_lap_score", "engsel_lap_name");
+                ?>
+            </select>
+            <br>
+            <label for="keyboard_lap">Keyboard:<span style="color: crimson;">*</span></label>
+            <select id="keyboard_lap" name="keyboard_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_keyboard_lap", "keyboard_lap_score", "keyboard_lap_name");
+                ?>
+            </select>
+            <br>
+            <label for="touchpad_lap">Touchpad:<span style="color: crimson;">*</span></label>
+            <select id="touchpad_lap" name="touchpad_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_touchpad_lap", "touchpad_lap_score", "touchpad_lap_name");
+                ?>
+            </select>
+            <br>
+            <label for="booting_lap">Booting Process:<span style="color: crimson;">*</span></label>
+            <select id="booting_lap" name="booting_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_booting_lap", "booting_lap_score", "booting_lap_name");
+                ?>
+            </select>
+            <br>
+            <label for="multi_lap">Multitasking Apps:<span style="color: crimson;">*</span></label>
+            <select id="multi_lap" name="multi_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_multi_lap", "multi_lap_score", "multi_lap_name");
+                ?>
+            </select>
+            <br>
+            <label for="tampung_lap">Daya Baterai:<span style="color: crimson;">*</span></label>
+            <select id="tampung_lap" name="tampung_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_tampung_lap", "tampung_lap_score", "tampung_lap_name");
+                ?>
+            </select>
+            <br>
+            <label for="isi_lap">Waktu Pengisian Baterai:<span style="color: crimson;">*</span></label>
+            <select id="isi_lap" name="isi_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_isi_lap", "isi_lap_score", "isi_lap_name");
+                ?>
+            </select>
+            <br>
+            <label for="port_lap">Port:<span style="color: crimson;">*</span></label>
+            <select id="port_lap" name="port_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_port_lap", "port_lap_score", "port_lap_name");
+                ?>
+            </select>
+            <br>
+            <label for="audio_lap">Audio:<span style="color: crimson;">*</span></label>
+            <select id="audio_lap" name="audio_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_audio_lap", "audio_lap_score", "audio_lap_name");
+                ?>
+            </select>
+            <br>
+            <label for="software_lap">Software:<span style="color: crimson;">*</span></label>
+            <select id="software_lap" name="software_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_software_lap", "software_lap_score", "software_lap_name");
                 ?>
             </select>
             <br>
