@@ -5,7 +5,29 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     header("location: ./admin/login.php");
     exit();
 }
+
+$conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
+
+if (!$conn_podema) {
+    die("Koneksi database podema gagal: " . mysqli_connect_error());
+}
+
+function fetchDropdownOptions($table, $valueField, $textField) {
+    global $conn_podema;
+    $options = "";
+
+    $result = mysqli_query($conn_podema, "SELECT * FROM $table");
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $options .= "<option value='" . $row[$valueField] . "'>" . $row[$textField] . "</option>";
+        }
+        mysqli_free_result($result);
+    }
+
+    return $options;
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -77,7 +99,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                         $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
                         if ($result) {
                             echo '<select id="name" name="nama_user" style="height: 38px; width: 84%;" required>';
-                            echo '<option value="">--- Select ---</option>';
+                            echo '<option value="">--- Pilih ---</option>';
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo '<option value="' . $row['name'] . '">' . $row['name'] . '</option>';
                             }
@@ -112,8 +134,13 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             <label for="informasi_keluhan">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
             <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
             <br>
-            <label for="hasil_pemeriksaan">Hasil Pemeriksaan:<span style="color: crimson;">*</span></label>
-            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required></textarea>
+            <label for="casing_lap">Casing<span style="color: crimson;">*</span></label>
+            <select id="casing_lap" name="casing_lap" style="height: 40px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                    echo fetchDropdownOptions("ins_casing_lap", "casing_lap_score", "casing_lap_name");
+                ?>
+            </select>
             <br>
             <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>
