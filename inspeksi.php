@@ -244,6 +244,10 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 </select>
             </div>
             <script src="js/ins.js"></script>
+            <div id="hasilDiv" style="display:none;">
+                <label for="hasil_pemeriksaan">Hasil Pemeriksaan:<span style="color: crimson;">*</span></label>
+                <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required></textarea>    
+            </div>
             <div id="rekomDiv" style="display:none;">
                 <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>
                 <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>    
