@@ -32,6 +32,11 @@ document.getElementById('jenis').addEventListener('change', function() {
             rekomDiv.style.display = 'block';
         } else if(selectedJenis === 'PC Desktop') {
             infoDiv.style.display = 'block';
+            casingDiv.style.display = 'none';
+            layarDiv.style.display = 'none';
+            engselDiv.style.display = 'none';
+            keyboardDiv.style.display = 'none';
+            touchpadDiv.style.display = 'none';
             bootingDiv.style.display = 'block';
             multiDiv.style.display = 'block';
             tampungDiv.style.display = 'block';
