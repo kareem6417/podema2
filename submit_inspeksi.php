@@ -6,7 +6,18 @@ $lokasi = $_POST["lokasi"];
 $status = $_POST["status"];
 $serialnumber = $_POST["serialnumber"];
 $informasi_keluhan = $_POST["informasi_keluhan"];
-$hasil_pemeriksaan = $_POST["hasil_pemeriksaan"];
+$casing_lap = $_POST["casing_lap"];
+$layar_lap = $_POST["layar_lap"];
+$engsel_lap = $_POST["engsel_lap"];
+$keyboard_lap = $_POST["keyboard_lap"];
+$touchpad_lap = $_POST["touchpad_lap"];
+$booting_lap = $_POST["booting_lap"];
+$multi_lap = $_POST["multi_lap"];
+$tampung_lap = $_POST["tampung_lap"];
+$isi_lap = $_POST["isi_lap"];
+$port_lap = $_POST["port_lap"];
+$audio_lap = $_POST["audio_lap"];
+$software_lap = $_POST["software_lap"];
 $rekomendasi = $_POST["rekomendasi"];
 
 $nama_user = isset($_POST["nama_user"]) ? $_POST["nama_user"] : '';
@@ -24,8 +35,9 @@ if (!$conn) {
     echo "Koneksi Berhasil";
 }
 
-$sql = "INSERT INTO form_inspeksi (date, jenis, merk, lokasi, nama_user, status, serialnumber, informasi_keluhan, hasil_pemeriksaan, rekomendasi)
-        VALUES ('$date', '$jenis', '$merk', '$lokasi', '$nama_user', '$status', '$serialnumber', '$informasi_keluhan', '$hasil_pemeriksaan', '$rekomendasi')";
+$sql = "INSERT INTO form_inspeksi (date, jenis, merk, lokasi, nama_user, status, serialnumber, informasi_keluhan, rekomendasi, casing_lap, layar_lap, engsel_lap, keyboard_lap, touchpad_lap, booting_lap, multi_lap, tampung_lap, isi_lap, port_lap, audio_lap, software_lap)
+        VALUES ('$date', '$jenis', '$merk', '$lokasi', '$nama_user', '$status', '$serialnumber', '$informasi_keluhan', '$rekomendasi', '$casing_lap', '$layar_lap', '$engsel_lap', '$keyboard_lap', '$touchpad_lap', '$booting_lap', '$multi_lap', '$tampung_lap', '$isi_lap', '$port_lap', '$audio_lap', '$software_lap')";
+
 
 if ($conn->query($sql) === TRUE) {
     $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/dev-podema/File Upload Inspeksi/";
