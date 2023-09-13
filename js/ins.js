@@ -13,7 +13,6 @@ document.getElementById('jenis').addEventListener('change', function() {
         var portDiv = document.getElementById('portDiv');
         var audioDiv = document.getElementById('audioDiv');
         var softwareDiv = document.getElementById('softwareDiv');
-        var hasilDiv = document.getElementById('hasilDiv');
         var rekomDiv = document.getElementById('rekomDiv');
 
         if(selectedJenis === 'Laptop') {
@@ -30,7 +29,6 @@ document.getElementById('jenis').addEventListener('change', function() {
             portDiv.style.display = 'block';
             audioDiv.style.display = 'block';
             softwareDiv.style.display = 'block';
-            hasilDiv.style.display = 'none';
             rekomDiv.style.display = 'block';
         } else if(selectedJenis === 'PC Desktop') {
             infoDiv.style.display = 'block';
@@ -46,23 +44,6 @@ document.getElementById('jenis').addEventListener('change', function() {
             portDiv.style.display = 'block';
             audioDiv.style.display = 'none';
             softwareDiv.style.display = 'block';
-            hasilDiv.style.display = 'none';
-            rekomDiv.style.display = 'block';
-        } else if(selectedJenis === 'Monitor') {
-            infoDiv.style.display = 'block';
-            casingDiv.style.display = 'none';
-            layarDiv.style.display = 'none';
-            engselDiv.style.display = 'none';
-            keyboardDiv.style.display = 'none';
-            touchpadDiv.style.display = 'none';
-            bootingDiv.style.display = 'none';
-            multiDiv.style.display = 'none';
-            tampungDiv.style.display = 'none';
-            isiDiv.style.display = 'none';
-            portDiv.style.display = 'none';
-            audioDiv.style.display = 'none';
-            softwareDiv.style.display = 'none';
-            hasilDiv.style.display = 'block';
             rekomDiv.style.display = 'block';
         } else {
             casingDiv.style.display = 'none';
