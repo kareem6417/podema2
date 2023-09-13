@@ -136,7 +136,7 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
             </div>
             <div id="casingDiv" style="display:none;">
-                <label for="casing_lap">Casing:<span style="color: crimson;">*</span></label>
+                <label for="casing_lap">Rangka:<span style="color: crimson;">*</span></label>
                 <select id="casing_lap" name="casing_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
@@ -181,7 +181,7 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 </select>
             </div>
             <div id="bootingDiv" style="display:none;">
-                <label for="booting_lap">Booting Process:<span style="color: crimson;">*</span></label>
+                <label for="booting_lap">Proses Booting:<span style="color: crimson;">*</span></label>
                 <select id="booting_lap" name="booting_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
