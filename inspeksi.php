@@ -131,9 +131,10 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 </script>
             </div>        
             <br>
-            <label for="informasi_keluhan">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
-            <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
-            <br>
+            <div id="infoDiv" style="display:none;">
+                <label for="informasi_keluhan">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
+                <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
+            </div>
             <div id="casingDiv" style="display:none;">
                 <label for="casing_lap">Casing:<span style="color: crimson;">*</span></label>
                 <select id="casing_lap" name="casing_lap" style="height: 40px; width:98%;" required>
@@ -143,7 +144,6 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <div id="layarDiv" style="display:none;">
                 <label for="layar_lap">Layar:<span style="color: crimson;">*</span></label>
                 <select id="layar_lap" name="layar_lap" style="height: 40px; width:98%;" required>
@@ -153,7 +153,6 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <div id="engselDiv" style="display:none;">
                 <label for="engsel_lap">Engsel:<span style="color: crimson;">*</span></label>
                 <select id="engsel_lap" name="engsel_lap" style="height: 40px; width:98%;" required>
@@ -163,7 +162,6 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <div id="keyboardDiv" style="display:none;">
                 <label for="keyboard_lap">Keyboard:<span style="color: crimson;">*</span></label>
                 <select id="keyboard_lap" name="keyboard_lap" style="height: 40px; width:98%;" required>
@@ -173,7 +171,6 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <div id="touchpadDiv" style="display:none;">
                 <label for="touchpad_lap">Touchpad:<span style="color: crimson;">*</span></label>
                 <select id="touchpad_lap" name="touchpad_lap" style="height: 40px; width:98%;" required>
@@ -183,7 +180,6 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <div id="bootingDiv" style="display:none;">
                 <label for="booting_lap">Booting Process:<span style="color: crimson;">*</span></label>
                 <select id="booting_lap" name="booting_lap" style="height: 40px; width:98%;" required>
@@ -193,7 +189,6 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <div id="multiDiv" style="display:none;">
                 <label for="multi_lap">Multitasking Apps:<span style="color: crimson;">*</span></label>
                 <select id="multi_lap" name="multi_lap" style="height: 40px; width:98%;" required>
@@ -203,7 +198,6 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <div id="tampungDiv" style="display:none;">
                 <label for="tampung_lap">Daya Baterai:<span style="color: crimson;">*</span></label>
                 <select id="tampung_lap" name="tampung_lap" style="height: 40px; width:98%;" required>
@@ -213,7 +207,6 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <div id="isiDiv" style="display:none;">
                 <label for="isi_lap">Waktu Pengisian Baterai:<span style="color: crimson;">*</span></label>
                 <select id="isi_lap" name="isi_lap" style="height: 40px; width:98%;" required>
@@ -223,7 +216,6 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <div id="portDiv" style="display:none;">
                 <label for="port_lap">Port:<span style="color: crimson;">*</span></label>
                 <select id="port_lap" name="port_lap" style="height: 40px; width:98%;" required>
@@ -233,7 +225,6 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <div id="audioDiv" style="display:none;">
                 <label for="audio_lap">Audio:<span style="color: crimson;">*</span></label>
                 <select id="audio_lap" name="audio_lap" style="height: 40px; width:98%;" required>
@@ -243,7 +234,6 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <div id="softwareDiv" style="display:none;">
                 <label for="software_lap">Software:<span style="color: crimson;">*</span></label>
                 <select id="software_lap" name="software_lap" style="height: 40px; width:98%;" required>
@@ -253,10 +243,11 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
-            <br>
             <script src="js/ins.js"></script>
-            <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>
-            <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>
+            <div id="rekomDiv" style="display:none;">
+                <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>
+                <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>    
+            </div>
             <br>
             <label for="upload_file" style="margin-bottom: 10px;">Unggah File<span style="color: crimson;">*</span></label></label>
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required>

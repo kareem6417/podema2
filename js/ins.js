@@ -1,5 +1,6 @@
 document.getElementById('jenis').addEventListener('change', function() {
         var selectedJenis = this.value;
+        var infoDiv = document.getElementById('infoDiv');
         var casingDiv = document.getElementById('casingDiv');
         var layarDiv = document.getElementById('layarDiv');
         var engselDiv = document.getElementById('engselDiv');
@@ -12,8 +13,10 @@ document.getElementById('jenis').addEventListener('change', function() {
         var portDiv = document.getElementById('portDiv');
         var audioDiv = document.getElementById('audioDiv');
         var softwareDiv = document.getElementById('softwareDiv');
+        var rekomDiv = document.getElementById('rekomDiv');
 
         if(selectedJenis === 'Laptop') {
+            infoDiv.style.display = 'block';
             casingDiv.style.display = 'block';
             layarDiv.style.display = 'block';
             engselDiv.style.display = 'block';
@@ -26,12 +29,9 @@ document.getElementById('jenis').addEventListener('change', function() {
             portDiv.style.display = 'block';
             audioDiv.style.display = 'block';
             softwareDiv.style.display = 'block';
+            rekomDiv.style.display = 'block';
         } else if(selectedJenis === 'PC Desktop') {
-            casingDiv.style.display = 'none';
-            layarDiv.style.display = 'none';
-            engselDiv.style.display = 'none';
-            keyboardDiv.style.display = 'none';
-            touchpadDiv.style.display = 'none';
+            infoDiv.style.display = 'block';
             bootingDiv.style.display = 'block';
             multiDiv.style.display = 'block';
             tampungDiv.style.display = 'block';
@@ -39,6 +39,7 @@ document.getElementById('jenis').addEventListener('change', function() {
             portDiv.style.display = 'block';
             audioDiv.style.display = 'block';
             softwareDiv.style.display = 'block';
+            rekomDiv.style.display = 'block';
         } else {
             casingDiv.style.display = 'none';
             layarDiv.style.display = 'none';
