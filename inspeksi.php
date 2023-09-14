@@ -243,6 +243,15 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                     ?>
                 </select>
             </div>
+            <div id="inkpadDiv" style="display:none;">
+                <label for="ink_pad">Ink Pad:<span style="color: crimson;">*</span></label>
+                <select id="ink_pad" name="ink_pad" style="height: 40px; width=98%" required>
+                    <option value="">--- Pilih ---</option>
+                    <?php
+                        echo fetchDropdownOptions("ink_pad", "ink_pad_score", "ink_pad_name")
+                    ?>
+                </select>
+            </div>
             <script src="js/ins.js"></script>
             <div id="rekomDiv" style="display:none;">
                 <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>

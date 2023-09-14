@@ -13,6 +13,7 @@ document.getElementById('jenis').addEventListener('change', function() {
         var portDiv = document.getElementById('portDiv');
         var audioDiv = document.getElementById('audioDiv');
         var softwareDiv = document.getElementById('softwareDiv');
+        var inkpadDiv = document.getElementById('inkpadDiv');
         var rekomDiv = document.getElementById('rekomDiv');
 
         if(selectedJenis === 'Laptop') {
@@ -74,6 +75,7 @@ document.getElementById('jenis').addEventListener('change', function() {
             portDiv.style.display = 'none';
             audioDiv.style.display = 'none';
             softwareDiv.style.display = 'none';
+            inkpadDiv.style.display = 'block';
             rekomDiv.style.display = 'block';
         }
     });
