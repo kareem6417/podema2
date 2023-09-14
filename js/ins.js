@@ -61,7 +61,8 @@ document.getElementById('jenis').addEventListener('change', function() {
             softwareDiv.style.display = 'none';
             rekomDiv.style.display = 'block';
         } else {
-            casingDiv.style.display = 'none';
+            infoDiv.style.display = 'block';
+            casingDiv.style.display = 'block';
             layarDiv.style.display = 'none';
             engselDiv.style.display = 'none';
             keyboardDiv.style.display = 'none';
@@ -73,5 +74,6 @@ document.getElementById('jenis').addEventListener('change', function() {
             portDiv.style.display = 'none';
             audioDiv.style.display = 'none';
             softwareDiv.style.display = 'none';
+            rekomDiv.style.display = 'block';
         }
     });
