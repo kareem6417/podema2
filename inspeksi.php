@@ -5,7 +5,14 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     header("location: ./admin/login.php");
     exit();
 }
+
+$conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
+
+if (!$conn_podema) {
+    die("Koneksi database podema gagal: " . mysqli_connect_error());
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -67,13 +74,13 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 <div style="flex: 1;">
                     <label for="nama_user">Nama Pengguna<span style="color: crimson;">*</span></label>
                     <?php
-                    $conn_userdata = mysqli_connect("localhost", "root", "", "userdata");
+                    $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
-                    if (!$conn_userdata) {
-                        die("Koneksi database userdata gagal: " . mysqli_connect_error());
+                    if (!$conn_podema) {
+                        die("Koneksi database podema gagal: " . mysqli_connect_error());
                     }
 
-                    $result = mysqli_query($conn_userdata, "SELECT * FROM users ORDER BY name ASC");
+                    $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
                     if ($result) {
                         echo '<select id="name" name="nama_user" style="height: 38px; width: 84%;" required>';
                         echo '<option value="">--- Select ---</option>';
@@ -84,7 +91,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                         mysqli_free_result($result);
                     }
 
-                    mysqli_close($conn_userdata);
+                    mysqli_close($conn_podema);
                     ?>
                     <br>
                     <label for="status">Posisi/Divisi<span style="color: crimson;">*</span></label>
@@ -104,7 +111,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                                 document.getElementById('lokasi').value = response.company;
                             }
                         };
-                        xhr.open('GET', 'get_userdata_ins.php?name=' + encodeURIComponent(selectedName));
+                        xhr.open('GET', 'get_podema_ins.php?name=' + encodeURIComponent(selectedName));
                         xhr.send();
                     });
                 </script>
