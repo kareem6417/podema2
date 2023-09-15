@@ -18,7 +18,7 @@ if (!$conn_podema) {
 
 <head>
     <title>Inspection Devices</title>
-    <link rel="stylesheet" type="text/css" href="css/stylelaptop.css">
+    <link rel="stylesheet" type="text/css" href="css/styleins.css">
     <link rel="icon" type="image/png" href="./favicon_io/iconfav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -74,24 +74,23 @@ if (!$conn_podema) {
                 <div style="flex: 1;">
                     <label for="nama_user">Nama Pengguna<span style="color: crimson;">*</span></label>
                     <?php
-                    $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
+                    
+                        $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema");
 
-                    if (!$conn_podema) {
-                        die("Koneksi database podema gagal: " . mysqli_connect_error());
-                    }
-
-                    $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
-                    if ($result) {
-                        echo '<select id="name" name="nama_user" style="height: 38px; width: 84%;" required>';
-                        echo '<option value="">--- Select ---</option>';
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo '<option value="' . $row['name'] . '">' . $row['name'] . '</option>';
+                        if (!$conn_podema) {
+                            die("Koneksi database podema gagal: " . mysqli_connect_error());
                         }
-                        echo '</select>';
-                        mysqli_free_result($result);
-                    }
 
-                    mysqli_close($conn_podema);
+                        $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
+                        if ($result) {
+                            echo '<select id="name" name="nama_user" style="height: 38px; width: 84%;" required>';
+                            echo '<option value="">--- Pilih ---</option>';
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '<option value="' . $row['name'] . '">' . $row['name'] . '</option>';
+                            }
+                            echo '</select>';
+                            mysqli_free_result($result);
+                        }
                     ?>
                     <br>
                     <label for="status">Posisi/Divisi<span style="color: crimson;">*</span></label>
@@ -111,7 +110,7 @@ if (!$conn_podema) {
                                 document.getElementById('lokasi').value = response.company;
                             }
                         };
-                        xhr.open('GET', 'get_podema_ins.php?name=' + encodeURIComponent(selectedName));
+                        xhr.open('GET', 'get_userdata_ins.php?name=' + encodeURIComponent(selectedName));
                         xhr.send();
                     });
                 </script>
@@ -127,6 +126,10 @@ if (!$conn_podema) {
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>
             <br>
             <label for="upload_file" style="margin-bottom: 10px;">Upload File<span style="color: crimson;">*</span></label></label>
+            <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required>
+            <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
+            <br>
+            <label for="upload_file" style="margin-bottom: 10px;">Unggah File<span style="color: crimson;">*</span></label></label>
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required>
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
             <br>
