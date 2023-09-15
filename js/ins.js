@@ -20,7 +20,7 @@
         hideAllDivs();
 
         // Tampilkan elemen berdasarkan jenis perangkat yang dipilih
-        if (selectedJenis === 'Laptop') {
+        if (selectedJenis == 'Laptop') {
             infoDiv.style.display = 'block';
             casingDiv.style.display = 'block';
             layarDiv.style.display = 'block';
@@ -36,7 +36,7 @@
             softwareDiv.style.display = 'block';
             inkpadDiv.style.display = 'none';
             rekomDiv.style.display = 'block';
-        } else if (selectedJenis === 'PC Desktop') {
+        } else if (selectedJenis == 'PC Desktop') {
             infoDiv.style.display = 'block';
             casingDiv.style.display = 'block'; // Tampilkan casing untuk PC Desktop
             layarDiv.style.display = 'block'; // Tampilkan layar untuk PC Desktop
@@ -52,7 +52,7 @@
             softwareDiv.style.display = 'block'; // Tampilkan software untuk PC Desktop
             inkpadDiv.style.display = 'none';
             rekomDiv.style.display = 'block';
-        } else if (selectedJenis === 'Monitor') {
+        } else if (selectedJenis == 'Monitor') {
             infoDiv.style.display = 'block';
             casingDiv.style.display = 'block'; // Tampilkan casing untuk Monitor
             layarDiv.style.display = 'block'; // Tampilkan layar untuk Monitor
@@ -68,7 +68,7 @@
             softwareDiv.style.display = 'none';
             inkpadDiv.style.display = 'none';
             rekomDiv.style.display = 'block';
-        } else if (selectedJenis === 'Printer') {
+        } else if (selectedJenis == 'Printer') {
             infoDiv.style.display = 'block';
             casingDiv.style.display = 'block'; // Tampilkan casing untuk Printer
             layarDiv.style.display = 'block'; // Tampilkan layar untuk Printer
