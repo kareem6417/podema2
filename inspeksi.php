@@ -315,11 +315,11 @@ if (!$conn_podema) {
                     ?>
                 </select>
             </div>
-            <script src="js/ins.js"></script>
             <div id="rekomDiv">
                 <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>
                 <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>    
             </div>
+            <script src="js/ins.js"></script>
             <br>
             <label for="upload_file" style="margin-bottom: 10px;">Unggah File<span style="color: crimson;">*</span></label></label>
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required>
