@@ -43,7 +43,6 @@ foreach ($users as $user) {
     <link rel="stylesheet" type="text/css" href="css/styleins.css">
     <link rel="icon" type="image/png" href="./favicon_io/iconfav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="js/ins.js"></script>
 </head>
 
 <body>
@@ -153,6 +152,21 @@ foreach ($users as $user) {
                 ?>
             </select>
             <br>
+            <script>
+                document.getElementById('jenis').addEventListener('change', function() {
+                    var jenisPerangkat = this.value;
+                    var casingLabel = document.getElementById('casingLabel');
+                    var casingSelect = document.getElementById('casing_lap');
+
+                    if (jenisPerangkat === 'Laptop' || jenisPerangkat === 'PC Desktop') {
+                        casingLabel.style.display = 'block';
+                        casingSelect.style.display = 'block';
+                    } else {
+                        casingLabel.style.display = 'none';
+                        casingSelect.style.display = 'none';
+                    }
+                });
+            </script>
             <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>
             <br>
