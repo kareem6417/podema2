@@ -30,6 +30,7 @@ document.getElementById('jenis').addEventListener('change', function() {
             portDiv.style.display = 'block';
             audioDiv.style.display = 'block';
             softwareDiv.style.display = 'block';
+            inkpadDiv.style.display = 'none';
             rekomDiv.style.display = 'block';
         } else if(selectedJenis === 'PC Desktop') {
             infoDiv.style.display = 'block';
@@ -45,6 +46,7 @@ document.getElementById('jenis').addEventListener('change', function() {
             portDiv.style.display = 'block';
             audioDiv.style.display = 'none';
             softwareDiv.style.display = 'block';
+            inkpadDiv.style.display = 'none';
             rekomDiv.style.display = 'block';
         } else if(selectedJenis === 'Monitor') {
             infoDiv.style.display = 'block';
@@ -60,6 +62,7 @@ document.getElementById('jenis').addEventListener('change', function() {
             portDiv.style.display = 'none';
             audioDiv.style.display = 'none';
             softwareDiv.style.display = 'none';
+            inkpadDiv.style.display = 'none';
             rekomDiv.style.display = 'block';
         } else {
             infoDiv.style.display = 'block';
