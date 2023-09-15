@@ -121,7 +121,7 @@ if (!$conn_podema) {
                 <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
             </div>
             <div id="casingDiv" style="display:none;">
-            <label for="casing_lap">Casing Laptop<span style="color: crimson;">*</span></label>
+            <label for="casing_lap">Casing<span style="color: crimson;">*</span></label>
                 <select id="casing_lap" name="casing_lap" style="height: 35px; width: 84%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
