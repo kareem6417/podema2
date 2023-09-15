@@ -11,6 +11,28 @@ $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema
 if (!$conn_podema) {
     die("Koneksi database podema gagal: " . mysqli_connect_error());
 }
+
+function fetchData($table) {
+    global $conn_podema;
+    $data = array();
+    $result = mysqli_query($conn_podema, "SELECT * FROM $table");
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = $row;
+        }
+        mysqli_free_result($result);
+    }
+    return $data;
+}
+
+$userInfos = array();
+$users = fetchData("users");
+foreach ($users as $user) {
+    $userInfos[$user['name']] = array(
+        'company' => $user['company'],
+        'divisi' => $user['department']
+    );
+}
 ?>
 
 <!DOCTYPE html>
@@ -119,8 +141,16 @@ if (!$conn_podema) {
             <label for="informasi_keluhan">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
             <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
             <br>
-            <label for="hasil_pemeriksaan">Hasil Pemeriksaan:<span style="color: crimson;">*</span></label>
-            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required></textarea>
+            <label for="casing_lap">Casing<span style="color: crimson;">*</span></label>
+            <select id="casing_lap" name="casing_lap" style="height: 35px; width: 84%;" required>
+                <option value="">- Pilih Casing -</option>
+                <?php
+                $casingOptions = fetchData("ins_casing_lap");
+                foreach ($casingOptions as $casingOption) {
+                    echo '<option value="' . $casingOption['casing_lap_score'] . '">' . $casingOption['casing_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
             <br>
             <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>
