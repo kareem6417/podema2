@@ -151,16 +151,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                     <input type="text" id="serialnumber" name="serialnumber" style="height: 20px; width: 80%;" required>
                 </div>
             </div>        
-            <br>
-            <label for="informasi_keluhan">Information on Complaints/Issues reported:<span style="color: crimson;">*</span></label>
-            <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
-            <br>
-            <label for="hasil_pemeriksaan">Examination/Findings:<span style="color: crimson;">*</span></label>
-            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required></textarea>
-            <br>
-            <label for="rekomendasi">Recommendation:<span style="color: crimson;">*</span></label>
-            <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>
-            <br>
             <label for="upload_file" style="margin-bottom: 10px;">Upload File<span style="color: crimson;">*</span></label>
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required>
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
