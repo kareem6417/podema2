@@ -152,7 +152,7 @@ foreach ($users as $user) {
                 ?>
             </select>
             <br>
-            <label for="layar_lap" id="layar_lap" style="display:none;">Layar<span style="color: crimson;">*</span></label>
+            <label for="layar_lap" id="layarLabel" style="display:none;">Layar<span style="color: crimson;">*</span></label>
             <select id="layar_lap" name="layar_lap" style="height: 35px; width: 98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
