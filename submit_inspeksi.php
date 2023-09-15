@@ -18,7 +18,9 @@ $isi_lap = $_POST["isi_lap"];
 $port_lap = $_POST["port_lap"];
 $audio_lap = $_POST["audio_lap"];
 $software_lap = $_POST["software_lap"];
+$ink_pad = $_POST["ink_pad"];
 $rekomendasi = $_POST["rekomendasi"];
+$score = $casing_lap + $layar_lap + $engsel_lap + $keyboard_lap + $touchpad_lap + $booting_lap + $multi_lap + $tampung_lap + $isi_lap + +$port + $audio_lap + $software_lap + $ink_pad;
 
 $nama_user = isset($_POST["nama_user"]) ? $_POST["nama_user"] : '';
 
@@ -35,8 +37,8 @@ if (!$conn) {
     echo "Koneksi Berhasil";
 }
 
-$sql = "INSERT INTO form_inspeksi (date, jenis, merk, lokasi, nama_user, status, serialnumber, informasi_keluhan, rekomendasi, casing_lap, layar_lap, engsel_lap, keyboard_lap, touchpad_lap, booting_lap, multi_lap, tampung_lap, isi_lap, port_lap, audio_lap, software_lap)
-        VALUES ('$date', '$jenis', '$merk', '$lokasi', '$nama_user', '$status', '$serialnumber', '$informasi_keluhan', '$rekomendasi', '$casing_lap', '$layar_lap', '$engsel_lap', '$keyboard_lap', '$touchpad_lap', '$booting_lap', '$multi_lap', '$tampung_lap', '$isi_lap', '$port_lap', '$audio_lap', '$software_lap')";
+$sql = "INSERT INTO form_inspeksi (date, jenis, merk, lokasi, nama_user, status, serialnumber, informasi_keluhan, rekomendasi, casing_lap, layar_lap, engsel_lap, keyboard_lap, touchpad_lap, booting_lap, multi_lap, tampung_lap, isi_lap, port_lap, audio_lap, software_lap + ink_pad, score)
+        VALUES ('$date', '$jenis', '$merk', '$lokasi', '$nama_user', '$status', '$serialnumber', '$informasi_keluhan', '$rekomendasi', '$casing_lap', '$layar_lap', '$engsel_lap', '$keyboard_lap', '$touchpad_lap', '$booting_lap', '$multi_lap', '$tampung_lap', '$isi_lap', '$port_lap', '$audio_lap', '$software_lap', '$ink_pad', '$score')";
 
 
 if ($conn->query($sql) === TRUE) {
