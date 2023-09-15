@@ -174,8 +174,8 @@ foreach ($users as $user) {
                     if (jenisPerangkat === 'Laptop' || jenisPerangkat === 'PC Desktop') {
                         casingLabel.style.display = 'block';
                         casingSelect.style.display = 'block';
-                        layarLabel.style.displat = 'block';
-                        layarSelect.style.displat = 'block';
+                        layarLabel.style.display = 'block';
+                        layarSelect.style.display = 'block';
                     } else {
                         casingLabel.style.display = 'none';
                         casingSelect.style.display = 'none';
