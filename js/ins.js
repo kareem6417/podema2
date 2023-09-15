@@ -34,7 +34,6 @@
             portDiv.style.display = 'block';
             audioDiv.style.display = 'block';
             softwareDiv.style.display = 'block';
-            inkpadDiv.style.display = 'none';
             rekomDiv.style.display = 'block';
         } else if (selectedJenis == 'PC Desktop') {
             infoDiv.style.display = 'block';
@@ -50,7 +49,6 @@
             portDiv.style.display = 'block'; // Tampilkan port untuk PC Desktop
             audioDiv.style.display = 'none';
             softwareDiv.style.display = 'block'; // Tampilkan software untuk PC Desktop
-            inkpadDiv.style.display = 'none';
             rekomDiv.style.display = 'block';
         } else if (selectedJenis == 'Monitor') {
             infoDiv.style.display = 'block';
@@ -66,7 +64,6 @@
             portDiv.style.display = 'none';
             audioDiv.style.display = 'none';
             softwareDiv.style.display = 'none';
-            inkpadDiv.style.display = 'none';
             rekomDiv.style.display = 'block';
         } else if (selectedJenis == 'Printer') {
             infoDiv.style.display = 'block';
