@@ -142,12 +142,23 @@ foreach ($users as $user) {
             <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
             <br>
             <label for="casing_lap" id="casingLabel" style="display:none;">Casing<span style="color: crimson;">*</span></label>
-            <select id="casing_lap" name="casing_lap" style="height: 35px; width: 96%;" required>
-                <option value="">- Pilih Casing -</option>
+            <select id="casing_lap" name="casing_lap" style="height: 35px; width: 98%;" required>
+                <option value="">--- Pilih ---</option>
                 <?php
                 $casingOptions = fetchData("ins_casing_lap");
                 foreach ($casingOptions as $casingOption) {
                     echo '<option value="' . $casingOption['casing_lap_score'] . '">' . $casingOption['casing_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+            <label for="layar_lap" id="layar_lap" style="display:none;">Layar<span style="color: crimson;">*</span></label>
+            <select id="layar_lap" name="layar_lap" style="height: 35px; width: 98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $layarOptions = fetchData("ins_layar_lap");
+                foreach ($layarOptions as $layarOption) {
+                    echo '<option value="' . $layarOption['layar_lap_score'] . '">' . $layarOption['layar_lap_name'] . '</option>';
                 }
                 ?>
             </select>
@@ -157,13 +168,19 @@ foreach ($users as $user) {
                     var jenisPerangkat = this.value;
                     var casingLabel = document.getElementById('casingLabel');
                     var casingSelect = document.getElementById('casing_lap');
+                    var layarLabel = document.getElementById('layarLabel');
+                    var layarSelect = document.getElementById('layar_lap');
 
                     if (jenisPerangkat === 'Laptop' || jenisPerangkat === 'PC Desktop') {
                         casingLabel.style.display = 'block';
                         casingSelect.style.display = 'block';
+                        layarLabel.style.displat = 'block';
+                        layarSelect.style.displat = 'block';
                     } else {
                         casingLabel.style.display = 'none';
                         casingSelect.style.display = 'none';
+                        layarLabel.style.display = 'none';
+                        layarSelect.style.display = 'none';
                     }
                 });
             </script>
