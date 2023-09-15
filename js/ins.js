@@ -17,7 +17,6 @@
         var rekomDiv = document.getElementById('rekomDiv');
 
         // Sembunyikan semua elemen terlebih dahulu
-        inkpadDiv.style.display = 'none';
         hideAllDivs();
 
         // Tampilkan elemen berdasarkan jenis perangkat yang dipilih
