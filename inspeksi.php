@@ -11,21 +11,6 @@ $conn_podema = mysqli_connect("mandiricoal.net", "podema", "Jam10pagi#", "podema
 if (!$conn_podema) {
     die("Koneksi database podema gagal: " . mysqli_connect_error());
 }
-
-function fetchDropdownOptions($table, $valueField, $textField) {
-    global $conn_podema;
-    $options = "";
-
-    $result = mysqli_query($conn_podema, "SELECT * FROM $table");
-    if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $options .= "<option value='" . $row[$valueField] . "'>" . $row[$textField] . "</option>";
-        }
-        mysqli_free_result($result);
-    }
-
-    return $options;
-}
 ?>
 
 <!DOCTYPE html>
@@ -138,7 +123,7 @@ function fetchDropdownOptions($table, $valueField, $textField) {
             <div id="casingDiv">
             <label for="casing_lap">Casing Laptop<span style="color: crimson;">*</span></label>
                 <select id="casing_lap" name="casing_lap" style="height: 35px; width: 84%;" required>
-                    <option value="">- Pilih Casing -</option>
+                    <option value="">--- Pilih ---</option>
                     <?php
                         $result = mysqli_query($conn_podema, "SELECT * FROM ins_casing_lap");
                         if ($result) {
@@ -155,7 +140,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="layar_lap" name="layar_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ins_layar_lap", "layar_lap_score", "layar_lap_name");
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ins_layar_lap");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['layar_lap_score'] . "'>" . $row['layar_lap_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
@@ -164,7 +155,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="engsel_lap" name="engsel_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ins_engsel_lap", "engsel_lap_score", "engsel_lap_name");
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ins_engsel_lap");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['engsel_lap_score'] . "'>" . $row['engsel_lap_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
@@ -173,7 +170,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="keyboard_lap" name="keyboard_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ins_keyboard_lap", "keyboard_lap_score", "keyboard_lap_name");
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ins_keyboard_lap");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['keyboard_lap_score'] . "'>" . $row['keyboard_lap_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
@@ -182,7 +185,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="touchpad_lap" name="touchpad_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ins_touchpad_lap", "touchpad_lap_score", "touchpad_lap_name");
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ins_touchpad_lap");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['touchpad_lap_score'] . "'>" . $row['touchpad_lap_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
@@ -191,7 +200,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="booting_lap" name="booting_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ins_booting_lap", "booting_lap_score", "booting_lap_name");
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ins_booting_lap");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['booting_lap_score'] . "'>" . $row['booting_lap_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
@@ -200,7 +215,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="multi_lap" name="multi_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ins_multi_lap", "multi_lap_score", "multi_lap_name");
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ins_multi_lap");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['multi_lap_score'] . "'>" . $row['multi_lap_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
@@ -209,7 +230,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="tampung_lap" name="tampung_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ins_tampung_lap", "tampung_lap_score", "tampung_lap_name");
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ins_tampung_lap");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['tampung_lap_score'] . "'>" . $row['tampung_lap_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
@@ -218,7 +245,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="isi_lap" name="isi_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ins_isi_lap", "isi_lap_score", "isi_lap_name");
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ins_isi_lap");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['isi_lap_score'] . "'>" . $row['isi_lap_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
@@ -227,7 +260,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="port_lap" name="port_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ins_port_lap", "port_lap_score", "port_lap_name");
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ins_port_lap");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['port_lap_score'] . "'>" . $row['port_lap_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
@@ -236,7 +275,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="audio_lap" name="audio_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ins_audio_lap", "audio_lap_score", "audio_lap_name");
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ins_audio_lap");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['audio_lap_score'] . "'>" . $row['audio_lap_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
@@ -245,7 +290,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="software_lap" name="software_lap" style="height: 40px; width:98%;" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ins_software_lap", "software_lap_score", "software_lap_name");
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ins_software_lap");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['software_lap_score'] . "'>" . $row['software_lap_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
@@ -254,7 +305,13 @@ function fetchDropdownOptions($table, $valueField, $textField) {
                 <select id="ink_pad" name="ink_pad" style="height: 40px; width=98%" required>
                     <option value="">--- Pilih ---</option>
                     <?php
-                        echo fetchDropdownOptions("ink_pad", "ink_pad_score", "ink_pad_name")
+                        $result = mysqli_query($conn_podema, "SELECT * FROM ink_pad");
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['ink_pad_score'] . "'>" . $row['ink_pad_name'] . "</option>";
+                            }
+                            mysqli_free_result($result);
+                        }
                     ?>
                 </select>
             </div>
