@@ -43,6 +43,7 @@ foreach ($users as $user) {
     <link rel="stylesheet" type="text/css" href="css/styleins.css">
     <link rel="icon" type="image/png" href="./favicon_io/iconfav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="js/ins.js"></script>
 </head>
 
 <body>
@@ -141,8 +142,8 @@ foreach ($users as $user) {
             <label for="informasi_keluhan">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
             <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
             <br>
-            <label for="casing_lap">Casing<span style="color: crimson;">*</span></label>
-            <select id="casing_lap" name="casing_lap" style="height: 35px; width: 84%;" required>
+            <label for="casing_lap" id="casingLabel" style="display:none;">Casing<span style="color: crimson;">*</span></label>
+            <select id="casing_lap" name="casing_lap" style="height: 35px; width: 96%;" required>
                 <option value="">- Pilih Casing -</option>
                 <?php
                 $casingOptions = fetchData("ins_casing_lap");
