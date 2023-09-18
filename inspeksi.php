@@ -309,15 +309,18 @@ foreach ($users as $user) {
                         showHideElements(jenisPerangkat);
                     });
 
-                    function showHideElements(jenisPerangkat) {
-                        var allElements = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'software_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'casing', 'layar', 'keyboard', 'booting', 'multitasking', 'port', 'audio', 'software', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'ink_pad'];
-                        var elementsToShow = ['informasi_keluhan', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
-                        
-                        // Sembunyikan semua elemen terlebih dahulu
+                    function hideAllElements() {
+                        var allElements = ['casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'software_lap', 'audio_lap', 'casing', 'layar', 'keyboard', 'booting', 'multitasking', 'port', 'audio', 'software', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
                         allElements.forEach(function(elementId) {
                             var element = document.getElementById(elementId);
                             element.style.display = 'none';
                         });
+                    }
+
+                    function showHideElements(jenisPerangkat) {
+                        hideAllElements();
+
+                        var elementsToShow = ['informasi_keluhan', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
 
                         if (jenisPerangkat === 'Laptop') {
                             elementsToShow = elementsToShow.concat(['casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'software_lap', 'audio_lap']);
@@ -329,14 +332,15 @@ foreach ($users as $user) {
                             elementsToShow = elementsToShow.concat(['casing', 'ink_pad']);
                         }
 
-                        // Tampilkan elemen yang sesuai dengan jenis perangkat
                         elementsToShow.forEach(function(elementId) {
                             var element = document.getElementById(elementId);
                             element.style.display = 'block';
                         });
                     }
+                    
+                    // Panggil hideAllElements() untuk menyembunyikan elemen-elemen saat pertama kali dimuat.
+                    hideAllElements();
                 });
-
             </script>
             <input type="submit" value="Submit">
             <input type="reset" value="Reset">
