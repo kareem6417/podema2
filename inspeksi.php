@@ -141,7 +141,8 @@ foreach ($users as $user) {
             <label for="informasi_keluhan">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
             <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
             <br>
-            <label for="casing_lap" id="casingLabel" style="display:none;">Casing<span style="color: crimson;">*</span></label>
+
+            <label for="casing_lap">Casing<span style="color: crimson;">*</span></label>
             <select id="casing_lap" name="casing_lap" style="height: 35px; width: 98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -152,7 +153,8 @@ foreach ($users as $user) {
                 ?>
             </select>
             <br>
-            <label for="layar_lap" id="layarLabel" style="display:none;">Layar<span style="color: crimson;">*</span></label>
+
+            <label for="layar_lap">Layar<span style="color: crimson;">*</span></label>
             <select id="layar_lap" name="layar_lap" style="height: 35px; width: 98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -163,6 +165,136 @@ foreach ($users as $user) {
                 ?>
             </select>
             <br>
+
+            <label for="engsel_lap">Engsel<span style="color: crimson;">*</span></label>
+            <select id="engsel_lap" name="engsel_lap" style="height: 35px; width: 98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $engselOptions = fetchData("ins_engsel_lap");
+                foreach ($engselOptions as $engselOption) {
+                    echo '<option value="' . $engselOption['engsel_lap_score'] . '">' . $engselOption['engsel_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+
+            <label for="keyboard_lap">Keyboard<span style="color: crimson;">*</span></label>
+            <select id="keyboard_lap" name="keyboard_lap" style="height: 35px; width: 98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $keyboardOptions = fetchData("ins_keyboard_lap");
+                foreach ($keyboardOptions as $keyboardOption) {
+                    echo '<option value="' . $keyboardOption['keyboard_lap_score'] . '">' . $keyboardOption['keyboard_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+
+            <label for="touchpad_lap">Touchpad<span style="color: crimson;">*</span></label>
+            <select id="touchpad_lap" name="touchpad_lap" style="height: 35px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $touchpadOptions = fetchData("ins_touchpad_lap");
+                foreach ($touchpadOptions as $touchpadOption) {
+                    echo '<option value="' . $touchpadOption['touchpad_lap_score'] . '">' . $touchpadOption['touchpad_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+
+            <label for="booting_lap">Proses Booting<span style="color: crimson;">*</span></label>
+            <select id="booting_lap" name="booting_lap" style="height: 35px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $bootingOptions = fetchData("ins_booting_lap");
+                foreach ($bootingOptions as $bootingOption) {
+                    echo '<option value="' . $bootingOption['booting_lap_score'] . '">' . $bootingOption['booting_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+
+            <label for="multi_lap">Multitasking Apps<span style="color: crimson;">*</span></label>
+            <select id="multi_lap" name="multi_lap" style="height: 35px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $multiOptions = fetchData("ins_multi_lap");
+                foreach ($multiOptions as $multiOption) {
+                    echo '<option value="' . $multiOption['multi_lap_score'] . '">' . $multiOption['multi_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+
+            <label for="tampung_lap">Kapasitas Baterai<span style="color: crimson;">*</span></label>
+            <select id="tampung_lap" name="tampung_lap" style="height: 35px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $tampungOptions = fetchData("ins_tampung_lap");
+                foreach ($tampungOptions as $tampungOption) {
+                    echo '<option value="' . $tampungOption['tampung_lap_score'] . '">' . $tampungOption['tampung_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+
+            <label for="isi_lap">Waktu Pengisian Baterai<span style="color: crimson;">*</span></label>
+            <select id="isi_lap" name="isi_lap" style="height: 35px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $isiOptions = fetchData("ins_isi_lap");
+                foreach ($isiOptions as $isiOption) {
+                    echo '<option value="' . $isiOption['isi_lap_score'] . '">' . $isiOption['isi_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+
+            <label for="port_lap">Port<span style="color: crimson;">*</span></label>
+            <select id="port_lap" name="port_lap" style="height: 35px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $portOptions = fetchData("ins_port_lap");
+                foreach ($portOptions as $portOption) {
+                    echo '<option value="' . $portOption['port_lap_score'] . '">' . $portOption['port_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+
+            <label for="audio_lap">Audio<span style="color: crimson;">*</span></label>
+            <select id="audio_lap" name="audio_lap" style="height: 35px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $audioOptions = fetchData("ins_audio_lap");
+                foreach ($audioOptions as $audioOption) {
+                    echo '<option value="' . $audioOption['audio_lap_score'] . '">' . $audioOption['audio_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+
+            <label for="ink_pad">Ink Pad<span style="color: crimson;">*</span></label>
+            <select id="ink_pad" name="ink_pad" style="height: 35px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $inkpadOptions = fetchData("ins_ink_pad");
+                foreach ($inkpadOptions as $inkpadOption) {
+                    echo '<option value="' . $inkpadOption['ink_pad_score'] . '">' . $inkpadOption['ink_pad_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+
+            <label for="hasil_pemeriksaan">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
+            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required></textarea>
+            <br>
+
+            <label for="screenshot">Screenshot</label>
+            <input type="file" id="screenshot" name="screenshot" accept="image/*">
+            <img id="preview" src="#" alt="Preview" style="max-width: 200px; max-height: 200px; display: none;">
+            <br>
+
             <script>
                 document.getElementById('jenis').addEventListener('change', function() {
                     var jenisPerangkat = this.value;
@@ -170,28 +302,31 @@ foreach ($users as $user) {
                     var casingSelect = document.getElementById('casing_lap');
                     var layarLabel = document.getElementById('layarLabel');
                     var layarSelect = document.getElementById('layar_lap');
+                    var engselLabel = document.getElementById('engselLabel');
+                    var engselSelect = document.getElementById('engsel_lap');
 
                     if (jenisPerangkat === 'Laptop' || jenisPerangkat === 'PC Desktop') {
                         casingLabel.style.display = 'block';
                         casingSelect.style.display = 'block';
                         layarLabel.style.display = 'block';
                         layarSelect.style.display = 'block';
+                        engselLabel.style.display = 'block';
+                        engselSelect.style.display = 'block';
                     } else {
                         casingLabel.style.display = 'none';
                         casingSelect.style.display = 'none';
                         layarLabel.style.display = 'none';
                         layarSelect.style.display = 'none';
+                        engselLabel.style.display = 'none';
+                        engselSelect.style.display = 'none';
                     }
                 });
             </script>
+
             <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>
             <br>
             <label for="upload_file" style="margin-bottom: 10px;">Upload File<span style="color: crimson;">*</span></label></label>
-            <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required>
-            <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
-            <br>
-            <label for="upload_file" style="margin-bottom: 10px;">Unggah File<span style="color: crimson;">*</span></label></label>
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required>
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
             <br>
