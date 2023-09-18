@@ -304,6 +304,30 @@ foreach ($users as $user) {
                     var layarSelect = document.getElementById('layar_lap');
                     var engselLabel = document.getElementById('engselLabel');
                     var engselSelect = document.getElementById('engsel_lap');
+                    var keyboardLabel = document.getElementById('keyboardLabel');
+                    var keyboardSelect = document.getElementById('keyboard_lap');
+                    var touchpadLabel = document.getElementById('touchpadLabel');
+                    var touchpadSelect = document.getElementById('touchpad_lap');
+                    var bootingLabel = document.getElementById('bootingLabel');
+                    var bootingSelect = document.getElementById('booting_lap');
+                    var multiLabel = document.getElementById('multiLabel');
+                    var multiSelect = document.getElementById('multi_lap');
+                    var tampungLabel = document.getElementById('tampungLabel');
+                    var tampungSelect = document.getElementById('tampung_lap');
+                    var isiLabel = document.getElementById('isiLabel');
+                    var isiSelect = document.getElementById('isi_lap');
+                    var portLabel = document.getElementById('portLabel');
+                    var portSelect = document.getElementById('port_lap');
+                    var softwareLabel = document.getElementById('softwareLabel');
+                    var softwareSelect = document.getElementById('software_lap');
+                    var audioLabel = document.getElementById('audioLabel');
+                    var audioSelect = document.getElementById('audio_lap');
+                    var hasilLabel = document.getElementById('hasilLabel');
+                    var hasilTextarea = document.getElementById('hasil_pemeriksaan');
+                    var screenshotLabel = document.getElementById('screenshotLabel');
+                    var screenshotInput = document.getElementById('screenshot');
+                    var rekomendasiLabel = document.getElementById('rekomendasiLabel');
+                    var rekomendasiTextarea = document.getElementById('rekomendasi');
 
                     if (jenisPerangkat === 'Laptop' || jenisPerangkat === 'PC Desktop') {
                         casingLabel.style.display = 'block';
@@ -312,6 +336,30 @@ foreach ($users as $user) {
                         layarSelect.style.display = 'block';
                         engselLabel.style.display = 'block';
                         engselSelect.style.display = 'block';
+                        keyboardLabel.style.display = 'block';
+                        keyboardSelect.style.display = 'block';
+                        touchpadLabel.style.display = 'block';
+                        touchpadSelect.style.display = 'block';
+                        bootingLabel.style.display = 'block';
+                        bootingSelect.style.display = 'block';
+                        multiLabel.style.display = 'block';
+                        multiSelect.style.display = 'block';
+                        tampungLabel.style.display = 'block';
+                        tampungSelect.style.display = 'block';
+                        isiLabel.style.display = 'block';
+                        isiSelect.style.display = 'block';
+                        portLabel.style.display = 'block';
+                        portSelect.style.display = 'block';
+                        softwareLabel.style.display = 'block';
+                        softwareSelect.style.display = 'block';
+                        audioLabel.style.display = 'block';
+                        audioSelect.style.display = 'block';
+                        hasilLabel.style.display = 'block';
+                        hasilTextarea.style.display = 'block';
+                        screenshotLabel.style.display = 'block';
+                        screenshotInput.style.display = 'block';
+                        rekomendasiLabel.style.display = 'block';
+                        rekomendasiTextarea.style.display = 'block';
                     } else {
                         casingLabel.style.display = 'none';
                         casingSelect.style.display = 'none';
@@ -319,9 +367,34 @@ foreach ($users as $user) {
                         layarSelect.style.display = 'none';
                         engselLabel.style.display = 'none';
                         engselSelect.style.display = 'none';
+                        keyboardLabel.style.display = 'none';
+                        keyboardSelect.style.display = 'none';
+                        touchpadLabel.style.display = 'none';
+                        touchpadSelect.style.display = 'none';
+                        bootingLabel.style.display = 'none';
+                        bootingSelect.style.display = 'none';
+                        multiLabel.style.display = 'none';
+                        multiSelect.style.display = 'none';
+                        tampungLabel.style.display = 'none';
+                        tampungSelect.style.display = 'none';
+                        isiLabel.style.display = 'none';
+                        isiSelect.style.display = 'none';
+                        portLabel.style.display = 'none';
+                        portSelect.style.display = 'none';
+                        softwareLabel.style.display = 'none';
+                        softwareSelect.style.display = 'none';
+                        audioLabel.style.display = 'none';
+                        audioSelect.style.display = 'none';
+                        hasilLabel.style.display = 'none';
+                        hasilTextarea.style.display = 'none';
+                        screenshotLabel.style.display = 'none';
+                        screenshotInput.style.display = 'none';
+                        rekomendasiLabel.style.display = 'none';
+                        rekomendasiTextarea.style.display = 'none';
                     }
                 });
             </script>
+
 
             <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>
