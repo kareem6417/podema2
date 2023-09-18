@@ -137,7 +137,6 @@ foreach ($users as $user) {
                     });
                 </script>
             </div>
-            <script src="js/ins.js"></script>
             <br>
             <label for="informasi_keluhan">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
             <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
@@ -303,6 +302,44 @@ foreach ($users as $user) {
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required>
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
             <br>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var jenisPerangkat = document.getElementById('jenis').value;
+                    showHideElements(jenisPerangkat);
+
+                    document.getElementById('jenis').addEventListener('change', function() {
+                        var jenisPerangkat = this.value;
+                        showHideElements(jenisPerangkat);
+                    });
+
+                    function showHideElements(jenisPerangkat) {
+                        var elementsToShow = [];
+                        var elementsToHide = [];
+
+                        if (jenisPerangkat === 'Laptop') {
+                            elementsToShow = ['casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'];
+                        } else if (jenisPerangkat === 'PC Desktop') {
+                            elementsToShow = ['casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'];
+                        } else if (jenisPerangkat === 'Monitor' || jenisPerangkat === 'Printer') {
+                            elementsToShow = ['casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'];
+                            if (jenisPerangkat === 'Printer') {
+                                elementsToShow.push('ink_pad');
+                            }
+                        }
+
+                        var allElements = ['casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'software_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file', 'ink_pad'];
+                        elementsToHide = allElements.filter(element => !elementsToShow.includes(element));
+
+                        elementsToHide.forEach(function(elementId) {
+                            document.getElementById(elementId).style.display = 'none';
+                        });
+
+                        elementsToShow.forEach(function(elementId) {
+                            document.getElementById(elementId).style.display = 'block';
+                        });
+                    }
+                });
+            </script>
             <input type="submit" value="Submit">
             <input type="reset" value="Reset">
         </form>
