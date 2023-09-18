@@ -1,5 +1,5 @@
-document.getElementById('jenis').addEventListener('change', function() {
-    var jenisPerangkat = this.value;
+window.addEventListener('DOMContentLoaded', function() {
+    var jenisPerangkat = document.getElementById('jenis').value;
     var casingLabel = document.getElementById('casingLabel');
     var casingSelect = document.getElementById('casing_lap');
     var layarLabel = document.getElementById('layarLabel');
