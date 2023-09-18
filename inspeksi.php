@@ -136,7 +136,8 @@ foreach ($users as $user) {
                         xhr.send();
                     });
                 </script>
-            </div>        
+            </div>
+            <script src="js/ins.js"></script>
             <br>
             <label for="informasi_keluhan">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
             <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
@@ -285,8 +286,6 @@ foreach ($users as $user) {
                 ?>
             </select>
             <br>
-
-            <script src="js/ins.js"></script>
 
             <label for="screenshot">Screenshot</label>
             <input type="file" id="screenshot" name="screenshot" accept="image/*">
