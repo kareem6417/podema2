@@ -304,10 +304,13 @@ foreach ($users as $user) {
             <br>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    document.getElementById('jenis').addEventListener('change', function() {
-                        var jenisPerangkat = this.value;
-                        showHideElements(jenisPerangkat);
-                    });
+                // Memanggil hideAllElements() untuk menyembunyikan elemen-elemen saat pertama kali dimuat.
+                hideAllElements();
+
+                document.getElementById('jenis').addEventListener('change', function() {
+                    var jenisPerangkat = this.value;
+                    showHideElements(jenisPerangkat);
+                });
 
                     function hideAllElements() {
                         var allElements = ['casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'software_lap', 'audio_lap', 'casing', 'layar', 'keyboard', 'booting', 'multitasking', 'port', 'audio', 'software', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
