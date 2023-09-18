@@ -288,13 +288,13 @@ foreach ($users as $user) {
 
             <script src="js/ins.js"></script>
 
-            <label for="hasil_pemeriksaan">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
-            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required></textarea>
-            <br>
-
             <label for="screenshot">Screenshot</label>
             <input type="file" id="screenshot" name="screenshot" accept="image/*">
             <img id="preview" src="#" alt="Preview" style="max-width: 200px; max-height: 200px; display: none;">
+            <br>
+
+            <label for="hasil_pemeriksaan">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
+            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required></textarea>
             <br>
 
             <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>
