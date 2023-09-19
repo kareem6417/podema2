@@ -359,7 +359,7 @@ foreach ($users as $user) {
                     function getRelevantElements(jenisPerangkat) {
                         // Tentukan elemen mana yang relevan untuk setiap jenis perangkat
                         var relevantElements = {
-                            'Laptop' : ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap,' 'isi_lap', 'port_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
+                            'Laptop' : ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap,', 'isi_lap', 'port_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
                             'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'],
                             'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'],
                             'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi']
