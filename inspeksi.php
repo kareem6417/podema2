@@ -301,7 +301,7 @@ foreach ($users as $user) {
             <br>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'];
+                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'];
 
                     // Hide label dan elemen form saat pertama kali dimuat
                     hideAllLabelsAndElements();
@@ -355,7 +355,7 @@ foreach ($users as $user) {
 
                     function getRelevantElements(jenisPerangkat) {
                         var relevantElements = {
-                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
+                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
                             'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
                             'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
                             'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi']
