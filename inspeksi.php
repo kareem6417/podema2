@@ -79,7 +79,7 @@ foreach ($users as $user) {
                     <br>
                     <label for="jenis">Jenis Perangkat<span style="color: crimson;">*</span></label>
                     <select id="jenis" name="jenis" style="height: 35px; width: 84%;" required>
-                        <option value="">- Pilih Perangkat -</option>
+                        <option value="Perangkat">- Pilih Perangkat -</option>
                         <option value="Laptop">Laptop</option>
                         <option value="PC Desktop">PC Desktop</option>
                         <option value="Monitor">Monitor</option>
@@ -321,7 +321,7 @@ foreach ($users as $user) {
                     hideAllLabelsAndElements();
 
                     // Panggil fungsi showHideElements dengan jenis perangkat default
-                    showHideElements('Laptop');
+                    showHideElements('Perangkat');
 
                     document.getElementById('jenis').addEventListener('change', function() {
                         var jenisPerangkat = this.value;
@@ -342,7 +342,7 @@ foreach ($users as $user) {
                     function showHideElements(jenisPerangkat) {
                         hideAllLabelsAndElements();
 
-                        if (jenisPerangkat !== 'Laptop') {
+                        if (jenisPerangkat !=== 'Laptop') {
                             // Tampilkan hanya elemen yang relevan untuk jenis perangkat lainnya
                             var relevantElements = getRelevantElements(jenisPerangkat);
                             relevantElements.forEach(function(elementId) {
