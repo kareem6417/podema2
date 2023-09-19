@@ -79,7 +79,7 @@ foreach ($users as $user) {
                     <br>
                     <label for="jenis">Jenis Perangkat<span style="color: crimson;">*</span></label>
                     <select id="jenis" name="jenis" style="height: 35px; width: 84%;" required>
-                        <option value="Perangkat">- Pilih Perangkat -</option>
+                        <option value="">- Pilih Perangkat -</option>
                         <option value="Laptop">Laptop</option>
                         <option value="PC Desktop">PC Desktop</option>
                         <option value="Monitor">Monitor</option>
@@ -315,13 +315,13 @@ foreach ($users as $user) {
             <br>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
+                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'];
 
                     // Hide label dan elemen form saat pertama kali dimuat
                     hideAllLabelsAndElements();
 
                     // Panggil fungsi showHideElements dengan jenis perangkat default
-                    showHideElements('Perangkat');
+                    showHideElements('Laptop');
 
                     document.getElementById('jenis').addEventListener('change', function() {
                         var jenisPerangkat = this.value;
@@ -342,27 +342,23 @@ foreach ($users as $user) {
                     function showHideElements(jenisPerangkat) {
                         hideAllLabelsAndElements();
 
-                        if (jenisPerangkat !=== 'Laptop') {
-                            // Tampilkan hanya elemen yang relevan untuk jenis perangkat lainnya
-                            var relevantElements = getRelevantElements(jenisPerangkat);
-                            relevantElements.forEach(function(elementId) {
-                                var element = document.getElementById(elementId);
-                                var label = document.getElementById(elementId + '_label');
-                                if (element && label) {
-                                    element.style.display = 'block';
-                                    label.style.display = 'block';
-                                }
-                            });
-                        }
+                        var relevantElements = getRelevantElements(jenisPerangkat);
+                        relevantElements.forEach(function(elementId) {
+                            var element = document.getElementById(elementId);
+                            var label = document.getElementById(elementId + '_label');
+                            if (element && label) {
+                                element.style.display = 'block';
+                                label.style.display = 'block';
+                            }
+                        });
                     }
 
                     function getRelevantElements(jenisPerangkat) {
-                        // Tentukan elemen mana yang relevan untuk setiap jenis perangkat
                         var relevantElements = {
-                            'Laptop' : ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap,', 'isi_lap', 'port_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
-                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'],
-                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'],
-                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi']
+                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
+                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
+                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
+                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi']
                         };
 
                         return relevantElements[jenisPerangkat] || [];
