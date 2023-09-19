@@ -344,42 +344,38 @@ foreach ($users as $user) {
                         hideAllLabelsAndElements();
 
                         if (jenisPerangkat === 'Laptop') {
+                            // Tampilkan semua elemen terkait Laptop
                             elementsToShow.forEach(function(elementId) {
                                 var element = document.getElementById(elementId);
-                                var label = document.getElementById(elementId + '_label'); // ID label diubah
+                                var label = document.getElementById(elementId + '_label');
                                 if (element && label) {
                                     element.style.display = 'block';
                                     label.style.display = 'block';
                                 }
                             });
-                        } else if (jenisPerangkat === 'PC Desktop') {
-                            ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'].forEach(function(elementId) {
+                        } else {
+                            // Tampilkan hanya elemen yang relevan untuk jenis perangkat lainnya
+                            var relevantElements = getRelevantElements(jenisPerangkat);
+                            relevantElements.forEach(function(elementId) {
                                 var element = document.getElementById(elementId);
-                                var label = document.getElementById(elementId + '_label'); // ID label diubah
-                                if (element && label) {
-                                    element.style.display = 'block';
-                                    label.style.display = 'block';
-                                }
-                            });
-                        } else if (jenisPerangkat === 'Monitor') {
-                            ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'].forEach(function(elementId) {
-                                var element = document.getElementById(elementId);
-                                var label = document.getElementById(elementId + '_label'); // ID label diubah
-                                if (element && label) {
-                                    element.style.display = 'block';
-                                    label.style.display = 'block';
-                                }
-                            });
-                        } else if (jenisPerangkat === 'Printer') {
-                            ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'].forEach(function(elementId) {
-                                var element = document.getElementById(elementId);
-                                var label = document.getElementById(elementId + '_label'); // ID label diubah
+                                var label = document.getElementById(elementId + '_label');
                                 if (element && label) {
                                     element.style.display = 'block';
                                     label.style.display = 'block';
                                 }
                             });
                         }
+                    }
+
+                    function getRelevantElements(jenisPerangkat) {
+                        // Tentukan elemen mana yang relevan untuk setiap jenis perangkat
+                        var relevantElements = {
+                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'],
+                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'],
+                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi']
+                        };
+
+                        return relevantElements[jenisPerangkat] || [];
                     }
                 });
             </script>
