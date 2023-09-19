@@ -44,50 +44,6 @@ foreach ($users as $user) {
     <link rel="icon" type="image/png" href="./favicon_io/iconfav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<style>
-    <style>
-  #informasi_keluhan_label,
-  #informasi_keluhan,
-  #casing_lap_label,
-  #casing_lap,
-  #layar_lap_label,
-  #layar_lap,
-  #engsel_lap_label,
-  #engsel_lap,
-  #keyboard_lap_label,
-  #keyboard_lap,
-  #touchpad_lap_label,
-  #touchpad_lap,
-  #booting_lap_label,
-  #booting_lap,
-  #multi_lap_label,
-  #multi_lap,
-  #tampung_lap_label,
-  #tampung_lap,
-  #isi_lap_label,
-  #isi_lap,
-  #port_lap_label,
-  #port_lap,
-  #audio_lap_label,
-  #audio_lap,
-  #software_lap_label,
-  #software_lap,
-  #ink_pad_label,
-  #ink_pad,
-  #hasil_pemeriksaan_label,
-  #hasil_pemeriksaan,
-  #screenshot_label,
-  #screenshot,
-  #preview,
-  #rekomendasi_label,
-  #rekomendasi,
-  #upload_file_label,
-  #upload_file {
-    display: none;
-  }
-</style>
-
-</style>
 <body>
     <div class="container">
         <div class="menu">
@@ -181,12 +137,12 @@ foreach ($users as $user) {
                 </script>
             </div>
             <br>
-            <label for="informasi_keluhan" id="informasi_keluhan_label">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
-            <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
+            <label for="informasi_keluhan" id="informasi_keluhan_label" class="device-label">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
+            <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required class="device-select"></textarea>
             <br>
 
-            <label for="casing_lap" id="casing_lap_label">Casing<span style="color: crimson;">*</span></label>
-            <select id="casing_lap" name="casing_lap" style="height: 35px; width: 98%;" required>
+            <label for="casing_lap" id="casing_lap_label" class="device-label">Casing<span style="color: crimson;">*</span></label>
+            <select id="casing_lap" name="casing_lap" style="height: 35px; width: 98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $casingOptions = fetchData("ins_casing_lap");
@@ -197,8 +153,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="layar_lap" id="layar_lap_label">Layar<span style="color: crimson;">*</span></label>
-            <select id="layar_lap" name="layar_lap" style="height: 35px; width: 98%;" required>
+            <label for="layar_lap" id="layar_lap_label" class="device-label">Layar<span style="color: crimson;">*</span></label>
+            <select id="layar_lap" name="layar_lap" style="height: 35px; width: 98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $layarOptions = fetchData("ins_layar_lap");
@@ -209,8 +165,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="engsel_lap" id="engsel_lap_label">Engsel<span style="color: crimson;">*</span></label>
-            <select id="engsel_lap" name="engsel_lap" style="height: 35px; width: 98%;" required>
+            <label for="engsel_lap" id="engsel_lap_label" class="device-label">Engsel<span style="color: crimson;">*</span></label>
+            <select id="engsel_lap" name="engsel_lap" style="height: 35px; width: 98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $engselOptions = fetchData("ins_engsel_lap");
@@ -221,8 +177,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="keyboard_lap" id="keyboard_lap_label">Keyboard<span style="color: crimson;">*</span></label>
-            <select id="keyboard_lap" name="keyboard_lap" style="height: 35px; width: 98%;" required>
+            <label for="keyboard_lap" id="keyboard_lap_label" class="device-label">Keyboard<span style="color: crimson;">*</span></label>
+            <select id="keyboard_lap" name="keyboard_lap" style="height: 35px; width: 98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $keyboardOptions = fetchData("ins_keyboard_lap");
@@ -233,8 +189,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="touchpad_lap" id="touchpad_lap_label">Touchpad<span style="color: crimson;">*</span></label>
-            <select id="touchpad_lap" name="touchpad_lap" style="height: 35px; width:98%;" required>
+            <label for="touchpad_lap" id="touchpad_lap_label" class="device-label">Touchpad<span style="color: crimson;">*</span></label>
+            <select id="touchpad_lap" name="touchpad_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $touchpadOptions = fetchData("ins_touchpad_lap");
@@ -245,8 +201,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="booting_lap" id="booting_lap_label">Proses Booting<span style="color: crimson;">*</span></label>
-            <select id="booting_lap" name="booting_lap" style="height: 35px; width:98%;" required>
+            <label for="booting_lap" id="booting_lap_label" class="device-label">Proses Booting<span style="color: crimson;">*</span></label>
+            <select id="booting_lap" name="booting_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $bootingOptions = fetchData("ins_booting_lap");
@@ -257,8 +213,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="multi_lap" id="multi_lap_label">Multitasking Apps<span style="color: crimson;">*</span></label>
-            <select id="multi_lap" name="multi_lap" style="height: 35px; width:98%;" required>
+            <label for="multi_lap" id="multi_lap_label" class="device-label">Multitasking Apps<span style="color: crimson;">*</span></label>
+            <select id="multi_lap" name="multi_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $multiOptions = fetchData("ins_multi_lap");
@@ -269,8 +225,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="tampung_lap" id="tampung_lap_label">Kapasitas Baterai<span style="color: crimson;">*</span></label>
-            <select id="tampung_lap" name="tampung_lap" style="height: 35px; width:98%;" required>
+            <label for="tampung_lap" id="tampung_lap_label" class="device-label">Kapasitas Baterai<span style="color: crimson;">*</span></label>
+            <select id="tampung_lap" name="tampung_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $tampungOptions = fetchData("ins_tampung_lap");
@@ -281,8 +237,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="isi_lap" id="isi_lap_label">Waktu Pengisian Baterai<span style="color: crimson;">*</span></label>
-            <select id="isi_lap" name="isi_lap" style="height: 35px; width:98%;" required>
+            <label for="isi_lap" id="isi_lap_label" class="device-label">Waktu Pengisian Baterai<span style="color: crimson;">*</span></label>
+            <select id="isi_lap" name="isi_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $isiOptions = fetchData("ins_isi_lap");
@@ -293,8 +249,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="port_lap" id="port_lap_label">Port<span style="color: crimson;">*</span></label>
-            <select id="port_lap" name="port_lap" style="height: 35px; width:98%;" required>
+            <label for="port_lap" id="port_lap_label" class="device-label">Port<span style="color: crimson;">*</span></label>
+            <select id="port_lap" name="port_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $portOptions = fetchData("ins_port_lap");
@@ -305,8 +261,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="audio_lap" id="audio_lap_label">Audio<span style="color: crimson;">*</span></label>
-            <select id="audio_lap" name="audio_lap" style="height: 35px; width:98%;" required>
+            <label for="audio_lap" id="audio_lap_label" class="device-label">Audio<span style="color: crimson;">*</span></label>
+            <select id="audio_lap" name="audio_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $audioOptions = fetchData("ins_audio_lap");
@@ -317,8 +273,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="software_lap" id="software_lap_label">Software<span style="color: crimson;">*</span></label>
-            <select id="software_lap" name="software_lap" style="height: 35px; width:98%;" required>
+            <label for="software_lap" id="software_lap_label" class="device-label">Software<span style="color: crimson;">*</span></label>
+            <select id="software_lap" name="software_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $softwareOptions = fetchData("ins_software_lap");
@@ -329,8 +285,8 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="ink_pad" id="ink_pad_label">Ink Pad<span style="color: crimson;">*</span></label>
-            <select id="ink_pad" name="ink_pad" style="height: 35px; width:98%;" required>
+            <label for="ink_pad" id="ink_pad_label" class="device-label">Ink Pad<span style="color: crimson;">*</span></label>
+            <select id="ink_pad" name="ink_pad" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $inkpadOptions = fetchData("ins_ink_pad");
@@ -341,28 +297,43 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
-            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required></textarea>
+            <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
+            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required class="device-select"></textarea>
             <br>
 
-            <label for="screenshot" id="screenshot_label">Screenshot</label>
+            <label for="screenshot" id="screenshot_label" class="device-label">Screenshot</label>
             <input type="file" id="screenshot" name="screenshot" accept="image/*">
             <img id="preview" src="#" alt="Preview" style="max-width: 200px; max-height: 200px; display: none;">
             <br>
 
-            <label for="rekomendasi" id="rekomendasi_label">Rekomendasi:<span style="color: crimson;">*</span></label>
-            <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>
+            <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
+            <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required class="device-select"></textarea>
             <br>
-            <label for="upload_file" id="upload_file_label" style="margin-bottom: 10px;" >Upload File<span style="color: crimson;">*</span></label></label>
-            <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required>
+            <label for="upload_file" id="upload_file_label" class="device-label" style="margin-bottom: 10px;" >Upload File<span style="color: crimson;">*</span></label></label>
+            <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required class="device-select">
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
             <br>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
+                    // Fungsi untuk menyembunyikan label dan elemen terkait
+                    function hideLabelAndElement(elementId) {
+                        var element = document.getElementById(elementId);
+                        var label = document.getElementById(elementId + '_label');
+                        if (element && label) {
+                            element.style.display = 'none';
+                            label.style.display = 'none';
+                        }
+                    }
+
+                    var elementsToShow = [
+                        'informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap',
+                        'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap',
+                        'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan',
+                        'screenshot', 'rekomendasi'
+                    ];
 
                     // Hide label dan elemen form saat pertama kali dimuat
-                    hideAllLabelsAndElements();
+                    elementsToShow.forEach(hideLabelAndElement);
 
                     // Panggil fungsi showHideElements dengan jenis perangkat default
                     showHideElements('Laptop');
@@ -372,32 +343,10 @@ foreach ($users as $user) {
                         showHideElements(jenisPerangkat);
                     });
 
-                    function hideAllLabelsAndElements() {
-                        elementsToShow.forEach(function(elementId) {
-                            var element = document.getElementById(elementId);
-                            var label = document.getElementById(elementId + '_label'); // ID label diubah
-                            if (element && label) {
-                                element.style.display = 'none';
-                                label.style.display = 'none';
-                            }
-                        });
-                    }
-
                     function showHideElements(jenisPerangkat) {
-                        hideAllLabelsAndElements();
+                        elementsToShow.forEach(hideLabelAndElement);
 
-                        if (jenisPerangkat === 'Laptop') {
-                            // Tampilkan semua elemen terkait Laptop
-                            elementsToShow.forEach(function(elementId) {
-                                var element = document.getElementById(elementId);
-                                var label = document.getElementById(elementId + '_label');
-                                if (element && label) {
-                                    element.style.display = 'block';
-                                    label.style.display = 'block';
-                                }
-                            });
-                        } else {
-                            // Tampilkan hanya elemen yang relevan untuk jenis perangkat lainnya
+                        if (jenisPerangkat !== 'Laptop') {
                             var relevantElements = getRelevantElements(jenisPerangkat);
                             relevantElements.forEach(function(elementId) {
                                 var element = document.getElementById(elementId);
@@ -411,7 +360,6 @@ foreach ($users as $user) {
                     }
 
                     function getRelevantElements(jenisPerangkat) {
-                        // Tentukan elemen mana yang relevan untuk setiap jenis perangkat
                         var relevantElements = {
                             'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'],
                             'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'],
