@@ -44,7 +44,50 @@ foreach ($users as $user) {
     <link rel="icon" type="image/png" href="./favicon_io/iconfav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+<style>
+    <style>
+  #informasi_keluhan_label,
+  #informasi_keluhan,
+  #casing_lap_label,
+  #casing_lap,
+  #layar_lap_label,
+  #layar_lap,
+  #engsel_lap_label,
+  #engsel_lap,
+  #keyboard_lap_label,
+  #keyboard_lap,
+  #touchpad_lap_label,
+  #touchpad_lap,
+  #booting_lap_label,
+  #booting_lap,
+  #multi_lap_label,
+  #multi_lap,
+  #tampung_lap_label,
+  #tampung_lap,
+  #isi_lap_label,
+  #isi_lap,
+  #port_lap_label,
+  #port_lap,
+  #audio_lap_label,
+  #audio_lap,
+  #software_lap_label,
+  #software_lap,
+  #ink_pad_label,
+  #ink_pad,
+  #hasil_pemeriksaan_label,
+  #hasil_pemeriksaan,
+  #screenshot_label,
+  #screenshot,
+  #preview,
+  #rekomendasi_label,
+  #rekomendasi,
+  #upload_file_label,
+  #upload_file {
+    display: none;
+  }
+</style>
 
+</style>
 <body>
     <div class="container">
         <div class="menu">
