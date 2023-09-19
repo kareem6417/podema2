@@ -319,42 +319,45 @@ foreach ($users as $user) {
                     var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
 
                     hideAllElements();
-                    showHideElements('Laptop', elementsToShow); // Panggil dengan jenis perangkat default
+                    showHideElements('Laptop');
 
                     document.getElementById('jenis').addEventListener('change', function() {
                         var jenisPerangkat = this.value;
-                        showHideElements(jenisPerangkat, elementsToShow);
+                        showHideElements(jenisPerangkat);
                     });
 
                     function hideAllElements() {
-                        var allElements = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
-                        allElements.forEach(function(elementId) {
+                        elementsToShow.forEach(function(elementId) {
                             var element = document.getElementById(elementId);
                             element.style.display = 'none';
                         });
                     }
 
-                    function showHideElements(jenisPerangkat, elementsToShow) {
+                    function showHideElements(jenisPerangkat) {
                         hideAllElements();
 
                         if (jenisPerangkat === 'Laptop') {
-                            elementsToShow = elementsToShow.concat(['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'software_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi']);
+                            elementsToShow.forEach(function(elementId) {
+                                var element = document.getElementById(elementId);
+                                element.style.display = 'block';
+                            });
                         } else if (jenisPerangkat === 'PC Desktop') {
-                            elementsToShow = elementsToShow.concat(['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi']);
+                            ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'].forEach(function(elementId) {
+                                var element = document.getElementById(elementId);
+                                element.style.display = 'block';
+                            });
                         } else if (jenisPerangkat === 'Monitor') {
-                            elementsToShow = elementsToShow.concat(['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi']);
+                            ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'].forEach(function(elementId) {
+                                var element = document.getElementById(elementId);
+                                element.style.display = 'block';
+                            });
                         } else if (jenisPerangkat === 'Printer') {
-                            elementsToShow = elementsToShow.concat(['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi']);
+                            ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'].forEach(function(elementId) {
+                                var element = document.getElementById(elementId);
+                                element.style.display = 'block';
+                            });
                         }
-
-                        elementsToShow.forEach(function(elementId) {
-                            var element = document.getElementById(elementId);
-                            element.style.display = 'block';
-                        });
                     }
-
-                    // Panggil hideAllElements() untuk menyembunyikan elemen-elemen saat pertama kali dimuat.
-                    hideAllElements();
                 });
             </script>
             <input type="submit" value="Submit">
