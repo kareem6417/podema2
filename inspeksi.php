@@ -288,7 +288,7 @@ foreach ($users as $user) {
             <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
             <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required class="device-select"></textarea>
 
-            <<label for="screenshot" id="screenshot_label" class="device-label">Screenshot</label>
+            <label for="screenshot" id="screenshot_label" class="device-label">Screenshot</label>
             <div id="screenshot_editor" style="width: 98%;">
                 <textarea id="screenshot" name="screenshot" style="display:none;"></textarea>
             </div>
@@ -364,13 +364,36 @@ foreach ($users as $user) {
 
                         return relevantElements[jenisPerangkat] || [];
                     }
-
+                });
+            </script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
                     var summernoteElement = document.getElementById('screenshot_editor');
 
-                    // Inisialisasi Summernote
                     var summernote = new Summernote(summernoteElement, {
                         height: 200,
-                        placeholder: 'Klik di sini untuk mengunggah screenshot atau memasukkan teks.'
+                        placeholder: 'Klik di sini untuk mengunggah screenshot atau memasukkan teks.',
+                        callbacks: {
+                            onPaste: function(e) {
+                                var clipboardData = e.originalEvent.clipboardData;
+                                var items = clipboardData.items;
+
+                                for (var i = 0; i < items.length; i++) {
+                                    var item = items[i];
+                                    if (item.type.indexOf("image") !== -1) {
+                                        var blob = item.getAsFile();
+                                        var reader = new FileReader();
+                                        reader.onload = function(event) {
+                                            var img = document.createElement('img');
+                                            img.src = event.target.result;
+                                            summernote.editor.insertNode(img);
+                                        };
+                                        reader.readAsDataURL(blob);
+                                    }
+                                }
+                                return false; // Prevent default paste behavior
+                            }
+                        }
                     });
 
                     summernote.editor.on('change', function() {
