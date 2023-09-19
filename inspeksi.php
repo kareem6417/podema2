@@ -43,6 +43,8 @@ foreach ($users as $user) {
     <link rel="stylesheet" type="text/css" href="css/styleins.css">
     <link rel="icon" type="image/png" href="./favicon_io/iconfav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="summernote/summernote.min.css">
+    <script src="summernote/summernote.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -286,13 +288,14 @@ foreach ($users as $user) {
             <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
             <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required class="device-select"></textarea>
 
-            <label for="screenshot" id="screenshot_label" class="device-label">Screenshot</label>
-            <input type="file" id="screenshot" name="screenshot" accept="image/*">
-            <img id="preview" src="#" alt="Preview" style="max-width: 200px; max-height: 200px; display: none;">
+            <<label for="screenshot" id="screenshot_label" class="device-label">Screenshot</label>
+            <div id="screenshot_editor" style="width: 98%;">
+                <textarea id="screenshot" name="screenshot" style="display:none;"></textarea>
+            </div>
 
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required class="device-select"></textarea>
-            
+
             <label for="upload_file" id="upload_file_label" class="device-label" style="margin-bottom: 10px;" >Upload File<span style="color: crimson;">*</span></label></label>
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required class="device-select">
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
@@ -361,6 +364,19 @@ foreach ($users as $user) {
 
                         return relevantElements[jenisPerangkat] || [];
                     }
+
+                    var summernoteElement = document.getElementById('screenshot_editor');
+
+                    // Inisialisasi Summernote
+                    var summernote = new Summernote(summernoteElement, {
+                        height: 200,
+                        placeholder: 'Klik di sini untuk mengunggah screenshot atau memasukkan teks.'
+                    });
+
+                    summernote.editor.on('change', function() {
+                        var content = summernote.editor.getContent();
+                        document.getElementById('screenshot').value = content;
+                    });
                 });
             </script>
             <input type="submit" value="Submit">
