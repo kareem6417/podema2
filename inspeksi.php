@@ -43,8 +43,8 @@ foreach ($users as $user) {
     <link rel="stylesheet" type="text/css" href="css/styleins.css">
     <link rel="icon" type="image/png" href="./favicon_io/iconfav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="summernote/summernote.min.css">
-    <script src="summernote/summernote.min.js"></script>
+    <link rel="stylesheet" href="./summernote/summernote.min.css">
+    <script src="./summernote/summernote.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -365,8 +365,7 @@ foreach ($users as $user) {
                         return relevantElements[jenisPerangkat] || [];
                     }
                 });
-            </script>
-            <script>
+
                 document.addEventListener('DOMContentLoaded', function() {
                     var summernoteElement = document.getElementById('screenshot_editor');
 
