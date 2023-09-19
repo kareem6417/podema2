@@ -285,16 +285,14 @@ foreach ($users as $user) {
 
             <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
             <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required class="device-select"></textarea>
-            <br>
 
             <label for="screenshot" id="screenshot_label" class="device-label">Screenshot</label>
             <input type="file" id="screenshot" name="screenshot" accept="image/*">
             <img id="preview" src="#" alt="Preview" style="max-width: 200px; max-height: 200px; display: none;">
-            <br>
 
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required class="device-select"></textarea>
-            <br>
+            
             <label for="upload_file" id="upload_file_label" class="device-label" style="margin-bottom: 10px;" >Upload File<span style="color: crimson;">*</span></label></label>
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required class="device-select">
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
