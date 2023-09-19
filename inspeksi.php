@@ -316,13 +316,15 @@ foreach ($users as $user) {
             <br>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                // Memanggil hideAllElements() untuk menyembunyikan elemen-elemen saat pertama kali dimuat.
-                hideAllElements();
+                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
 
-                document.getElementById('jenis').addEventListener('change', function() {
-                    var jenisPerangkat = this.value;
-                    showHideElements(jenisPerangkat);
-                });
+                    hideAllElements();
+                    showHideElements('Laptop', elementsToShow); // Panggil dengan jenis perangkat default
+
+                    document.getElementById('jenis').addEventListener('change', function() {
+                        var jenisPerangkat = this.value;
+                        showHideElements(jenisPerangkat, elementsToShow);
+                    });
 
                     function hideAllElements() {
                         var allElements = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
@@ -332,7 +334,7 @@ foreach ($users as $user) {
                         });
                     }
 
-                    function showHideElements(jenisPerangkat) {
+                    function showHideElements(jenisPerangkat, elementsToShow) {
                         hideAllElements();
 
                         if (jenisPerangkat === 'Laptop') {
@@ -350,7 +352,7 @@ foreach ($users as $user) {
                             element.style.display = 'block';
                         });
                     }
-                    
+
                     // Panggil hideAllElements() untuk menyembunyikan elemen-elemen saat pertama kali dimuat.
                     hideAllElements();
                 });
