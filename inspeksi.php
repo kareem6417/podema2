@@ -315,25 +315,10 @@ foreach ($users as $user) {
             <br>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    // Fungsi untuk menyembunyikan label dan elemen terkait
-                    function hideLabelAndElement(elementId) {
-                        var element = document.getElementById(elementId);
-                        var label = document.getElementById(elementId + '_label');
-                        if (element && label) {
-                            element.style.display = 'none';
-                            label.style.display = 'none';
-                        }
-                    }
-
-                    var elementsToShow = [
-                        'informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap',
-                        'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap',
-                        'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan',
-                        'screenshot', 'rekomendasi'
-                    ];
+                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
 
                     // Hide label dan elemen form saat pertama kali dimuat
-                    elementsToShow.forEach(hideLabelAndElement);
+                    hideAllLabelsAndElements();
 
                     // Panggil fungsi showHideElements dengan jenis perangkat default
                     showHideElements('Laptop');
@@ -343,10 +328,22 @@ foreach ($users as $user) {
                         showHideElements(jenisPerangkat);
                     });
 
+                    function hideAllLabelsAndElements() {
+                        elementsToShow.forEach(function(elementId) {
+                            var element = document.getElementById(elementId);
+                            var label = document.getElementById(elementId + '_label');
+                            if (element && label) {
+                                element.style.display = 'none';
+                                label.style.display = 'none';
+                            }
+                        });
+                    }
+
                     function showHideElements(jenisPerangkat) {
-                        elementsToShow.forEach(hideLabelAndElement);
+                        hideAllLabelsAndElements();
 
                         if (jenisPerangkat !== 'Laptop') {
+                            // Tampilkan hanya elemen yang relevan untuk jenis perangkat lainnya
                             var relevantElements = getRelevantElements(jenisPerangkat);
                             relevantElements.forEach(function(elementId) {
                                 var element = document.getElementById(elementId);
@@ -360,6 +357,7 @@ foreach ($users as $user) {
                     }
 
                     function getRelevantElements(jenisPerangkat) {
+                        // Tentukan elemen mana yang relevan untuk setiap jenis perangkat
                         var relevantElements = {
                             'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'],
                             'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'],
