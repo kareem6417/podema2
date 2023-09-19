@@ -274,6 +274,18 @@ foreach ($users as $user) {
             </select>
             <br>
 
+            <label for="software_lap">Software<span style="color: crimson;">*</span></label>
+            <select id="software_lap" name="software_lap" style="height: 35px; width:98%;" required>
+                <option value="">--- Pilih ---</option>
+                <?php
+                $softwareOptions = fetchData("ins_software_lap");
+                foreach ($softwareOptions as $softwareOption) {
+                    echo '<option value="' . $softwareOption['software_lap_score'] . '">' . $softwareOption['software_lap_name'] . '</option>';
+                }
+                ?>
+            </select>
+            <br>
+
             <label for="ink_pad">Ink Pad<span style="color: crimson;">*</span></label>
             <select id="ink_pad" name="ink_pad" style="height: 35px; width:98%;" required>
                 <option value="">--- Pilih ---</option>
@@ -313,7 +325,7 @@ foreach ($users as $user) {
                 });
 
                     function hideAllElements() {
-                        var allElements = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'casing', 'layar', 'keyboard', 'booting', 'multitasking', 'port', 'software', 'audio', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
+                        var allElements = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
                         allElements.forEach(function(elementId) {
                             var element = document.getElementById(elementId);
                             element.style.display = 'none';
@@ -324,13 +336,13 @@ foreach ($users as $user) {
                         hideAllElements();
 
                         if (jenisPerangkat === 'Laptop') {
-                            elementsToShow = elementsToShow.concat(['casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'software_lap', 'audio_lap']);
+                            elementsToShow = elementsToShow.concat(['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'software_lap', 'audio_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi']);
                         } else if (jenisPerangkat === 'PC Desktop') {
-                            elementsToShow = elementsToShow.concat(['casing', 'layar', 'keyboard', 'booting', 'multitasking', 'port', 'audio', 'software']);
+                            elementsToShow = elementsToShow.concat(['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi']);
                         } else if (jenisPerangkat === 'Monitor') {
-                            elementsToShow = elementsToShow.concat(['casing', 'layar']);
+                            elementsToShow = elementsToShow.concat(['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi']);
                         } else if (jenisPerangkat === 'Printer') {
-                            elementsToShow = elementsToShow.concat(['casing', 'ink_pad']);
+                            elementsToShow = elementsToShow.concat(['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi']);
                         }
 
                         elementsToShow.forEach(function(elementId) {
