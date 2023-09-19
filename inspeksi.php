@@ -138,11 +138,11 @@ foreach ($users as $user) {
                 </script>
             </div>
             <br>
-            <label for="informasi_keluhan">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
+            <label for="informasi_keluhan" id="informasi_keluhan_label">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
             <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required></textarea>
             <br>
 
-            <label for="casing_lap">Casing<span style="color: crimson;">*</span></label>
+            <label for="casing_lap" id="casing_lap_label">Casing<span style="color: crimson;">*</span></label>
             <select id="casing_lap" name="casing_lap" style="height: 35px; width: 98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -154,7 +154,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="layar_lap">Layar<span style="color: crimson;">*</span></label>
+            <label for="layar_lap" id="layar_lap_label">Layar<span style="color: crimson;">*</span></label>
             <select id="layar_lap" name="layar_lap" style="height: 35px; width: 98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -166,7 +166,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="engsel_lap">Engsel<span style="color: crimson;">*</span></label>
+            <label for="engsel_lap" id="engsel_lap_label">Engsel<span style="color: crimson;">*</span></label>
             <select id="engsel_lap" name="engsel_lap" style="height: 35px; width: 98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -178,7 +178,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="keyboard_lap">Keyboard<span style="color: crimson;">*</span></label>
+            <label for="keyboard_lap" id="keyboard_lap_label">Keyboard<span style="color: crimson;">*</span></label>
             <select id="keyboard_lap" name="keyboard_lap" style="height: 35px; width: 98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -190,7 +190,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="touchpad_lap">Touchpad<span style="color: crimson;">*</span></label>
+            <label for="touchpad_lap" id="touchpad_lap_label">Touchpad<span style="color: crimson;">*</span></label>
             <select id="touchpad_lap" name="touchpad_lap" style="height: 35px; width:98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -202,7 +202,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="booting_lap">Proses Booting<span style="color: crimson;">*</span></label>
+            <label for="booting_lap" id="booting_lap_label">Proses Booting<span style="color: crimson;">*</span></label>
             <select id="booting_lap" name="booting_lap" style="height: 35px; width:98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -214,7 +214,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="multi_lap">Multitasking Apps<span style="color: crimson;">*</span></label>
+            <label for="multi_lap" id="multi_lap_label">Multitasking Apps<span style="color: crimson;">*</span></label>
             <select id="multi_lap" name="multi_lap" style="height: 35px; width:98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -226,7 +226,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="tampung_lap">Kapasitas Baterai<span style="color: crimson;">*</span></label>
+            <label for="tampung_lap" id="tampung_lap_label">Kapasitas Baterai<span style="color: crimson;">*</span></label>
             <select id="tampung_lap" name="tampung_lap" style="height: 35px; width:98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -238,7 +238,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="isi_lap">Waktu Pengisian Baterai<span style="color: crimson;">*</span></label>
+            <label for="isi_lap" id="isi_lap_label">Waktu Pengisian Baterai<span style="color: crimson;">*</span></label>
             <select id="isi_lap" name="isi_lap" style="height: 35px; width:98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -250,7 +250,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="port_lap">Port<span style="color: crimson;">*</span></label>
+            <label for="port_lap" id="port_lap_label">Port<span style="color: crimson;">*</span></label>
             <select id="port_lap" name="port_lap" style="height: 35px; width:98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -262,7 +262,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="audio_lap">Audio<span style="color: crimson;">*</span></label>
+            <label for="audio_lap" id="audio_lap_label">Audio<span style="color: crimson;">*</span></label>
             <select id="audio_lap" name="audio_lap" style="height: 35px; width:98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -274,7 +274,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="software_lap">Software<span style="color: crimson;">*</span></label>
+            <label for="software_lap" id="software_lap_label">Software<span style="color: crimson;">*</span></label>
             <select id="software_lap" name="software_lap" style="height: 35px; width:98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -286,7 +286,7 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="ink_pad">Ink Pad<span style="color: crimson;">*</span></label>
+            <label for="ink_pad" id="ink_pad_label">Ink Pad<span style="color: crimson;">*</span></label>
             <select id="ink_pad" name="ink_pad" style="height: 35px; width:98%;" required>
                 <option value="">--- Pilih ---</option>
                 <?php
@@ -298,19 +298,19 @@ foreach ($users as $user) {
             </select>
             <br>
 
-            <label for="hasil_pemeriksaan">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
+            <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
             <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required></textarea>
             <br>
 
-            <label for="screenshot">Screenshot</label>
+            <label for="screenshot" id="screenshot_label">Screenshot</label>
             <input type="file" id="screenshot" name="screenshot" accept="image/*">
             <img id="preview" src="#" alt="Preview" style="max-width: 200px; max-height: 200px; display: none;">
             <br>
 
-            <label for="rekomendasi">Rekomendasi:<span style="color: crimson;">*</span></label>
+            <label for="rekomendasi" id="rekomendasi_label">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required></textarea>
             <br>
-            <label for="upload_file" style="margin-bottom: 10px;">Upload File<span style="color: crimson;">*</span></label></label>
+            <label for="upload_file" id="upload_file_label" style="margin-bottom: 10px;" >Upload File<span style="color: crimson;">*</span></label></label>
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required>
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
             <br>
@@ -318,7 +318,10 @@ foreach ($users as $user) {
                 document.addEventListener('DOMContentLoaded', function() {
                     var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'];
 
-                    hideAllElements();
+                    // Hide label dan elemen form saat pertama kali dimuat
+                    hideAllLabelsAndElements();
+
+                    // Panggil fungsi showHideElements dengan jenis perangkat default
                     showHideElements('Laptop');
 
                     document.getElementById('jenis').addEventListener('change', function() {
@@ -326,35 +329,55 @@ foreach ($users as $user) {
                         showHideElements(jenisPerangkat);
                     });
 
-                    function hideAllElements() {
+                    function hideAllLabelsAndElements() {
                         elementsToShow.forEach(function(elementId) {
                             var element = document.getElementById(elementId);
-                            element.style.display = 'none';
+                            var label = document.getElementById(elementId + '_label'); // ID label diubah
+                            if (element && label) {
+                                element.style.display = 'none';
+                                label.style.display = 'none';
+                            }
                         });
                     }
 
                     function showHideElements(jenisPerangkat) {
-                        hideAllElements();
+                        hideAllLabelsAndElements();
 
                         if (jenisPerangkat === 'Laptop') {
                             elementsToShow.forEach(function(elementId) {
                                 var element = document.getElementById(elementId);
-                                element.style.display = 'block';
+                                var label = document.getElementById(elementId + '_label'); // ID label diubah
+                                if (element && label) {
+                                    element.style.display = 'block';
+                                    label.style.display = 'block';
+                                }
                             });
                         } else if (jenisPerangkat === 'PC Desktop') {
                             ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'].forEach(function(elementId) {
                                 var element = document.getElementById(elementId);
-                                element.style.display = 'block';
+                                var label = document.getElementById(elementId + '_label'); // ID label diubah
+                                if (element && label) {
+                                    element.style.display = 'block';
+                                    label.style.display = 'block';
+                                }
                             });
                         } else if (jenisPerangkat === 'Monitor') {
                             ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'].forEach(function(elementId) {
                                 var element = document.getElementById(elementId);
-                                element.style.display = 'block';
+                                var label = document.getElementById(elementId + '_label'); // ID label diubah
+                                if (element && label) {
+                                    element.style.display = 'block';
+                                    label.style.display = 'block';
+                                }
                             });
                         } else if (jenisPerangkat === 'Printer') {
                             ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi'].forEach(function(elementId) {
                                 var element = document.getElementById(elementId);
-                                element.style.display = 'block';
+                                var label = document.getElementById(elementId + '_label'); // ID label diubah
+                                if (element && label) {
+                                    element.style.display = 'block';
+                                    label.style.display = 'block';
+                                }
                             });
                         }
                     }
