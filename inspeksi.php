@@ -289,7 +289,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
-            <div id="hasil_pemeriksaan" style="height: 400px; width: 84%; max-width: 100%; margin: 0;"></div>
+            <div id="hasil_pemeriksaan" style="width: 84%; max-width: 100%; margin: 0;"></div>
             <script>
             document.getElementById('assessmentForm').addEventListener('submit', function(event) {
                 var hasilPemeriksaanContent = $('#hasil_pemeriksaan').summernote('code');
