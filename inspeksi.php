@@ -315,70 +315,32 @@ foreach ($users as $user) {
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
             <br>
             <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'];
+                document.getElementById('jenis').addEventListener('change', function() {
+                    var selectedDevice = this.value;
+                    var elementsToSubmit = getElementsToSubmit(selectedDevice);
 
-                    // Hide label dan elemen form saat pertama kali dimuat
-                    hideAllLabelsAndElements();
+                    var allElements = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'];
 
-                    // Panggil fungsi showHideElements dengan jenis perangkat default
-                    showHideElements('Perangkat');
-
-                    document.getElementById('jenis').addEventListener('change', function() {
-                        var jenisPerangkat = this.value;
-                        showHideElements(jenisPerangkat);
+                    allElements.forEach(function(elementId) {
+                        var element = document.getElementById(elementId);
+                        if (elementsToSubmit.includes(elementId)) {
+                            element.removeAttribute('disabled');
+                        } else {
+                            element.disabled = true;
+                        }
                     });
-
-                    function hideAllLabelsAndElements() {
-                        elementsToShow.forEach(function(elementId) {
-                            var element = document.getElementById(elementId);
-                            var label = document.getElementById(elementId + '_label');
-                            if (element && label) {
-                                element.style.display = 'none';
-                                label.style.display = 'none';
-                            }
-                        });
-                    }
-
-                    function showHideElements(jenisPerangkat) {
-                        hideAllLabelsAndElements();
-
-                        if (jenisPerangkat !== 'Perangkat') {
-                            // Tampilkan hanya elemen yang relevan untuk jenis perangkat lainnya
-                            var relevantElements = getRelevantElements(jenisPerangkat);
-                            relevantElements.forEach(function(elementId) {
-                                var element = document.getElementById(elementId);
-                                var label = document.getElementById(elementId + '_label');
-                                if (element && label) {
-                                    element.style.display = 'block';
-                                    label.style.display = 'block';
-                                }
-                            });
-                        }
-                        else {
-                            // Tampilkan semua elemen terkait Laptop
-                            elementsToShow.forEach(function(elementId) {
-                                var element = document.getElementById(elementId);
-                                var label = document.getElementById(elementId + '_label');
-                                if (element && label) {
-                                    element.style.display = 'block';
-                                    label.style.display = 'block';
-                                }
-                            });
-                        }
-                    }
-
-                    function getRelevantElements(jenisPerangkat) {
-                        var relevantElements = {
-                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
-                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
-                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
-                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file']
-                        };
-
-                        return relevantElements[jenisPerangkat] || [];
-                    }
                 });
+
+                function getElementsToSubmit(jenisPerangkat) {
+                    var relevantElements = {
+                        'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
+                        'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
+                        'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
+                        'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file']
+                    };
+
+                    return relevantElements[jenisPerangkat] || [];
+                }
             </script>
             <input type="submit" value="Submit">
             <input type="reset" value="Reset">
