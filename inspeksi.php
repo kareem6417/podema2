@@ -292,7 +292,9 @@ foreach ($users as $user) {
             <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required class="device-select"></textarea>            
             <br>
 
-            <div id="summernote">Screenshoot</div>
+            <div id="summernote">
+                
+            </div>
                 <script>
                     $(document).ready(function() {
                         $('#summernote').summernote();
