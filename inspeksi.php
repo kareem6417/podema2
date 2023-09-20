@@ -95,7 +95,7 @@ foreach ($users as $user) {
                     <input type="text" id="merk" name="merk" style="height: 35px; width: 100%;" required>
                     <br>
                     <label for="lokasi">Lokasi/Area Kerja Penggunaan Perangkat<span style="color: crimson;">*</span></label>
-                    <input type="text" id="lokasi" name="lokasi" style="height: 35px; width: 200%;" readonly>
+                    <input type="text" id="lokasi" name="lokasi" style="height: 35px; width: 210%;" readonly>
                 </div>
                 <div style="flex: 1;">
                     <label for="nama_user">Nama Pengguna<span style="color: crimson;">*</span></label>
