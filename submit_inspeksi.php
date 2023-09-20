@@ -94,10 +94,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         // direktori untuk file upload inspeksi
-        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/File Upload Inspeksi/";
+        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/dev-podema/File Upload Inspeksi/";
 
         // direktori untuk screenshot inspeksi
-        $screenshot_dir = $_SERVER['DOCUMENT_ROOT'] . "/screenshot/";
+        $screenshot_dir = $_SERVER['DOCUMENT_ROOT'] . "/dev-podema/screenshot/";
 
         // Upload file lainnya
         $file = $_FILES['upload_file']['name'];
