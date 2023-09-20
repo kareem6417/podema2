@@ -314,7 +314,7 @@ foreach ($users as $user) {
             <br>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'rekomendasi', 'upload_file'];
+                    var elementsToShow = ['informasi_keluhan', 'hasil_pemeriksaan', 'rekomendasi', 'upload_file'];
 
                     // Hide label dan elemen form saat pertama kali dimuat
                     hideAllLabelsAndElements();
