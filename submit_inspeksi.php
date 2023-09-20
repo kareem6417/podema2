@@ -117,7 +117,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        // Upload screenshot
         $screenshot_file = $_FILES['screenshot']['name'];
         $screenshot_path = pathinfo($screenshot_file);
         $screenshot_filename = $screenshot_path['filename'];
@@ -130,6 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             if (move_uploaded_file($screenshot_temp_name, $screenshot_path_filename_ext)) {
                 echo "Screenshot Anda berhasil diunggah.";
+                echo '<meta http-equiv="refresh" content="0;url=viewinspeksi.php">';
             } else {
                 echo "Terjadi kesalahan saat mengunggah screenshot.";
             }
