@@ -365,49 +365,14 @@ foreach ($users as $user) {
 
                     function getRelevantElements(jenisPerangkat) {
                         var relevantElements = {
-                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'rekomendasi'],
-                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'rekomendasi'],
-                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'rekomendasi'],
-                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'rekomendasi']
+                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'rekomendasi', 'upload_file'],
+                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'rekomendasi', 'upload_file'],
+                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'rekomendasi', 'upload_file'],
+                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'rekomendasi', 'upload_file']
                         };
 
                         return relevantElements[jenisPerangkat] || [];
                     }
-                });
-
-                document.addEventListener('DOMContentLoaded', function() {
-                    var summernoteElement = document.getElementById('screenshot_editor');
-
-                    var summernote = new Summernote(summernoteElement, {
-                        height: 200,
-                        placeholder: 'Klik di sini untuk mengunggah screenshot atau memasukkan teks.',
-                        callbacks: {
-                            onPaste: function(e) {
-                                var clipboardData = e.originalEvent.clipboardData;
-                                var items = clipboardData.items;
-
-                                for (var i = 0; i < items.length; i++) {
-                                    var item = items[i];
-                                    if (item.type.indexOf("image") !== -1) {
-                                        var blob = item.getAsFile();
-                                        var reader = new FileReader();
-                                        reader.onload = function(event) {
-                                            var img = document.createElement('img');
-                                            img.src = event.target.result;
-                                            summernote.editor.insertNode(img);
-                                        };
-                                        reader.readAsDataURL(blob);
-                                    }
-                                }
-                                return false; // Prevent default paste behavior
-                            }
-                        }
-                    });
-
-                    summernote.editor.on('change', function() {
-                        var content = summernote.editor.getContent();
-                        document.getElementById('screenshot').value = content;
-                    });
                 });
             </script>
             <input type="submit" value="Submit">
