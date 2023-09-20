@@ -278,7 +278,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="ink_pad" id="ink_pad_label" class="device-label">Ink Pad<span style="color: crimson;">*</span></label>
-            <select id="ink_pad" name="ink_pad" style="height: 35px; width:98%;" required class="device-select">
+            <select id="ink_pad" name="ink_pad" style="height: 35px; width:100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $inkpadOptions = fetchData("ins_ink_pad");
