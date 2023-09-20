@@ -4,11 +4,10 @@ body {
     background-attachment: fixed;
     background-color: #f1f1f1;
     font-family: "Hauora";
-    font-size: 16px;
 }
 
 .container {
-    max-width: 840px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -107,7 +106,7 @@ input[type="reset"]:hover {
 }
 
 .label-os {
-    font-weight: normal;
+    font-weight: bold;
     color: crimson;
 }
 
@@ -142,4 +141,9 @@ input[type="reset"]:hover {
     background-color: #807d7d;
     pointer-events: none;
     opacity: 0.6;
+}
+
+.device-label,
+.device-select {
+    display: none;
 }
