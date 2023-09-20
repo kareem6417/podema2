@@ -289,17 +289,18 @@ foreach ($users as $user) {
             </select>
 
             <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
-            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required class="device-select"></textarea>            
-            <br>
+            <div id="hasil_pemeriksaan" style="height: 200px;"></div>
 
-            <div id="summernote">
-                
-            </div>
-                <script>
-                    $(document).ready(function() {
-                        $('#summernote').summernote();
+            <script>
+                $(document).ready(function() {
+                    $('#hasil_pemeriksaan').summernote({
+                        toolbar: [
+                            ['style', ['bold', 'italic', 'underline']],
+                            ['insert', ['picture']]
+                        ]
                     });
-                </script>
+                });
+            </script>
 
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required class="device-select"></textarea>
