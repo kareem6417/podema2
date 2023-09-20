@@ -36,7 +36,7 @@ foreach ($users as $user) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>Inspection Devices</title>
