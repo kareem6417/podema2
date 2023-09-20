@@ -95,7 +95,7 @@ foreach ($users as $user) {
                     <input type="text" id="merk" name="merk" style="height: 35px; width: 84%;" required>
                     <br>
                     <label for="lokasi">Lokasi/Area Kerja Penggunaan Perangkat<span style="color: crimson;">*</span></label>
-                    <input type="text" id="lokasi" name="lokasi" style="height: 20px; width: 188%;" readonly>
+                    <input type="text" id="lokasi" name="lokasi" style="height: 35px; width: 192%;" readonly>
                 </div>
                 <div style="flex: 1;">
                     <label for="nama_user">Nama Pengguna<span style="color: crimson;">*</span></label>
@@ -290,7 +290,6 @@ foreach ($users as $user) {
 
             <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
             <div id="hasil_pemeriksaan" style="height: 200px; width: 96%"></div>
-
             <script>
                 $(document).ready(function() {
                     $('#hasil_pemeriksaan').summernote({
@@ -301,7 +300,7 @@ foreach ($users as $user) {
                     });
                 });
             </script>
-            <br>
+
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required class="device-select"></textarea>
             
