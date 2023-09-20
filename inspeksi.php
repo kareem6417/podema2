@@ -289,8 +289,13 @@ foreach ($users as $user) {
             </select>
 
             <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
-            <div id="hasil_pemeriksaan" style="height: 400px; width: 94%"></div>
+            <div id="hasil_pemeriksaan" style="height: 400px; width: 84%; max-width: 100%; margin: 0;"></div>
             <script>
+            document.getElementById('assessmentForm').addEventListener('submit', function(event) {
+                var hasilPemeriksaanContent = $('#hasil_pemeriksaan').summernote('code');
+                $('#hasil_pemeriksaan').summernote('code', hasilPemeriksaanContent.trim());
+            });
+
                 $(document).ready(function() {
                     $('#hasil_pemeriksaan').summernote({
                         toolbar: [
@@ -300,7 +305,6 @@ foreach ($users as $user) {
                     });
                 });
             </script>
-
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required class="device-select"></textarea>
             
