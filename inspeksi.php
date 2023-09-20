@@ -43,8 +43,9 @@ foreach ($users as $user) {
     <link rel="stylesheet" type="text/css" href="css/styleins.css">
     <link rel="icon" type="image/png" href="./favicon_io/iconfav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="summernote/summernote.min.css">
-    <script src="summernote/summernote.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -288,10 +289,23 @@ foreach ($users as $user) {
             <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
             <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required class="device-select"></textarea>
 
-            <label for="screenshot" id="screenshot_label" class="device-label">Screenshot</label>
-            <div id="screenshot_editor" style="width: 98%;">
-                <textarea id="screenshot" name="screenshot" style="display:none;"></textarea>
-            </div>
+            <label for="screenshot" id="screenshot_label" class="device-label">Screenshot:<span style="color: crimson;">*</span></label>
+            <div id="screenshot" style="width: 84%; max-width: 100%; margin: 0;"></div>
+            <script>
+            document.getElementById('assessmentForm').addEventListener('submit', function(event) {
+                var screenshotContent = $('#screenshot').summernote('code');
+                $('#screenshot').summernote('code', screenshotContent.trim());
+            });
+
+                $(document).ready(function() {
+                    $('#screenshot').summernote({
+                        toolbar: [
+                            ['style', ['bold', 'italic', 'underline']],
+                            ['insert', ['picture']]
+                        ]
+                    });
+                });
+            </script>
 
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required class="device-select"></textarea>
@@ -302,7 +316,7 @@ foreach ($users as $user) {
             <br>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'];
+                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'];
 
                     // Hide label dan elemen form saat pertama kali dimuat
                     hideAllLabelsAndElements();
@@ -356,49 +370,14 @@ foreach ($users as $user) {
 
                     function getRelevantElements(jenisPerangkat) {
                         var relevantElements = {
-                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
-                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
-                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
-                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi']
+                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
+                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
+                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
+                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file']
                         };
 
                         return relevantElements[jenisPerangkat] || [];
                     }
-                });
-
-                document.addEventListener('DOMContentLoaded', function() {
-                    var summernoteElement = document.getElementById('screenshot_editor');
-
-                    var summernote = new Summernote(summernoteElement, {
-                        height: 200,
-                        placeholder: 'Klik di sini untuk mengunggah screenshot atau memasukkan teks.',
-                        callbacks: {
-                            onPaste: function(e) {
-                                var clipboardData = e.originalEvent.clipboardData;
-                                var items = clipboardData.items;
-
-                                for (var i = 0; i < items.length; i++) {
-                                    var item = items[i];
-                                    if (item.type.indexOf("image") !== -1) {
-                                        var blob = item.getAsFile();
-                                        var reader = new FileReader();
-                                        reader.onload = function(event) {
-                                            var img = document.createElement('img');
-                                            img.src = event.target.result;
-                                            summernote.editor.insertNode(img);
-                                        };
-                                        reader.readAsDataURL(blob);
-                                    }
-                                }
-                                return false; // Prevent default paste behavior
-                            }
-                        }
-                    });
-
-                    summernote.editor.on('change', function() {
-                        var content = summernote.editor.getContent();
-                        document.getElementById('screenshot').value = content;
-                    });
                 });
             </script>
             <input type="submit" value="Submit">
