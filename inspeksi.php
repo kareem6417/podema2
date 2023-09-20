@@ -288,16 +288,19 @@ foreach ($users as $user) {
                 ?>
             </select>
 
-            <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
-            <div id="hasil_pemeriksaan" style="width: 84%; max-width: 100%; margin: 0;"></div>
+            <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan:<span style="color: crimson;">*</span></label>
+            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 100%;" required class="device-select"></textarea>
+
+            <label for="screenshot" id="screenshot_label" class="device-label">Screenshot:<span style="color: crimson;">*</span></label>
+            <div id="screenshot" style="width: 84%; max-width: 100%; margin: 0;"></div>
             <script>
             document.getElementById('assessmentForm').addEventListener('submit', function(event) {
-                var hasilPemeriksaanContent = $('#hasil_pemeriksaan').summernote('code');
-                $('#hasil_pemeriksaan').summernote('code', hasilPemeriksaanContent.trim());
+                var screenshotContent = $('#screenshot').summernote('code');
+                $('#screenshot').summernote('code', screenshotContent.trim());
             });
 
                 $(document).ready(function() {
-                    $('#hasil_pemeriksaan').summernote({
+                    $('#screenshot').summernote({
                         toolbar: [
                             ['style', ['bold', 'italic', 'underline']],
                             ['insert', ['picture']]
@@ -305,6 +308,7 @@ foreach ($users as $user) {
                     });
                 });
             </script>
+            
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 100%;" required class="device-select"></textarea>
             
@@ -314,7 +318,7 @@ foreach ($users as $user) {
             <br>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'rekomendasi', 'upload_file'];
+                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'];
 
                     // Hide label dan elemen form saat pertama kali dimuat
                     hideAllLabelsAndElements();
@@ -368,10 +372,10 @@ foreach ($users as $user) {
 
                     function getRelevantElements(jenisPerangkat) {
                         var relevantElements = {
-                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'rekomendasi', 'upload_file'],
-                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'rekomendasi', 'upload_file'],
-                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'rekomendasi', 'upload_file'],
-                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'rekomendasi', 'upload_file']
+                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
+                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
+                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
+                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file']
                         };
 
                         return relevantElements[jenisPerangkat] || [];
