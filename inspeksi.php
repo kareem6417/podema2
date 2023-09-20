@@ -37,16 +37,14 @@ foreach ($users as $user) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Inspection Devices</title>
-    <link rel="stylesheet" href="css/styleins.css">
+    <link rel="stylesheet" type="text/css" href="css/styleins.css">
     <link rel="icon" type="image/png" href="./favicon_io/iconfav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <link rel="stylesheet" href="summernote/summernote.min.css">
+    <script src="summernote/summernote.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -79,10 +77,10 @@ foreach ($users as $user) {
             <div style="display: flex; flex-wrap: wrap; gap: 30px;">
                 <div style="flex: 1;">
                     <label for="date">Tanggal Pemeriksaan<span style="color: crimson;">*</span></label>
-                    <input type="date" id="date" name="date" style="height: 35px; width: 100%; font-family: Arial, sans-serif; font-size: 13.5px;" required>
+                    <input type="date" id="date" name="date" style="height: 25px; width: 83%; font-family: Arial, sans-serif; font-size: 13.5px;" required>
                     <br>
                     <label for="jenis">Jenis Perangkat<span style="color: crimson;">*</span></label>
-                    <select id="jenis" name="jenis" style="height: 35px; width: 100%;" required>
+                    <select id="jenis" name="jenis" style="height: 35px; width: 84%;" required>
                         <option value="Perangkat">- Pilih Perangkat -</option>
                         <option value="Laptop">Laptop</option>
                         <option value="PC Desktop">PC Desktop</option>
@@ -91,10 +89,10 @@ foreach ($users as $user) {
                     </select>
                     <br>
                     <label for="merk">Merk Perangkat<span style="color: crimson;">*</span></label>
-                    <input type="text" id="merk" name="merk" style="height: 35px; width: 100%;" required>
+                    <input type="text" id="merk" name="merk" style="height: 20px; width: 80%;" required>
                     <br>
                     <label for="lokasi">Lokasi/Area Kerja Penggunaan Perangkat<span style="color: crimson;">*</span></label>
-                    <input type="text" id="lokasi" name="lokasi" style="height: 35px; width: 208%;" readonly>
+                    <input type="text" id="lokasi" name="lokasi" style="height: 20px; width: 188%;" readonly>
                 </div>
                 <div style="flex: 1;">
                     <label for="nama_user">Nama Pengguna<span style="color: crimson;">*</span></label>
@@ -108,7 +106,7 @@ foreach ($users as $user) {
 
                         $result = mysqli_query($conn_podema, "SELECT * FROM users ORDER BY name ASC");
                         if ($result) {
-                            echo '<select id="name" name="nama_user" style="height: 38px; width: 100%;" required>';
+                            echo '<select id="name" name="nama_user" style="height: 38px; width: 84%;" required>';
                             echo '<option value="">--- Pilih ---</option>';
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo '<option value="' . $row['name'] . '">' . $row['name'] . '</option>';
@@ -119,10 +117,10 @@ foreach ($users as $user) {
                     ?>
                     <br>
                     <label for="status">Posisi/Divisi<span style="color: crimson;">*</span></label>
-                    <input type="text" id="status" name="status" style="height: 35px; width: 100%;" readonly>
+                    <input type="text" id="status" name="status" style="height: 20px; width: 80%;" readonly>
                     <br>
                     <label for="serialnumber">Nomor Serial<span style="color: crimson;">*</span></label>
-                    <input type="text" id="serialnumber" name="serialnumber" style="height: 35px; width: 100%;" required>
+                    <input type="text" id="serialnumber" name="serialnumber" style="height: 20px; width: 80%;" required>
                 </div>
                 <script>
                     document.getElementById('name').addEventListener('change', function() {
@@ -142,10 +140,10 @@ foreach ($users as $user) {
             </div>
             <br>
             <label for="informasi_keluhan" id="informasi_keluhan_label" class="device-label">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
-            <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 85px; width: 100%;" required class="device-select"></textarea>
+            <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required class="device-select"></textarea>
 
             <label for="casing_lap" id="casing_lap_label" class="device-label">Casing<span style="color: crimson;">*</span></label>
-            <select id="casing_lap" name="casing_lap" style="height: 35px; width: 100%;" required class="device-select">
+            <select id="casing_lap" name="casing_lap" style="height: 35px; width: 98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $casingOptions = fetchData("ins_casing_lap");
@@ -156,7 +154,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="layar_lap" id="layar_lap_label" class="device-label">Layar<span style="color: crimson;">*</span></label>
-            <select id="layar_lap" name="layar_lap" style="height: 35px; width: 100%;" required class="device-select">
+            <select id="layar_lap" name="layar_lap" style="height: 35px; width: 98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $layarOptions = fetchData("ins_layar_lap");
@@ -167,7 +165,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="engsel_lap" id="engsel_lap_label" class="device-label">Engsel<span style="color: crimson;">*</span></label>
-            <select id="engsel_lap" name="engsel_lap" style="height: 35px; width: 100%;" required class="device-select">
+            <select id="engsel_lap" name="engsel_lap" style="height: 35px; width: 98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $engselOptions = fetchData("ins_engsel_lap");
@@ -178,7 +176,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="keyboard_lap" id="keyboard_lap_label" class="device-label">Keyboard<span style="color: crimson;">*</span></label>
-            <select id="keyboard_lap" name="keyboard_lap" style="height: 35px; width: 100%;" required class="device-select">
+            <select id="keyboard_lap" name="keyboard_lap" style="height: 35px; width: 98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $keyboardOptions = fetchData("ins_keyboard_lap");
@@ -189,7 +187,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="touchpad_lap" id="touchpad_lap_label" class="device-label">Touchpad<span style="color: crimson;">*</span></label>
-            <select id="touchpad_lap" name="touchpad_lap" style="height: 35px; width:100%;" required class="device-select">
+            <select id="touchpad_lap" name="touchpad_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $touchpadOptions = fetchData("ins_touchpad_lap");
@@ -200,7 +198,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="booting_lap" id="booting_lap_label" class="device-label">Proses Booting<span style="color: crimson;">*</span></label>
-            <select id="booting_lap" name="booting_lap" style="height: 35px; width:100%;" required class="device-select">
+            <select id="booting_lap" name="booting_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $bootingOptions = fetchData("ins_booting_lap");
@@ -211,7 +209,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="multi_lap" id="multi_lap_label" class="device-label">Multitasking Apps<span style="color: crimson;">*</span></label>
-            <select id="multi_lap" name="multi_lap" style="height: 35px; width:100%;" required class="device-select">
+            <select id="multi_lap" name="multi_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $multiOptions = fetchData("ins_multi_lap");
@@ -222,7 +220,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="tampung_lap" id="tampung_lap_label" class="device-label">Kapasitas Baterai<span style="color: crimson;">*</span></label>
-            <select id="tampung_lap" name="tampung_lap" style="height: 35px; width:100%;" required class="device-select">
+            <select id="tampung_lap" name="tampung_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $tampungOptions = fetchData("ins_tampung_lap");
@@ -233,7 +231,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="isi_lap" id="isi_lap_label" class="device-label">Waktu Pengisian Baterai<span style="color: crimson;">*</span></label>
-            <select id="isi_lap" name="isi_lap" style="height: 35px; width:100%;" required class="device-select">
+            <select id="isi_lap" name="isi_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $isiOptions = fetchData("ins_isi_lap");
@@ -244,7 +242,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="port_lap" id="port_lap_label" class="device-label">Port<span style="color: crimson;">*</span></label>
-            <select id="port_lap" name="port_lap" style="height: 35px; width:100%;" required class="device-select">
+            <select id="port_lap" name="port_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $portOptions = fetchData("ins_port_lap");
@@ -255,7 +253,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="audio_lap" id="audio_lap_label" class="device-label">Audio<span style="color: crimson;">*</span></label>
-            <select id="audio_lap" name="audio_lap" style="height: 35px; width:100%;" required class="device-select">
+            <select id="audio_lap" name="audio_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $audioOptions = fetchData("ins_audio_lap");
@@ -266,7 +264,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="software_lap" id="software_lap_label" class="device-label">Software<span style="color: crimson;">*</span></label>
-            <select id="software_lap" name="software_lap" style="height: 35px; width:100%;" required class="device-select">
+            <select id="software_lap" name="software_lap" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $softwareOptions = fetchData("ins_software_lap");
@@ -277,7 +275,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="ink_pad" id="ink_pad_label" class="device-label">Ink Pad<span style="color: crimson;">*</span></label>
-            <select id="ink_pad" name="ink_pad" style="height: 35px; width:100%;" required class="device-select">
+            <select id="ink_pad" name="ink_pad" style="height: 35px; width:98%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $inkpadOptions = fetchData("ins_ink_pad");
@@ -287,37 +285,24 @@ foreach ($users as $user) {
                 ?>
             </select>
 
-            <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan:<span style="color: crimson;">*</span></label>
-            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 100%;" required class="device-select"></textarea>
+            <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
+            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required class="device-select"></textarea>
 
-            <label for="screenshot" id="screenshot_label" class="device-label">Screenshot:<span style="color: crimson;">*</span></label>
-            <div id="screenshot" style="width: 84%; max-width: 100%; margin: 0;"></div>
-            <script>
-            document.getElementById('assessmentForm').addEventListener('submit', function(event) {
-                var screenshotContent = $('#screenshot').summernote('code');
-                $('#screenshot').summernote('code', screenshotContent.trim());
-            });
+            <label for="screenshot" id="screenshot_label" class="device-label">Screenshot</label>
+            <div id="screenshot_editor" style="width: 98%;">
+                <textarea id="screenshot" name="screenshot" style="display:none;"></textarea>
+            </div>
 
-                $(document).ready(function() {
-                    $('#screenshot').summernote({
-                        toolbar: [
-                            ['style', ['bold', 'italic', 'underline']],
-                            ['insert', ['picture']]
-                        ]
-                    });
-                });
-            </script>
-            
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
-            <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 100%;" required class="device-select"></textarea>
-            
-            <label for="upload_file" id="upload_file_label" class="device-label">Upload File<span style="color: crimson;">*</span></label></label>
+            <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required class="device-select"></textarea>
+
+            <label for="upload_file" id="upload_file_label" class="device-label" style="margin-bottom: 10px;" >Upload File<span style="color: crimson;">*</span></label></label>
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required class="device-select">
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
             <br>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'];
+                    var elementsToShow = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'];
 
                     // Hide label dan elemen form saat pertama kali dimuat
                     hideAllLabelsAndElements();
@@ -371,14 +356,49 @@ foreach ($users as $user) {
 
                     function getRelevantElements(jenisPerangkat) {
                         var relevantElements = {
-                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
-                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
-                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'],
-                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file']
+                            'Laptop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
+                            'PC Desktop': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'keyboard_lap', 'booting_lap', 'multi_lap', 'port_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
+                            'Monitor': ['informasi_keluhan', 'casing_lap', 'layar_lap', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi'],
+                            'Printer': ['informasi_keluhan', 'casing_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshoot', 'rekomendasi']
                         };
 
                         return relevantElements[jenisPerangkat] || [];
                     }
+                });
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    var summernoteElement = document.getElementById('screenshot_editor');
+
+                    var summernote = new Summernote(summernoteElement, {
+                        height: 200,
+                        placeholder: 'Klik di sini untuk mengunggah screenshot atau memasukkan teks.',
+                        callbacks: {
+                            onPaste: function(e) {
+                                var clipboardData = e.originalEvent.clipboardData;
+                                var items = clipboardData.items;
+
+                                for (var i = 0; i < items.length; i++) {
+                                    var item = items[i];
+                                    if (item.type.indexOf("image") !== -1) {
+                                        var blob = item.getAsFile();
+                                        var reader = new FileReader();
+                                        reader.onload = function(event) {
+                                            var img = document.createElement('img');
+                                            img.src = event.target.result;
+                                            summernote.editor.insertNode(img);
+                                        };
+                                        reader.readAsDataURL(blob);
+                                    }
+                                }
+                                return false; // Prevent default paste behavior
+                            }
+                        }
+                    });
+
+                    summernote.editor.on('change', function() {
+                        var content = summernote.editor.getContent();
+                        document.getElementById('screenshot').value = content;
+                    });
                 });
             </script>
             <input type="submit" value="Submit">
