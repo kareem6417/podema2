@@ -80,7 +80,7 @@ foreach ($users as $user) {
             <div style="display: flex; flex-wrap: wrap; gap: 30px;">
                 <div style="flex: 1;">
                     <label for="date">Tanggal Pemeriksaan<span style="color: crimson;">*</span></label>
-                    <input type="date" id="date" name="date" style="height: 25px; width: 83%; font-family: Arial, sans-serif; font-size: 13.5px;" required>
+                    <input type="date" id="date" name="date" style="height: 35px; width: 84%; font-family: Arial, sans-serif; font-size: 13.5px;" required>
                     <br>
                     <label for="jenis">Jenis Perangkat<span style="color: crimson;">*</span></label>
                     <select id="jenis" name="jenis" style="height: 35px; width: 84%;" required>
@@ -92,7 +92,7 @@ foreach ($users as $user) {
                     </select>
                     <br>
                     <label for="merk">Merk Perangkat<span style="color: crimson;">*</span></label>
-                    <input type="text" id="merk" name="merk" style="height: 20px; width: 80%;" required>
+                    <input type="text" id="merk" name="merk" style="height: 35px; width: 84%;" required>
                     <br>
                     <label for="lokasi">Lokasi/Area Kerja Penggunaan Perangkat<span style="color: crimson;">*</span></label>
                     <input type="text" id="lokasi" name="lokasi" style="height: 20px; width: 188%;" readonly>
@@ -120,10 +120,10 @@ foreach ($users as $user) {
                     ?>
                     <br>
                     <label for="status">Posisi/Divisi<span style="color: crimson;">*</span></label>
-                    <input type="text" id="status" name="status" style="height: 20px; width: 80%;" readonly>
+                    <input type="text" id="status" name="status" style="height: 35px; width: 84%;" readonly>
                     <br>
                     <label for="serialnumber">Nomor Serial<span style="color: crimson;">*</span></label>
-                    <input type="text" id="serialnumber" name="serialnumber" style="height: 20px; width: 80%;" required>
+                    <input type="text" id="serialnumber" name="serialnumber" style="height: 35px; width: 84%;" required>
                 </div>
                 <script>
                     document.getElementById('name').addEventListener('change', function() {
@@ -143,7 +143,7 @@ foreach ($users as $user) {
             </div>
             <br>
             <label for="informasi_keluhan" id="informasi_keluhan_label" class="device-label">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
-            <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required class="device-select"></textarea>
+            <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 85px; width: 98%;" required class="device-select"></textarea>
 
             <label for="casing_lap" id="casing_lap_label" class="device-label">Casing<span style="color: crimson;">*</span></label>
             <select id="casing_lap" name="casing_lap" style="height: 35px; width: 98%;" required class="device-select">
@@ -289,7 +289,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
-            <div id="hasil_pemeriksaan" style="height: 200px;"></div>
+            <div id="hasil_pemeriksaan" style="height: 200px; width: 96%"></div>
 
             <script>
                 $(document).ready(function() {
@@ -304,7 +304,8 @@ foreach ($users as $user) {
 
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required class="device-select"></textarea>
-
+            
+            <br>
             <label for="upload_file" id="upload_file_label" class="device-label" style="margin-bottom: 10px;" >Upload File<span style="color: crimson;">*</span></label></label>
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required class="device-select">
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
