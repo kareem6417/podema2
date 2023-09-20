@@ -141,10 +141,10 @@ foreach ($users as $user) {
             </div>
             <br>
             <label for="informasi_keluhan" id="informasi_keluhan_label" class="device-label">Informasi Keluhan/Permasalahan yang disampaikan:<span style="color: crimson;">*</span></label>
-            <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 98%;" required class="device-select"></textarea>
+            <textarea id="informasi_keluhan" name="informasi_keluhan" style="height: 75px; width: 99%;" required class="device-select"></textarea>
 
             <label for="casing_lap" id="casing_lap_label" class="device-label">Casing<span style="color: crimson;">*</span></label>
-            <select id="casing_lap" name="casing_lap" style="height: 35px; width: 98%;" required class="device-select">
+            <select id="casing_lap" name="casing_lap" style="height: 35px; width: 100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $casingOptions = fetchData("ins_casing_lap");
@@ -155,7 +155,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="layar_lap" id="layar_lap_label" class="device-label">Layar<span style="color: crimson;">*</span></label>
-            <select id="layar_lap" name="layar_lap" style="height: 35px; width: 98%;" required class="device-select">
+            <select id="layar_lap" name="layar_lap" style="height: 35px; width: 100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $layarOptions = fetchData("ins_layar_lap");
@@ -166,7 +166,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="engsel_lap" id="engsel_lap_label" class="device-label">Engsel<span style="color: crimson;">*</span></label>
-            <select id="engsel_lap" name="engsel_lap" style="height: 35px; width: 98%;" required class="device-select">
+            <select id="engsel_lap" name="engsel_lap" style="height: 35px; width: 100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $engselOptions = fetchData("ins_engsel_lap");
@@ -177,7 +177,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="keyboard_lap" id="keyboard_lap_label" class="device-label">Keyboard<span style="color: crimson;">*</span></label>
-            <select id="keyboard_lap" name="keyboard_lap" style="height: 35px; width: 98%;" required class="device-select">
+            <select id="keyboard_lap" name="keyboard_lap" style="height: 35px; width: 100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $keyboardOptions = fetchData("ins_keyboard_lap");
@@ -188,7 +188,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="touchpad_lap" id="touchpad_lap_label" class="device-label">Touchpad<span style="color: crimson;">*</span></label>
-            <select id="touchpad_lap" name="touchpad_lap" style="height: 35px; width:98%;" required class="device-select">
+            <select id="touchpad_lap" name="touchpad_lap" style="height: 35px; width:100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $touchpadOptions = fetchData("ins_touchpad_lap");
@@ -199,7 +199,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="booting_lap" id="booting_lap_label" class="device-label">Proses Booting<span style="color: crimson;">*</span></label>
-            <select id="booting_lap" name="booting_lap" style="height: 35px; width:98%;" required class="device-select">
+            <select id="booting_lap" name="booting_lap" style="height: 35px; width:100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $bootingOptions = fetchData("ins_booting_lap");
@@ -210,7 +210,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="multi_lap" id="multi_lap_label" class="device-label">Multitasking Apps<span style="color: crimson;">*</span></label>
-            <select id="multi_lap" name="multi_lap" style="height: 35px; width:98%;" required class="device-select">
+            <select id="multi_lap" name="multi_lap" style="height: 35px; width:100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $multiOptions = fetchData("ins_multi_lap");
@@ -221,7 +221,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="tampung_lap" id="tampung_lap_label" class="device-label">Kapasitas Baterai<span style="color: crimson;">*</span></label>
-            <select id="tampung_lap" name="tampung_lap" style="height: 35px; width:98%;" required class="device-select">
+            <select id="tampung_lap" name="tampung_lap" style="height: 35px; width:100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $tampungOptions = fetchData("ins_tampung_lap");
@@ -232,7 +232,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="isi_lap" id="isi_lap_label" class="device-label">Waktu Pengisian Baterai<span style="color: crimson;">*</span></label>
-            <select id="isi_lap" name="isi_lap" style="height: 35px; width:98%;" required class="device-select">
+            <select id="isi_lap" name="isi_lap" style="height: 35px; width:100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $isiOptions = fetchData("ins_isi_lap");
@@ -243,7 +243,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="port_lap" id="port_lap_label" class="device-label">Port<span style="color: crimson;">*</span></label>
-            <select id="port_lap" name="port_lap" style="height: 35px; width:98%;" required class="device-select">
+            <select id="port_lap" name="port_lap" style="height: 35px; width:100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $portOptions = fetchData("ins_port_lap");
@@ -254,7 +254,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="audio_lap" id="audio_lap_label" class="device-label">Audio<span style="color: crimson;">*</span></label>
-            <select id="audio_lap" name="audio_lap" style="height: 35px; width:98%;" required class="device-select">
+            <select id="audio_lap" name="audio_lap" style="height: 35px; width:100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $audioOptions = fetchData("ins_audio_lap");
@@ -265,7 +265,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="software_lap" id="software_lap_label" class="device-label">Software<span style="color: crimson;">*</span></label>
-            <select id="software_lap" name="software_lap" style="height: 35px; width:98%;" required class="device-select">
+            <select id="software_lap" name="software_lap" style="height: 35px; width:100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $softwareOptions = fetchData("ins_software_lap");
@@ -276,7 +276,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="ink_pad" id="ink_pad_label" class="device-label">Ink Pad<span style="color: crimson;">*</span></label>
-            <select id="ink_pad" name="ink_pad" style="height: 35px; width:98%;" required class="device-select">
+            <select id="ink_pad" name="ink_pad" style="height: 35px; width:100%;" required class="device-select">
                 <option value="">--- Pilih ---</option>
                 <?php
                 $inkpadOptions = fetchData("ins_ink_pad");
@@ -287,7 +287,7 @@ foreach ($users as $user) {
             </select>
 
             <label for="hasil_pemeriksaan" id="hasil_pemeriksaan_label" class="device-label">Hasil Pemeriksaan Lainnya:<span style="color: crimson;">*</span></label>
-            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 98%;" required class="device-select"></textarea>
+            <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 99%;" required class="device-select"></textarea>
 
             <label for="screenshot" id="screenshot_label" class="device-label">Screenshot:<span style="color: crimson;">*</span></label>
             <div id="screenshot" style="width: 84%; max-width: 100%; margin: 0;"></div>
@@ -308,7 +308,7 @@ foreach ($users as $user) {
             </script>
 
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
-            <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 98%;" required class="device-select"></textarea>
+            <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 99%;" required class="device-select"></textarea>
 
             <label for="upload_file" id="upload_file_label" class="device-label" style="margin-bottom: 10px;" >Upload File<span style="color: crimson;">*</span></label></label>
             <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required class="device-select">
