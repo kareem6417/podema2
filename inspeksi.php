@@ -297,14 +297,41 @@ foreach ($users as $user) {
                 $('#screenshot').summernote('code', screenshotContent.trim());
             });
 
-                $(document).ready(function() {
-                    $('#screenshot').summernote({
-                        toolbar: [
-                            ['style', ['bold', 'italic', 'underline']],
-                            ['insert', ['picture']]
-                        ]
-                    });
+            $(document).ready(function() {
+                $('#screenshot').summernote({
+                    toolbar: [
+                        ['style', ['bold', 'italic', 'underline']],
+                        ['insert', ['picture']]
+                    ]
                 });
+
+                // Fungsi untuk menangani event paste
+                function handlePaste(event) {
+                    var items = (event.clipboardData || event.originalEvent.clipboardData).items;
+
+                    for (index in items) {
+                        var item = items[index];
+                        if (item.kind === 'file' && item.type.indexOf('image') !== -1) {
+                            var blob = item.getAsFile();
+                            var reader = new FileReader();
+
+                            reader.onload = function(event){
+                                var dataUri = event.target.result;
+                                var img = new Image();
+                                img.src = dataUri;
+                                img.onload = function(){
+                                    $('#screenshot').summernote('insertImage', dataUri);
+                                }
+                            }
+
+                            reader.readAsDataURL(blob);
+                        }
+                    }
+                }
+
+                // Memasang event listener untuk event paste
+                document.getElementById('screenshot').addEventListener('paste', handlePaste);
+            });
             </script>
 
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
