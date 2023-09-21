@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/dev-podema/File Upload Inspeksi/";
-
+    
         // Upload file lainnya
         $file = $_FILES['upload_file']['name'];
         $path = pathinfo($file);
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ext = $path['extension'];
         $temp_name = $_FILES['upload_file']['tmp_name'];
         $path_filename_ext = $target_dir . $filename . '.' . $ext;
-
+    
         if (file_exists($path_filename_ext)) {
             echo "Maaf, file sudah ada.";
         } else {
@@ -120,15 +120,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $imageFileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
     
         // Cek apakah file gambar atau bukan
-        if(isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["screenshot"]["tmp_name"]);
-            if($check !== false) {
-                echo "File adalah gambar - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File bukan gambar.";
-                $uploadOk = 0;
-            }
+        $check = getimagesize($_FILES["screenshot"]["tmp_name"]);
+        if($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo "File bukan gambar.";
+            $uploadOk = 0;
         }
     
         // Cek jika file sudah ada
@@ -144,21 +141,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $uploadOk = 0;
         }
     
-        // Periksa jika $uploadOk disetel ke 0 oleh kesalahan
-        if ($uploadOk == 0) {
-            echo "Maaf, file tidak diunggah.";
         // Jika semuanya baik-baik saja, coba unggah file
-        } else {
+        if ($uploadOk == 1) {
             if (move_uploaded_file($_FILES["screenshot"]["tmp_name"], $targetFile)) {
                 echo "File ". basename( $_FILES["screenshot"]["name"]). " telah diunggah.";
+                header("Location: viewinspeksi.php");
+                exit();
             } else {
                 echo "Maaf, terjadi kesalahan saat mengunggah file.";
             }
+        } else {
+            echo "Maaf, file tidak diunggah.";
         }
-        
-        header("Location: viewinspeksi.php");
-        exit();
-    }
+    }    
 }
 
 $conn->close();
