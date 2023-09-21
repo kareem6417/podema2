@@ -144,8 +144,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Allow certain file formats
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif") {
+        $allowedTypes = array("jpg", "jpeg", "png", "gif");
+        if (!in_array($imageFileType, $allowedTypes)) {
             echo "Maaf, hanya file JPG, JPEG, PNG & GIF yang diperbolehkan.";
             $uploadOk = 0;
         }
@@ -155,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Maaf, file Anda tidak dapat diunggah.";
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                echo "Koneksi Berhasil! File Anda berhasil diunggah.";
+                echo "File Anda berhasil diunggah.";
                 header("Location: viewinspeksi.php");
                 exit();
             } else {
