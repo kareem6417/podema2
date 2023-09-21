@@ -121,22 +121,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         // Cek apakah file gambar atau bukan
         $check = getimagesize($_FILES["screenshot"]["tmp_name"]);
-        if($check !== false) {
-            $uploadOk = 1;
-        } else {
+        if ($check === false) {
             echo "File bukan gambar.";
             $uploadOk = 0;
         }
     
-        // Cek jika file sudah ada
-        if (file_exists($targetFile)) {
-            echo "Maaf, file sudah ada.";
-            $uploadOk = 0;
-        }
-    
         // Batasi jenis file jika diperlukan
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif" ) {
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
             echo "Maaf, hanya file JPG, JPEG, PNG & GIF yang diperbolehkan.";
             $uploadOk = 0;
         }
@@ -144,7 +135,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Jika semuanya baik-baik saja, coba unggah file
         if ($uploadOk == 1) {
             if (move_uploaded_file($_FILES["screenshot"]["tmp_name"], $targetFile)) {
-                echo "File ". basename( $_FILES["screenshot"]["name"]). " telah diunggah.";
+                echo "File " . basename($_FILES["screenshot"]["name"]) . " telah diunggah.";
+        
+                // Setelah screenshot berhasil diunggah, alihkan ke viewinspeksi.php
                 header("Location: viewinspeksi.php");
                 exit();
             } else {
@@ -153,6 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Maaf, file tidak diunggah.";
         }
+        
     }    
 }
 
