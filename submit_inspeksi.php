@@ -124,15 +124,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $screenshot_temp_name = $_FILES['screenshot']['tmp_name'];
         $screenshot_path_filename_ext = $screenshot_dir . $screenshot_filename . '.' . $screenshot_ext;
 
-        if (file_exists($screenshot_path_filename_ext)) {
-            echo "Maaf, screenshot sudah ada.";
+        if (move_uploaded_file($screenshot_temp_name, $screenshot_path_filename_ext)) {
+            echo "Screenshot Anda berhasil diunggah.";
+            echo '<meta http-equiv="refresh" content="0;url=viewinspeksi.php">';
         } else {
-            if (move_uploaded_file($screenshot_temp_name, $screenshot_path_filename_ext)) {
-                echo "Screenshot Anda berhasil diunggah.";
-                echo '<meta http-equiv="refresh" content="0;url=viewinspeksi.php">';
-            } else {
-                echo "Terjadi kesalahan saat mengunggah screenshot.";
-            }
+            echo "Terjadi kesalahan saat mengunggah screenshot.";
         }
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
