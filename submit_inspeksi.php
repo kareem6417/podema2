@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $targetDirectory = "/dev-podema/screenshot/";
         $targetFile = $targetDirectory . basename($_FILES["screenshot"]["name"]);
         $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
         // Cek apakah file screenshot diunggah dengan benar
         if ($_FILES["screenshot"]["error"] == UPLOAD_ERR_OK) {
@@ -124,10 +124,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $name = $_FILES["screenshot"]["name"];
             if (move_uploaded_file($tmp_name, $targetFile)) {
                 echo "File screenshot berhasil diunggah.";
-                // Update konten gambar di Summernote
-                $screenshotContent = $_POST['screenshot_content'];
-                $screenshotContent .= '<img src="'.$targetFile.'" alt="screenshot">';
-                $_POST['screenshot_content'] = $screenshotContent;
             } else {
                 echo "Maaf, terjadi kesalahan saat mengunggah file screenshot.";
             }
