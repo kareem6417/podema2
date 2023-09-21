@@ -92,12 +92,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$date', '$jenis', '$merk', '$lokasi', '$nama_user', '$status', '$serialnumber', '$informasi_keluhan', '$hasil_pemeriksaan', '$rekomendasi', '$casing_lap', '$ink_pad', '$score')";
     }
 
-    if ($conn->query($sql) === TRUE) {
-        // direktori untuk file upload inspeksi
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/dev-podema/File Upload Inspeksi/";
-
-        // direktori untuk screenshot inspeksi
-        $screenshot_dir = $_SERVER['DOCUMENT_ROOT'] . "/dev-podema/screenshot/";
 
         // Upload file lainnya
         $file = $_FILES['upload_file']['name'];
@@ -116,22 +112,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Terjadi kesalahan saat mengunggah file.";
             }
         }
-
-        $screenshot_file = $_FILES['screenshot']['name'];
-        $screenshot_path = pathinfo($screenshot_file);
-        $screenshot_filename = $screenshot_path['filename'];
-        $screenshot_ext = $screenshot_path['extension'];
-        $screenshot_temp_name = $_FILES['screenshot']['tmp_name'];
-        $screenshot_path_filename_ext = $screenshot_dir . $screenshot_filename . '.' . $screenshot_ext;
-
-        if (move_uploaded_file($screenshot_temp_name, $screenshot_path_filename_ext)) {
-            echo "Screenshot Anda berhasil diunggah.";
-            echo '<meta http-equiv="refresh" content="0;url=viewinspeksi.php">';
-        } else {
-            echo "Terjadi kesalahan saat mengunggah screenshot.";
+    
+        // Proses upload screenshot
+        $targetDirectory = "/dev-podema/screenshot/";
+        $targetFile = $targetDirectory . basename($_FILES["screenshot"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
+    
+        // Cek apakah file gambar atau bukan
+        if(isset($_POST["submit"])) {
+            $check = getimagesize($_FILES["screenshot"]["tmp_name"]);
+            if($check !== false) {
+                echo "File adalah gambar - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                echo "File bukan gambar.";
+                $uploadOk = 0;
+            }
         }
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+    
+        // Cek jika file sudah ada
+        if (file_exists($targetFile)) {
+            echo "Maaf, file sudah ada.";
+            $uploadOk = 0;
+        }
+    
+        // Batasi jenis file jika diperlukan
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" ) {
+            echo "Maaf, hanya file JPG, JPEG, PNG & GIF yang diperbolehkan.";
+            $uploadOk = 0;
+        }
+    
+        // Periksa jika $uploadOk disetel ke 0 oleh kesalahan
+        if ($uploadOk == 0) {
+            echo "Maaf, file tidak diunggah.";
+        // Jika semuanya baik-baik saja, coba unggah file
+        } else {
+            if (move_uploaded_file($_FILES["screenshot"]["tmp_name"], $targetFile)) {
+                echo "File ". basename( $_FILES["screenshot"]["name"]). " telah diunggah.";
+            } else {
+                echo "Maaf, terjadi kesalahan saat mengunggah file.";
+            }
+        }
+        
+        header("Location: viewinspeksi.php");
+        exit();
     }
 }
 
