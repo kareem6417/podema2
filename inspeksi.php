@@ -346,7 +346,7 @@ foreach ($users as $user) {
                     var selectedDevice = this.value;
                     var elementsToSubmit = getElementsToSubmit(selectedDevice);
 
-                    var allElements = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'];
+                    var allElements = ['informasi_keluhan', 'casing_lap', 'layar_lap', 'engsel_lap', 'keyboard_lap', 'touchpad_lap', 'booting_lap', 'multi_lap', 'tampung_lap', 'isi_lap', 'port_lap', 'audio_lap', 'software_lap', 'ink_pad', 'hasil_pemeriksaan', 'screenshot', 'rekomendasi', 'upload_file'];
 
                     allElements.forEach(function(elementId) {
                         var element = document.getElementById(elementId);
