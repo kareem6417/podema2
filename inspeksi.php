@@ -290,11 +290,12 @@ foreach ($users as $user) {
             <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 99%;" required class="device-select"></textarea>
 
             <label for="screenshot" id="screenshot_label" class="device-label">Screenshot:<span style="color: crimson;">*</span></label>
+            <input type="hidden" id="screenshot_content" name="screenshot_content">
             <div id="screenshot" style="width: 84%; max-width: 100%; margin: 0;"></div>
             <script>
             document.getElementById('assessmentForm').addEventListener('submit', function(event) {
                 var screenshotContent = $('#screenshot').summernote('code');
-                $('#screenshot').summernote('code', screenshotContent.trim());
+                $('#screenshot_content').val(screenshotContent.trim());
             });
 
             $(document).ready(function() {
