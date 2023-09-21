@@ -113,23 +113,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     
-        // Proses upload screenshot
         $targetDirectory = "/dev-podema/screenshot/";
         $targetFile = $targetDirectory . basename($_FILES["screenshot"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
 
-        // Jika file screenshot diunggah
+        // Cek apakah file screenshot diunggah dengan benar
         if ($_FILES["screenshot"]["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $_FILES["screenshot"]["tmp_name"];
             $name = $_FILES["screenshot"]["name"];
-            move_uploaded_file($tmp_name, "$targetDirectory/$name");
-            echo "File screenshot berhasil diunggah.";
+            if (move_uploaded_file($tmp_name, $targetFile)) {
+                echo "File screenshot berhasil diunggah.";
+            } else {
+                echo "Maaf, terjadi kesalahan saat mengunggah file screenshot.";
+            }
         } else {
             echo "Terjadi kesalahan saat mengunggah screenshot.";
         }
+
+        // Pastikan file screenshot berhasil diunggah sebelum mengalihkan
+        if (file_exists($targetFile)) {
             header("Location: viewinspeksi.php");
             exit();
+        } else {
+            echo "Maaf, file screenshot tidak ditemukan di direktori.";
+        }
     }    
 }
 
