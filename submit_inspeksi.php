@@ -112,57 +112,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Terjadi kesalahan saat mengunggah file.";
             }
         }
-    
-        // Proses upload screenshot
-        $target_dir = "dev-podema/screenshot/";
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    }
 
-        // Check if image file is a actual image or fake image
-        if (isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-            if ($check !== false) {
-                echo "File adalah gambar - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File bukan gambar.";
-                $uploadOk = 0;
-            }
-        }
+    $target_screenshot_dir = $_SERVER['DOCUMENT_ROOT'] . "/dev-podema/screenshot/";
 
-        // Check if file already exists
-        if (file_exists($target_file)) {
-            echo "Maaf, file sudah ada.";
-            $uploadOk = 0;
-        }
+    // Loop melalui setiap file screenshot yang diunggah
+    foreach ($_FILES['screenshot_file']['tmp_name'] as $key => $tmp_name) {
+        $file_name = $_FILES['screenshot_file']['name'][$key];
+        $file_size = $_FILES['screenshot_file']['size'][$key];
+        $file_tmp = $_FILES['screenshot_file']['tmp_name'][$key];
+        $file_type = $_FILES['screenshot_file']['type'][$key];
 
-        // Check file size
-        if ($_FILES["fileToUpload"]["size"] > 500000) {
-            echo "Maaf, ukuran file terlalu besar.";
-            $uploadOk = 0;
-        }
+        $target_screenshot_file = $target_screenshot_dir . $file_name;
 
-        // Allow certain file formats
-        $allowedTypes = array("jpg", "jpeg", "png", "gif");
-        if (!in_array($imageFileType, $allowedTypes)) {
-            echo "Maaf, hanya file JPG, JPEG, PNG & GIF yang diperbolehkan.";
-            $uploadOk = 0;
-        }
+        // Pindahkan file dari lokasi sementara ke direktori tujuan
+        move_uploaded_file($file_tmp, $target_screenshot_file);
+    }
 
-        // Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
-            echo "Maaf, file Anda tidak dapat diunggah.";
-        } else {
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                echo "File Anda berhasil diunggah.";
-                echo '<meta http-equiv="refresh" content="0;url=viewinspeksi.php">';
-                exit();
-            } else {
-                echo "Maaf, terjadi kesalahan saat mengunggah file.";
-            }
-        }
-    }    
+    // Setelah mengunggah file, alihkan ke viewinspeksi.php
+    header("Location: viewinspeksi.php");
+    exit();
 }
 
 $conn->close();
