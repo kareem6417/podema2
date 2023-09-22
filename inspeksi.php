@@ -290,6 +290,7 @@ foreach ($users as $user) {
             <div id="screenshot" style="max-width: 100%; margin: 0;">
                 <input type="file" id="screenshot_file" name="screenshot_file[]" accept="image/*" style="display: none;" multiple>
                 <label for="screenshot_file" id="screenshot_upload_label" class="upload-label" style="cursor: pointer; background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; margin-bottom: 10px; width: 12%;">Upload</label>
+                <button type="button" id="reset_button" class="reset-button" style="cursor: pointer; background-color: #FF5722; color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; margin-bottom: 10px; margin-left: 10px;">Reset</button>
                 <div id="screenshot_preview_container" style="max-width: 100%; overflow-x: auto; width: 60%; display: inline-block;">
                     <!-- Preview images will be shown here -->
                 </div>
@@ -320,6 +321,12 @@ foreach ($users as $user) {
                             reader.readAsDataURL(input.files[i]);
                         }
                     }
+                });
+
+                document.getElementById('reset_button').addEventListener('click', function() {
+                    var previewContainer = document.getElementById('screenshot_preview_container');
+                    previewContainer.innerHTML = ''; // Menghapus semua elemen gambar dari pratinjau
+                    document.getElementById('screenshot_file').value = ''; // Menghapus file yang diunggah dari input
                 });
             </script>
 
