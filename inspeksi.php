@@ -289,8 +289,8 @@ foreach ($users as $user) {
             <label for="screenshot" id="screenshot_label" class="device-label">Screenshot:<span style="color: crimson;">*</span></label>
             <div id="screenshot" style="max-width: 100%; margin: 0;">
                 <input type="file" id="screenshot_file" name="screenshot_file[]" accept="image/*" style="display: none;" multiple>
-                <button type="button" id="screenshot_upload_button" class="upload-button" style="cursor: pointer; background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; margin-bottom: 10px; width: 48%; display: inline-block;">Upload</button>
-                <button type="button" id="reset_button" class="reset-button" style="cursor: pointer; background-color: #FF5722; color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; margin-bottom: 10px; width: 48%; display: inline-block;">Reset</button>
+                <button type="button" id="screenshot_upload_button" class="upload-button" style="cursor: pointer; background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; margin-bottom: 10px; width: 13%; display: inline-block;">Upload</button>
+                <button type="button" id="reset_button" class="reset-button" style="cursor: pointer; background-color: #FF5722; color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; margin-bottom: 10px; width: 13%; display: inline-block;">Reset</button>
                 <div id="screenshot_preview_container" style="max-width: 100%; overflow-x: auto; width: 100%; display: inline-block;">
                     <!-- Preview images will be shown here -->
                 </div>
