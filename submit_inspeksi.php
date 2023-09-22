@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 echo "File Anda berhasil diunggah.";
-                header("Location: viewinspeksi.php");
+                echo '<meta http-equiv="refresh" content="0;url=viewinspeksi.php">';
                 exit();
             } else {
                 echo "Maaf, terjadi kesalahan saat mengunggah file.";
