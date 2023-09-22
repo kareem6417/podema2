@@ -297,7 +297,7 @@ foreach ($users as $user) {
 
                 <style>
                     #screenshot_preview_container img {
-                        max-width: 100%; /* Pratinjau gambar tidak akan melebihi lebar formulir */
+                        max-width: 180%; /* Pratinjau gambar tidak akan melebihi lebar formulir */
                         height: auto; /* Menjaga aspek rasio gambar */
                         display: block;
                         margin-bottom: 10px;
