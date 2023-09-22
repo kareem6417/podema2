@@ -289,17 +289,17 @@ foreach ($users as $user) {
             <label for="screenshot" id="screenshot_label" class="device-label">Screenshot:<span style="color: crimson;">*</span></label>
             <div id="screenshot" style="max-width: 100%; margin: 0;">
                 <input type="file" id="screenshot_file" name="screenshot_file[]" accept="image/*" style="display: none;" multiple>
-                <label for="screenshot_file" id="screenshot_upload_label" class="upload-label" style="cursor: pointer; background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; margin-bottom: 10px; width: 12%;">Upload</label>
-                <button type="button" id="reset_button" class="reset-button" style="cursor: pointer; background-color: #FF5722; color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; margin-bottom: 10px; margin-left: 10px;">Reset</button>
-                <div id="screenshot_preview_container" style="max-width: 100%; overflow-x: auto; width: 60%; display: inline-block;">
+                <label for="screenshot_file" id="screenshot_upload_label" class="upload-label" style="cursor: pointer; background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; margin-bottom: 10px; width: 48%; display: inline-block;">Upload</label>
+                <button type="button" id="reset_button" class="reset-button" style="cursor: pointer; background-color: #FF5722; color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; margin-bottom: 10px; width: 48%; display: inline-block;">Reset</button>
+                <div id="screenshot_preview_container" style="max-width: 100%; overflow-x: auto; width: 100%; display: inline-block;">
                     <!-- Preview images will be shown here -->
                 </div>
             </div>
 
             <style>
                 #screenshot_preview_container img {
-                    max-width: 100%; /* Pratinjau gambar tidak akan melebihi lebar kontainernya */
-                    height: auto; /* Menjaga aspek rasio gambar */
+                    max-width: 100%;
+                    height: auto;
                     display: block;
                     margin-bottom: 10px;
                 }
