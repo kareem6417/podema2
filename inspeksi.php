@@ -328,6 +328,10 @@ foreach ($users as $user) {
                     previewContainer.innerHTML = ''; // Menghapus semua elemen gambar dari pratinjau
                     document.getElementById('screenshot_file').value = ''; // Menghapus file yang diunggah dari input
                 });
+
+                document.getElementById('screenshot_upload_button').addEventListener('click', function() {
+                    document.getElementById('screenshot_file').click(); // Trigger the file input click event
+                });
             </script>
 
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
