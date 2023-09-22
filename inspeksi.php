@@ -43,9 +43,6 @@ foreach ($users as $user) {
     <link rel="stylesheet" type="text/css" href="css/styleins.css">
     <link rel="icon" type="image/png" href="./favicon_io/iconfav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -290,49 +287,41 @@ foreach ($users as $user) {
             <textarea id="hasil_pemeriksaan" name="hasil_pemeriksaan" style="height: 75px; width: 99%;" required class="device-select"></textarea>
 
             <label for="screenshot" id="screenshot_label" class="device-label">Screenshot:<span style="color: crimson;">*</span></label>
-            <div id="screenshot" style="width: 84%; max-width: 100%; margin: 0;"></div>
-            <script>
-            document.getElementById('assessmentForm').addEventListener('submit', function(event) {
-                var screenshotContent = $('#screenshot').summernote('code');
-                $('#screenshot').summernote('code', screenshotContent.trim());
-            });
+                <div id="screenshot" style="width: 12%; max-width: 100%; margin: 0;">
+                    <input type="file" id="screenshot_file" name="screenshot_file[]" accept="image/*" style="display: none;" multiple>
+                    <label for="screenshot_file" id="screenshot_upload_label" class="upload-label" style="cursor: pointer; background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; margin-bottom: 10px;">Upload</label>
+                    <div id="screenshot_preview_container" style="max-width: 100%; overflow-x: auto;">
+                        <!-- Preview images will be shown here -->
+                    </div>
+                </div>
 
-            $(document).ready(function() {
-                $('#screenshot').summernote({
-                    toolbar: [
-                        ['style', ['bold', 'italic', 'underline']],
-                        ['insert', ['picture']]
-                    ]
-                });
-
-                // Fungsi untuk menangani event paste
-                function handlePaste(event) {
-                    var items = (event.clipboardData || event.originalEvent.clipboardData).items;
-
-                    for (index in items) {
-                        var item = items[index];
-                        if (item.kind === 'file' && item.type.indexOf('image') !== -1) {
-                            var blob = item.getAsFile();
-                            var reader = new FileReader();
-
-                            reader.onload = function(event){
-                                var dataUri = event.target.result;
-                                var img = new Image();
-                                img.src = dataUri;
-                                img.onload = function(){
-                                    $('#screenshot').summernote('insertImage', dataUri);
-                                }
-                            }
-
-                            reader.readAsDataURL(blob);
-                        }
+                <style>
+                    #screenshot_preview_container img {
+                        max-width: 100%; /* Pratinjau gambar tidak akan melebihi lebar formulir */
+                        height: auto; /* Menjaga aspek rasio gambar */
+                        display: block;
+                        margin-bottom: 10px;
                     }
-                }
+                </style>
 
-                // Memasang event listener untuk event paste
-                document.getElementById('screenshot').addEventListener('paste', handlePaste);
-            });
-            </script>
+                <script>
+                    document.getElementById('screenshot_file').addEventListener('change', function() {
+                        var input = this;
+                        var previewContainer = document.getElementById('screenshot_preview_container');
+
+                        if (input.files && input.files.length > 0) {
+                            for (var i = 0; i < input.files.length; i++) {
+                                var reader = new FileReader();
+                                reader.onload = function(e) {
+                                    var img = document.createElement('img');
+                                    img.src = e.target.result;
+                                    previewContainer.appendChild(img);
+                                }
+                                reader.readAsDataURL(input.files[i]);
+                            }
+                        }
+                    });
+                </script>
 
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 99%;" required class="device-select"></textarea>
