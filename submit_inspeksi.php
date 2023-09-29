@@ -9,8 +9,6 @@ $conn = new mysqli($host, $user, $pass, $db);
 
 if (!$conn) {
     die("Koneksi database gagal: " . $conn->connect_error);
-} else {
-    echo "Koneksi Berhasil";
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -152,10 +150,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Setelah mengunggah file, alihkan ke viewinspeksi.php
     header("Location: viewinspeksi.php");
     exit();
-
-    } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-
+} else {
+    echo "Metode permintaan tidak valid.";
 }
 
 $conn->close();
