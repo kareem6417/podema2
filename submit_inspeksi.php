@@ -13,10 +13,8 @@ if (!$conn) {
     echo "Koneksi Berhasil";
 }
 
-$jenis = isset($_POST["jenis"]) ? $_POST["jenis"] : '';
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+    $jenis = isset($_POST["jenis"]) ? $_POST["jenis"] : '';
     $date = isset($_POST["date"]) ? $_POST["date"] : '';
     $merk = isset($_POST["merk"]) ? $_POST["merk"] : '';
     $lokasi = isset($_POST["lokasi"]) ? $_POST["lokasi"] : '';
@@ -27,6 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $rekomendasi = isset($_POST["rekomendasi"]) ? $_POST["rekomendasi"] : '';
     $nama_user = isset($_POST["nama_user"]) ? $_POST["nama_user"] : '';
     $score = 0;
+
+    $sql = '';
 
     if ($jenis == "Laptop") {
         // elemen Laptop
@@ -90,6 +90,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $sql = "INSERT INTO form_inspeksi (date, jenis, merk, lokasi, nama_user, status, serialnumber, informasi_keluhan, hasil_pemeriksaan, rekomendasi, casing_lap, ink_pad, score)
             VALUES ('$date', '$jenis', '$merk', '$lokasi', '$nama_user', '$status', '$serialnumber', '$informasi_keluhan', '$hasil_pemeriksaan', '$rekomendasi', '$casing_lap', '$ink_pad', '$score')";
+    }
+
+    if ($sql != '') {
+        if ($conn->query($sql) === TRUE) {
+            echo "Data berhasil disimpan.";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
