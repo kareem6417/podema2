@@ -93,12 +93,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($sql != '') {
         if ($conn->query($sql) === TRUE) {
             echo "Data berhasil disimpan.";
+            echo "<script>window.location.href='viewinspeksi.php';</script>"; // Pengalihan halaman
+            exit(); // Pastikan untuk keluar dari skrip
         } else {
             $error_message = "Error: " . $sql . "<br>" . $conn->error;
             echo $error_message;
             error_log($error_message, 0); // Menyimpan pesan error ke file log
         }
-    }
+    }    
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/dev-podema/File Upload Inspeksi/";
