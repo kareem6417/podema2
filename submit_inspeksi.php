@@ -140,6 +140,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Setelah mengunggah file, alihkan ke viewinspeksi.php
     header("Location: viewinspeksi.php");
     exit();
+
+    } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+
 }
 
 $conn->close();
