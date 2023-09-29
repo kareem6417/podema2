@@ -88,19 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $sql = "INSERT INTO form_inspeksi (date, jenis, merk, lokasi, nama_user, status, serialnumber, informasi_keluhan, hasil_pemeriksaan, rekomendasi, casing_lap, ink_pad, score)
             VALUES ('$date', '$jenis', '$merk', '$lokasi', '$nama_user', '$status', '$serialnumber', '$informasi_keluhan', '$hasil_pemeriksaan', '$rekomendasi', '$casing_lap', '$ink_pad', '$score')";
-    }
-
-    if ($sql != '') {
-        if ($conn->query($sql) === TRUE) {
-            echo "Data berhasil disimpan.";
-            echo "<script>window.location.href='viewinspeksi.php';</script>"; // Pengalihan halaman
-            exit(); // Pastikan untuk keluar dari skrip
-        } else {
-            $error_message = "Error: " . $sql . "<br>" . $conn->error;
-            echo $error_message;
-            error_log($error_message, 0); // Menyimpan pesan error ke file log
-        }
-    }    
+    }   
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/dev-podema/File Upload Inspeksi/";
@@ -149,11 +137,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Setelah mengunggah file, alihkan ke viewinspeksi.php
-    header("Location: viewinspeksi.php");
-    exit();
-} else {
-    echo "Metode permintaan tidak valid.";
+    if ($sql != '') {
+        if ($conn->query($sql) === TRUE) {
+            echo "Data berhasil disimpan.";
+            echo "<script>window.location.href='viewinspeksi.php';</script>"; // Pengalihan halaman
+            exit(); // Pastikan untuk keluar dari skrip
+        } else {
+            $error_message = "Error: " . $sql . "<br>" . $conn->error;
+            echo $error_message;
+            error_log($error_message, 0); // Menyimpan pesan error ke file log
+        }
+    }
 }
 
 $conn->close();
