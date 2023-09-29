@@ -96,7 +96,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($sql) === TRUE) {
             echo "Data berhasil disimpan.";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            $error_message = "Error: " . $sql . "<br>" . $conn->error;
+            echo $error_message;
+            error_log($error_message, 0); // Menyimpan pesan error ke file log
         }
     }
 
@@ -112,12 +114,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $path_filename_ext = $target_dir . $filename . '.' . $ext;
     
         if (file_exists($path_filename_ext)) {
-            echo "Maaf, file sudah ada.";
+            $error_message = "Maaf, file sudah ada.";
+            echo $error_message;
+            error_log($error_message, 0); // Menyimpan pesan error ke file log
         } else {
             if (move_uploaded_file($temp_name, $path_filename_ext)) {
                 echo "File Anda berhasil diunggah.";
             } else {
-                echo "Terjadi kesalahan saat mengunggah file.";
+                $error_message = "Terjadi kesalahan saat mengunggah file.";
+                echo $error_message;
+                error_log($error_message, 0); // Menyimpan pesan error ke file log
             }
         }
     }
@@ -134,7 +140,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $target_screenshot_file = $target_screenshot_dir . $file_name;
 
         // Pindahkan file dari lokasi sementara ke direktori tujuan
-        move_uploaded_file($file_tmp, $target_screenshot_file);
+        if (move_uploaded_file($file_tmp, $target_screenshot_file)) {
+            echo "File screenshot berhasil diunggah.";
+        } else {
+            $error_message = "Terjadi kesalahan saat mengunggah file screenshot.";
+            echo $error_message;
+            error_log($error_message, 0); // Menyimpan pesan error ke file log
+        }
     }
 
     // Setelah mengunggah file, alihkan ke viewinspeksi.php
