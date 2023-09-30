@@ -12,7 +12,7 @@ $query = $conn->prepare("SELECT * FROM form_inspeksi ORDER BY no DESC LIMIT 1");
 $query->execute();
 
 if ($query->error) {
-    die("Query failed: " . $query->error);
+    die("Query gagal: " . $query->error);
 }
 
 $result = $query->get_result();
@@ -20,11 +20,12 @@ $result = $query->get_result();
 if ($result) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        $jenis = $row['jenis']; // Tambahkan baris ini untuk mendapatkan jenis perangkat
     } else {
-        die("No data found in the form_inspeksi table.");
+        die("Tidak ada data ditemukan di tabel form_inspeksi.");
     }
 } else {
-    die("Result set error: " . $conn->error);
+    die("Error hasil set: " . $conn->error);
 }
 
 $runningNumber = $row['no'] + 1;
