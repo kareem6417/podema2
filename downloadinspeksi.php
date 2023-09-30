@@ -20,7 +20,7 @@ $result = $query->get_result();
 if ($result) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $jenis = $row['jenis']; // Tambahkan baris ini untuk mendapatkan jenis perangkat
+        $jenis = $row['jenis'];
     } else {
         die("Tidak ada data ditemukan di tabel form_inspeksi.");
     }
@@ -155,189 +155,88 @@ $pdf->SetFont('helvetica', '', 11);
 $pdf->Cell($cellWidth * 2, 10, $row['lokasi'], 1, 1, 'L', false);
 $pdf->Ln(10);
 
-//keluhan
-$html = '<table style="width: 100%; border-collapse: collapse; border: none;">';
-$html .= '<thead>';
-$html .= '<tr>';
-$html .= '<th style="background-color: #FFE4B5; padding: 5px; font-weight: bold;" colspan="2">Informasi Keluhan/Permasalahan yang disampaikan:</th>';
-$html .= '</tr>';
-$html .= '</thead>';
-$html .= '<tbody>';
-
-$html .= '<tr><td style="padding: 5px; border: none;" colspan="2"></td></tr>';
-
-$complaints = explode("\n", $row['informasi_keluhan']);
-foreach ($complaints as $index => $complaint) {
-    $html .= '<tr>';
-    $html .= '<td style="padding: 5px; border: none;" colspan="2">' . nl2br($complaint) . '</td>';
-    $html .= '</tr>';
-    if ($index < count($complaints) - 1 || $index == count($complaints) - 1) {
-        $html .= '<tr>';
-        $html .= '<td style="padding: 0; border: none; border-top: 1px solid black; height: 100%;" colspan="2"></td>';
-        $html .= '</tr>';
-    }
-}
-
-$html .= '</tbody>';
-$html .= '</table>';
-$pdf->writeHTML($html, true, false, true, false, '');
-$pdf->Ln();
-
-switch ($row['jenis']) {
+switch ($jenis) {
     case 'laptop':
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Casing:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['casing_lap'], 1, 1, 'L', false);
+        // Tambahkan informasi laptop ke dalam tabel
+        $data = array(
+            array('Casing', $row['casing_lap']),
+            array('Layar', $row['layar_lap']),
+            array('Engsel', $row['engsel_lap']),
+            array('Keyboard', $row['keyboard_lap']),
+            array('Touchpad', $row['touchpad_lap']),
+            array('Proses Booting', $row['booting_lap']),
+            array('Multitasking', $row['multi_lap']),
+            array('Daya Tampung Baterai', $row['tampung_lap']),
+            array('Waktu Pengisian Baterai', $row['isi_lap']),
+            array('Port', $row['port_lap']),
+            array('Audio', $row['audio_lap']),
+            array('Software', $row['software_lap'])
+        );
 
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Layar:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['layar_lap'], 1, 1, 'L', false);
+        $pdf->SetFillColor(255, 255, 255);
+        $pdf->SetTextColor(0);
+        $pdf->SetDrawColor(0, 0, 0);
 
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Engsel:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['engsel_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Keyboard:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['keyboard_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Touchpad:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['touchpad_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Proses Booting:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['booting_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Multitasking Apps/Program:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['multi_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Daya Tampung Baterai:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['tampung_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Waktu Pengisian Baterai:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['isi_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Port:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['port_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Audio:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['audio_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Software:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['software_lap'], 1, 1, 'L', false);
+        foreach ($data as $row) {
+            $pdf->Cell(70, 10, $row[0], 'LR', 0, 'L', 1);
+            $pdf->Cell(0, 10, $row[1], 'LR', 1, 'L', 1);
+        }
 
         break;
 
     case 'pc_desktop':
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Casing:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['casing_lap'], 1, 1, 'L', false);
+        $data = array(
+            array('Casing', $row['casing_lap']),
+            array('Layar', $row['layar_lap']),
+            array('Keyboard', $row['keyboard_lap']),
+            array('Proses Booting', $row['booting_lap']),
+            array('Multitasking', $row['multi_lap']),
+            array('Port', $row['port_lap']),
+            array('Audio', $row['audio_lap']),
+            array('Software', $row['software_lap'])
+        );
+            
+        $pdf->SetFillColor(255, 255, 255);
+        $pdf->SetTextColor(0);
+        $pdf->SetDrawColor(0, 0, 0);
 
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Layar:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['layar_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Keyboard:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['keyboard_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Proses Booting:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['booting_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Multitasking Apps/Program:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['multi_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Port:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['port_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Audio:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['audio_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Software:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['software_lap'], 1, 1, 'L', false);
-
+        foreach ($data as $row) {
+            $pdf->Cell(70, 10, $row[0], 'LR', 0, 'L', 1);
+            $pdf->Cell(0, 10, $row[1], 'LR', 1, 'L', 1);
+        }
         break;
 
     case 'monitor':
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Casing:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['casing_lap'], 1, 1, 'L', false);
-
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Layar:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['layar_lap'], 1, 1, 'L', false);
+        $data = array(
+            array('Casing', $row['casing_lap']),
+            array('Layar', $row['layar_lap']),        
+        );
         
+        $pdf->SetFillColor(255, 255, 255);
+        $pdf->SetTextColor(0);
+        $pdf->SetDrawColor(0, 0, 0);
+
+        foreach ($data as $row) {
+            $pdf->Cell(70, 10, $row[0], 'LR', 0, 'L', 1);
+            $pdf->Cell(0, 10, $row[1], 'LR', 1, 'L', 1);
+        }
         break;
 
     case 'printer':
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Casing:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['casing_lap'], 1, 1, 'L', false);
+        $data = array(
+            array('Casing', $row['casing_lap']),
+            array('Ink Pad', $row['ink_pad']),        
+        );
+        
+        $pdf->SetFillColor(255, 255, 255);
+        $pdf->SetTextColor(0);
+        $pdf->SetDrawColor(0, 0, 0);
 
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell($cellWidth * 2, 10, 'Ink Pad:', 1, 0, 'L', false);
-        $pdf->SetFont('helvetica', '', 11);
-        $pdf->Cell($cellWidth * 2, 10, $row['ink_pad'], 1, 1, 'L', false);
-
+        foreach ($data as $row) {
+            $pdf->Cell(70, 10, $row[0], 'LR', 0, 'L', 1);
+            $pdf->Cell(0, 10, $row[1], 'LR', 1, 'L', 1);
+        }
         break;
-}
-
-
-//hasil_pemeriksaan
-$html = '<table style="width: 100%; border-collapse: collapse; border: none;">';
-$html .= '<thead>';
-$html .= '<tr>';
-$html .= '<th style="background-color: #FFE4B5; padding: 5px; font-weight: bold;" colspan="2">Hasil Pemeriksaan:</th>';
-$html .= '</tr>';
-$html .= '</thead>';
-$html .= '<tbody>';
-$html .= '<tr><td style="padding: 5px; border: none;" colspan="2"></td></tr>'; 
-
-$complaints = explode("\n", $row['hasil_pemeriksaan']);
-foreach ($complaints as $index => $complaint) {
-    $html .= '<tr>';
-    $html .= '<td style="padding: 5px; border: none;" colspan="2">' . nl2br($complaint) . '</td>';
-    $html .= '</tr>';
-    if ($index < count($complaints) - 1 || $index == count($complaints) - 1) {
-        $html .= '<tr>';
-        $html .= '<td style="padding: 0; border: none; border-top: 1px solid black; height: 100%;" colspan="2"></td>';
-        $html .= '</tr>';
-    }
 }
 
 $html .= '</tbody>';
