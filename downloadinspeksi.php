@@ -182,6 +182,141 @@ $html .= '</table>';
 $pdf->writeHTML($html, true, false, true, false, '');
 $pdf->Ln();
 
+switch ($row['jenis']) {
+    case 'laptop':
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Casing:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['casing_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Layar:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['layar_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Engsel:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['engsel_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Keyboard:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['keyboard_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Touchpad:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['touchpad_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Proses Booting:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['booting_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Multitasking Apps/Program:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['multi_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Daya Tampung Baterai:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['tampung_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Waktu Pengisian Baterai:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['isi_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Port:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['port_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Audio:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['audio_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Software:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['software_lap'], 1, 1, 'L', false);
+
+        break;
+
+    case 'pc_desktop':
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Casing:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['casing_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Layar:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['layar_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Keyboard:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['keyboard_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Proses Booting:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['booting_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Multitasking Apps/Program:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['multi_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Port:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['port_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Audio:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['audio_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Software:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['software_lap'], 1, 1, 'L', false);
+
+        break;
+
+    case 'monitor':
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Casing:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['casing_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Layar:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['layar_lap'], 1, 1, 'L', false);
+        
+        break;
+
+    case 'printer':
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Casing:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['casing_lap'], 1, 1, 'L', false);
+
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell($cellWidth * 2, 10, 'Ink Pad:', 1, 0, 'L', false);
+        $pdf->SetFont('helvetica', '', 11);
+        $pdf->Cell($cellWidth * 2, 10, $row['ink_pad'], 1, 1, 'L', false);
+
+        break;
+}
+
+
 //hasil_pemeriksaan
 $html = '<table style="width: 100%; border-collapse: collapse; border: none;">';
 $html .= '<thead>';
