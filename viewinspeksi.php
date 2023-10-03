@@ -53,18 +53,14 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         die("Koneksi database gagal: " . $conn->connect_error);
     }
     
-    $sql = "SELECT MAX(no) as last_no FROM form_inspeksi";
-    $result = $conn->query($sql);
-    
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $last_no = $row["last_no"];
+    if(isset($_POST['jenis_perangkat'])){
+        $jenis_perangkat = $_POST['jenis_perangkat'];
         
-        $sql = "SELECT * FROM form_inspeksi WHERE no = $last_no";
+        $sql = "SELECT * FROM form_inspeksi WHERE jenis = '$jenis_perangkat' ORDER BY no DESC LIMIT 1";
         $result = $conn->query($sql);
-        
+    
         if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc(); 
+            $row = $result->fetch_assoc();
 
             echo "<div class='flex-container'>";
             echo "<div class='column'>";
