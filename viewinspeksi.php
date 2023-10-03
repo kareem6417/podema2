@@ -60,16 +60,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     
     $jenis_perangkat = $_GET['jenis'];
     
-    $host = "mandiricoal.net";
-    $user = "podema"; 
-    $pass = "Jam10pagi#"; 
-    $db = "podema"; 
-    
-    $conn = new mysqli($host, $user, $pass, $db);
-    if ($conn->connect_error) {
-        die("Koneksi database gagal: " . $conn->connect_error);
-    }
-    
     $sql = "SELECT * FROM form_inspeksi WHERE jenis = '$jenis_perangkat' ORDER BY no DESC LIMIT 1";
     $result = $conn->query($sql);
     
