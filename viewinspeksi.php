@@ -53,26 +53,25 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         die("Koneksi database gagal: " . $conn->connect_error);
     }
     
-    if (!isset($_GET['jenis']) || empty($_GET['jenis'])) {
-        echo "Jenis perangkat tidak valid.";
-        exit;
-    }
-    
-    $jenis_perangkat = $_GET['jenis'];
-    
-    $sql = "SELECT * FROM form_inspeksi WHERE jenis = '$jenis_perangkat' ORDER BY no DESC LIMIT 1";
+    $sql = "SELECT MAX(no) as last_no FROM form_inspeksi";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        $last_no = $row["last_no"];
+        
+        $sql = "SELECT * FROM form_inspeksi WHERE no = $last_no";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc(); 
 
             echo "<div class='flex-container'>";
             echo "<div class='column'>";
             echo "<div class='row'><span class='label'>Nomor</span><span class='value'>" . $row["no"] . "</span></div>";
             echo "<div class='row'><span class='label'>Tipe Perangkat</span><span class='value'>" . $row["jenis"] . "</span></div>";
             echo "<div class='row'><span class='label'>Merk</span><span class='value'>" . $row["merk"] . "</span></div>";
-            echo "<div class='row'><span class='label'>Informasi Keluhan</span><span class='value'>" . $row["informasi_keluhan"] . "</span></div>";
-            echo "<div class='row'><span class='label'>Hasil Pemeriksaan</span><span class='value'>" . $row["hasil_pemeriksaan"] . "</span></div>";
+            echo "<div class='row'><span class='label'>Nomor Serial</span><span class='value'>" . $row["serialnumber"] . "</span></div>";
             echo "</div>";
             
             echo "<div class='column'>";
@@ -80,10 +79,12 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             echo "<div class='row'><span class='label'>Nama</span><span class='value'>" . $row["nama_user"] . "</span></div>";
             echo "<div class='row'><span class='label'>Posisi/Divisi</span><span class='value'>" . $row["status"] . "</span></div>";
             echo "<div class='row'><span class='label'>Lokasi/Area Kerja Perangkat</span><span class='value'>" . $row["lokasi"] . "</span></div>";
-            echo "<div class='row'><span class='label'Rekomendasi</span><span class='value'>" . $row["rekomendasi"] . "</span></div>";
             echo "</div>";
             
             echo "</div>";
+        } else {
+            echo "Tidak ada data yang ditemukan.";
+        }
     } else {
         echo "Tidak ada data yang ditemukan.";
     }
