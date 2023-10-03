@@ -5,7 +5,55 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     header("location: ./admin/login.php");
     exit;
 }
+
+$host = "mandiricoal.net";
+$user = "podema"; 
+$pass = "Jam10pagi#"; 
+$db = "podema"; 
+
+$conn = new mysqli($host, $user, $pass, $db);
+if ($conn->connect_error) {
+    die("Koneksi database gagal: " . $conn->connect_error);
+}
+
+if (!isset($_GET['jenis']) || empty($_GET['jenis'])) {
+    echo "Jenis perangkat tidak valid.";
+    exit;
+}
+
+$jenis_perangkat = $_GET['jenis'];
+
+$sql = "SELECT * FROM form_inspeksi WHERE jenis = '$jenis_perangkat' ORDER BY no DESC LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+
+    echo "<div class='flex-container'>";
+    echo "<div class='column'>";
+    echo "<div class='row'><span class='label'>Nomor</span><span class='value'>" . $row["no"] . "</span></div>";
+    echo "<div class='row'><span class='label'>Tipe Perangkat</span><span class='value'>" . $row["jenis"] . "</span></div>";
+    echo "<div class='row'><span class='label'>Merk</span><span class='value'>" . $row["merk"] . "</span></div>";
+    echo "<div class='row'><span class='label'>Informasi Keluhan</span><span class='value'>" . $row["informasi_keluhan"] . "</span></div>";
+    echo "<div class='row'><span class='label'>Hasil Pemeriksaan</span><span class='value'>" . $row["hasil_pemeriksaan"] . "</span></div>";
+    echo "</div>";
+
+    echo "<div class='column'>";
+    echo "<div class='row'><span class='label'>Tanggal</span><span class='value'>" . $row["date"] . "</span></div>";
+    echo "<div class='row'><span class='label'>Nama</span><span class='value'>" . $row["nama_user"] . "</span></div>";
+    echo "<div class='row'><span class='label'>Posisi/Divisi</span><span class='value'>" . $row["status"] . "</span></div>";
+    echo "<div class='row'><span class='label'>Lokasi/Area Kerja Perangkat</span><span class='value'>" . $row["lokasi"] . "</span></div>";
+    echo "<div class='row'><span class='label'>Rekomendasi</span><span class='value'>" . $row["rekomendasi"] . "</span></div>";
+    echo "</div>";
+
+    echo "</div>";
+} else {
+    echo "Tidak ada data yang ditemukan.";
+}
+
+$conn->close();
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,56 +89,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <div class="content">
         <h2>Ringkasan Hasil Inspeksi Perangkat Anda</h2>
         <br>
-    <?php
-    
-    $host = "mandiricoal.net";
-    $user = "podema"; 
-    $pass = "Jam10pagi#"; 
-    $db = "podema"; 
-    
-    $conn = new mysqli($host, $user, $pass, $db);
-    if ($conn->connect_error) {
-        die("Koneksi database gagal: " . $conn->connect_error);
-    }
-    
-    if (!isset($_GET['jenis']) || empty($_GET['jenis'])) {
-        echo "Jenis perangkat tidak valid.";
-        exit;
-    }
-    
-    $jenis_perangkat = $_GET['jenis'];
-    
-    $sql = "SELECT * FROM form_inspeksi WHERE jenis = '$jenis_perangkat' ORDER BY no DESC LIMIT 1";
-    $result = $conn->query($sql);
-    
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-
-            echo "<div class='flex-container'>";
-            echo "<div class='column'>";
-            echo "<div class='row'><span class='label'>Nomor</span><span class='value'>" . $row["no"] . "</span></div>";
-            echo "<div class='row'><span class='label'>Tipe Perangkat</span><span class='value'>" . $row["jenis"] . "</span></div>";
-            echo "<div class='row'><span class='label'>Merk</span><span class='value'>" . $row["merk"] . "</span></div>";
-            echo "<div class='row'><span class='label'>Informasi Keluhan</span><span class='value'>" . $row["informasi_keluhan"] . "</span></div>";
-            echo "<div class='row'><span class='label'>Hasil Pemeriksaan</span><span class='value'>" . $row["hasil_pemeriksaan"] . "</span></div>";
-            echo "</div>";
-            
-            echo "<div class='column'>";
-            echo "<div class='row'><span class='label'>Tanggal</span><span class='value'>" . $row["date"] . "</span></div>";
-            echo "<div class='row'><span class='label'>Nama</span><span class='value'>" . $row["nama_user"] . "</span></div>";
-            echo "<div class='row'><span class='label'>Posisi/Divisi</span><span class='value'>" . $row["status"] . "</span></div>";
-            echo "<div class='row'><span class='label'>Lokasi/Area Kerja Perangkat</span><span class='value'>" . $row["lokasi"] . "</span></div>";
-            echo "<div class='row'><span class='label'Rekomendasi</span><span class='value'>" . $row["rekomendasi"] . "</span></div>";
-            echo "</div>";
-            
-            echo "</div>";
-    } else {
-        echo "Tidak ada data yang ditemukan.";
-    }
-    
-    $conn->close();
-    ?>
-
     <br>
     <h4><span class="blink" style="font-weight: bold; text-decoration: underline; font-style: italic;">Click "Download" to view the details.</span></h4>
     
