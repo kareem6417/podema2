@@ -8,6 +8,13 @@ $pass = "Jam10pagi#";
 $db = "podema";
 $conn = new mysqli($host, $user, $pass, $db);
 
+if(isset($_POST['jenis'])) {
+    $jenis = $_POST['jenis'];
+    // Lanjutkan dengan pengolahan data
+} else {
+    die("Data jenis tidak ditemukan.");
+}
+
 $query = $conn->prepare("SELECT * FROM form_inspeksi ORDER BY no DESC LIMIT 1");
 $query->execute();
 
@@ -33,7 +40,6 @@ $createDate = date('m/Y', strtotime($row['date']));
 
 $nomorInspeksi = sprintf("%03d", $runningNumber) . "/MIP/INS/" . $createDate;
 
-$jenis = $_POST['jenis'];
 $informasi_keluhan = $_POST['informasi_keluhan'];
 $casing_lap = $_POST['casing_lap'];
 $layar_lap = $_POST['layar_lap'];
