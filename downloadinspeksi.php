@@ -155,88 +155,58 @@ $pdf->SetFont('helvetica', '', 11);
 $pdf->Cell($cellWidth * 2, 10, $row['lokasi'], 1, 1, 'L', false);
 $pdf->Ln(10);
 
-switch ($jenis) {
-    case 'laptop':
-        // Tambahkan informasi laptop ke dalam tabel
-        $data = array(
-            array('Casing', $row['casing_lap']),
-            array('Layar', $row['layar_lap']),
-            array('Engsel', $row['engsel_lap']),
-            array('Keyboard', $row['keyboard_lap']),
-            array('Touchpad', $row['touchpad_lap']),
-            array('Proses Booting', $row['booting_lap']),
-            array('Multitasking', $row['multi_lap']),
-            array('Daya Tampung Baterai', $row['tampung_lap']),
-            array('Waktu Pengisian Baterai', $row['isi_lap']),
-            array('Port', $row['port_lap']),
-            array('Audio', $row['audio_lap']),
-            array('Software', $row['software_lap'])
-        );
+$html .= '</tbody>';
+$html .= '</table>';
+$pdf->writeHTML($html, true, false, true, false, '');
+$pdf->Ln();
 
-        $pdf->SetFillColor(255, 255, 255);
-        $pdf->SetTextColor(0);
-        $pdf->SetDrawColor(0, 0, 0);
+$html = '<table style="width: 100%; border-collapse: collapse; border: none;">';
+$html .= '<thead>';
+$html .= '<tr>';
+$html .= '<th style="background-color: #FFE4B5; padding: 5px; font-weight: bold;" colspan="2">Informasi Keluhan/Permasalahan yang disampaikan:</th>';
+$html .= '</tr>';
+$html .= '</thead>';
+$html .= '<tbody>';
 
-        foreach ($data as $row) {
-            $pdf->Cell(70, 10, $row[0], 'LR', 0, 'L', 1);
-            $pdf->Cell(0, 10, $row[1], 'LR', 1, 'L', 1);
-        }
+$html .= '<tr><td style="padding: 5px; border: none;" colspan="2"></td></tr>';
 
-        break;
+$complaints = explode("\n", $row['informasi_keluhan']);
+foreach ($complaints as $index => $complaint) {
+    $html .= '<tr>';
+    $html .= '<td style="padding: 5px; border: none;" colspan="2">' . nl2br($complaint) . '</td>';
+    $html .= '</tr>';
+    if ($index < count($complaints) - 1 || $index == count($complaints) - 1) {
+        $html .= '<tr>';
+        $html .= '<td style="padding: 0; border: none; border-top: 1px solid black; height: 100%;" colspan="2"></td>';
+        $html .= '</tr>';
+    }
+}
 
-    case 'pc_desktop':
-        $data = array(
-            array('Casing', $row['casing_lap']),
-            array('Layar', $row['layar_lap']),
-            array('Keyboard', $row['keyboard_lap']),
-            array('Proses Booting', $row['booting_lap']),
-            array('Multitasking', $row['multi_lap']),
-            array('Port', $row['port_lap']),
-            array('Audio', $row['audio_lap']),
-            array('Software', $row['software_lap'])
-        );
-            
-        $pdf->SetFillColor(255, 255, 255);
-        $pdf->SetTextColor(0);
-        $pdf->SetDrawColor(0, 0, 0);
+$html .= '</tbody>';
+$html .= '</table>';
+$pdf->writeHTML($html, true, false, true, false, '');
+$pdf->Ln();
 
-        foreach ($data as $row) {
-            $pdf->Cell(70, 10, $row[0], 'LR', 0, 'L', 1);
-            $pdf->Cell(0, 10, $row[1], 'LR', 1, 'L', 1);
-        }
-        break;
+//hasil_pemeriksaan
+$html = '<table style="width: 100%; border-collapse: collapse; border: none;">';
+$html .= '<thead>';
+$html .= '<tr>';
+$html .= '<th style="background-color: #FFE4B5; padding: 5px; font-weight: bold;" colspan="2">Hasil Pemeriksaan:</th>';
+$html .= '</tr>';
+$html .= '</thead>';
+$html .= '<tbody>';
+$html .= '<tr><td style="padding: 5px; border: none;" colspan="2"></td></tr>'; 
 
-    case 'monitor':
-        $data = array(
-            array('Casing', $row['casing_lap']),
-            array('Layar', $row['layar_lap']),        
-        );
-        
-        $pdf->SetFillColor(255, 255, 255);
-        $pdf->SetTextColor(0);
-        $pdf->SetDrawColor(0, 0, 0);
-
-        foreach ($data as $row) {
-            $pdf->Cell(70, 10, $row[0], 'LR', 0, 'L', 1);
-            $pdf->Cell(0, 10, $row[1], 'LR', 1, 'L', 1);
-        }
-        break;
-
-    case 'printer':
-        $data = array(
-            array('Casing', $row['casing_lap']),
-            array('Ink Pad', $row['ink_pad']),        
-        );
-        
-        $pdf->SetFillColor(255, 255, 255);
-        $pdf->SetTextColor(0);
-        $pdf->SetDrawColor(0, 0, 0);
-
-        foreach ($data as $row) {
-            $pdf->Cell(70, 10, $row[0], 'LR', 0, 'L', 1);
-            $pdf->Cell(0, 10, $row[1], 'LR', 1, 'L', 1);
-        }
-        break;
+$complaints = explode("\n", $row['hasil_pemeriksaan']);
+foreach ($complaints as $index => $complaint) {
+    $html .= '<tr>';
+    $html .= '<td style="padding: 5px; border: none;" colspan="2">' . nl2br($complaint) . '</td>';
+    $html .= '</tr>';
+    if ($index < count($complaints) - 1 || $index == count($complaints) - 1) {
+        $html .= '<tr>';
+        $html .= '<td style="padding: 0; border: none; border-top: 1px solid black; height: 100%;" colspan="2"></td>';
+        $html .= '</tr>';
+    }
 }
 
 $html .= '</tbody>';
