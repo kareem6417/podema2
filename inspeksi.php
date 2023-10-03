@@ -369,7 +369,7 @@ foreach ($users as $user) {
                     return relevantElements[jenisPerangkat] || [];
                 }
             </script>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Lihat Inspeksi">
             <input type="reset" value="Reset">
         </form>
     </div>
