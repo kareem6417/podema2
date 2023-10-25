@@ -337,8 +337,8 @@ foreach ($users as $user) {
             <label for="rekomendasi" id="rekomendasi_label" class="device-label">Rekomendasi:<span style="color: crimson;">*</span></label>
             <textarea id="rekomendasi" name="rekomendasi" style="height: 75px; width: 99%;" required class="device-select"></textarea>
 
-            <label for="upload_file" id="upload_file_label" class="device-label" style="margin-bottom: 10px"; >Upload File<span style="color: crimson;">*</span></label></label>
-            <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" required class="device-select">
+            <label for="upload_file" id="upload_file_label" class="device-label" style="margin-bottom: 10px"; >Upload File</label></label>
+            <input type="file" id="upload_file" name="upload_file" style="height: 40px; width: 80%;" accept=".zip, .rar" class="device-select">
             <small style="display: block;">*Note: <br> Sebagai bahan verifikasi mohon upload file berformat .zip atau .rar dari hasil Belarc, <br>dan file tidak lebih dari 100 KB</small>
             <br>
             <script>
