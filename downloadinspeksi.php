@@ -8,11 +8,18 @@ $pass = "Jam10pagi#";
 $db = "podema";
 $conn = new mysqli($host, $user, $pass, $db);
 
+if(isset($_POST['jenis'])) {
+    $jenis = $_POST['jenis'];
+    // Lanjutkan dengan pengolahan data
+} else {
+    die("Data jenis tidak ditemukan.");
+}
+
 $query = $conn->prepare("SELECT * FROM form_inspeksi ORDER BY no DESC LIMIT 1");
 $query->execute();
 
 if ($query->error) {
-    die("Query failed: " . $query->error);
+    die("Query gagal: " . $query->error);
 }
 
 $result = $query->get_result();
@@ -21,10 +28,10 @@ if ($result) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
     } else {
-        die("No data found in the form_inspeksi table.");
+        die("Tidak ada data ditemukan di tabel form_inspeksi.");
     }
 } else {
-    die("Result set error: " . $conn->error);
+    die("Error hasil set: " . $conn->error);
 }
 
 $runningNumber = $row['no'] + 1;
@@ -33,6 +40,21 @@ $createDate = date('m/Y', strtotime($row['date']));
 
 $nomorInspeksi = sprintf("%03d", $runningNumber) . "/MIP/INS/" . $createDate;
 
+$informasi_keluhan = $_POST['informasi_keluhan'];
+$casing_lap = $_POST['casing_lap'];
+$layar_lap = $_POST['layar_lap'];
+$engsel_lap = $_POST['engsel_lap'];
+$keyboard_lap = $_POST['keyboard_lap'];
+$touchpad_lap = $_POST['touchpad_lap'];
+$booting_lap = $_POST['booting_lap'];
+$multi_lap = $_POST['multi_lap'];
+$tampung_lap = $_POST['tampung_lap'];
+$isi_lap = $_POST['isi_lap'];
+$port_lap = $_POST['port_lap'];
+$audio_lap = $_POST['audio_lap'];
+$software_lap = $_POST['software_lap'];
+$hasil_pemeriksaan = $_POST['hasil_pemeriksaan'];
+$rekomendasi = $_POST['rekomendasi'];
 
 $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
 $pdf->SetMargins(10, 10, 10);
@@ -154,7 +176,6 @@ $pdf->SetFont('helvetica', '', 11);
 $pdf->Cell($cellWidth * 2, 10, $row['lokasi'], 1, 1, 'L', false);
 $pdf->Ln(10);
 
-//keluhan
 $html = '<table style="width: 100%; border-collapse: collapse; border: none;">';
 $html .= '<thead>';
 $html .= '<tr>';
@@ -181,6 +202,59 @@ $html .= '</tbody>';
 $html .= '</table>';
 $pdf->writeHTML($html, true, false, true, false, '');
 $pdf->Ln();
+
+if ($jenis == "Laptop") {
+    // Tambahkan elemen khusus untuk Laptop
+    $pdf->SetFont('helvetica', 'B', 12);
+    $pdf->Cell(0, 10, 'Pemeriksaan Laptop', 0, true, 'C', 0, '', 0, false, 'M', 'M');
+
+    $pdf->SetFont('helvetica', '', 11);
+    $pdf->MultiCell(0, 10, 'Casing: ' . $casing_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Layar: ' . $layar_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Engsel: ' . $engsel_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Keyboard: ' . $keyboard_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Touchpad: ' . $touchpad_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Booting: ' . $booting_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Multi: ' . $multi_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Tampung: ' . $tampung_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Isi: ' . $isi_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Port: ' . $port_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Audio: ' . $audio_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Software: ' . $software_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+
+} else if ($jenis == "Desktop") {
+    // Tambahkan elemen khusus untuk Desktop
+    $pdf->SetFont('helvetica', 'B', 12);
+    $pdf->Cell(0, 10, 'Pemeriksaan Desktop', 0, true, 'C', 0, '', 0, false, 'M', 'M');
+
+    $pdf->SetFont('helvetica', '', 11);
+    $pdf->MultiCell(0, 10, 'Casing: ' . $casing_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Layar: ' . $layar_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Keyboard: ' . $keyboard_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Booting: ' . $booting_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Multi: ' . $multi_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Port: ' . $port_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Audio: ' . $audio_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Software: ' . $software_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+
+} else if ($jenis == "Monitor") {
+    // Tambahkan elemen khusus untuk Monitor
+    $pdf->SetFont('helvetica', 'B', 12);
+    $pdf->Cell(0, 10, 'Pemeriksaan Monitor', 0, true, 'C', 0, '', 0, false, 'M', 'M');
+
+    $pdf->SetFont('helvetica', '', 11);
+    $pdf->MultiCell(0, 10, 'Casing: ' . $casing_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Layar: ' . $layar_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+
+} else if ($jenis == "Printer") {
+    // Tambahkan elemen khusus untuk Printer
+    $pdf->SetFont('helvetica', 'B', 12);
+    $pdf->Cell(0, 10, 'Pemeriksaan Printer', 0, true, 'C', 0, '', 0, false, 'M', 'M');
+
+    $pdf->SetFont('helvetica', '', 11);
+    $pdf->MultiCell(0, 10, 'Casing: ' . $casing_lap, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+    $pdf->MultiCell(0, 10, 'Ink Pad: ' . $ink_pad, 0, 'L', false, 1, '', '', true, 0, false, true, 10, 'T');
+}
 
 //hasil_pemeriksaan
 $html = '<table style="width: 100%; border-collapse: collapse; border: none;">';
@@ -237,7 +311,6 @@ $html .= '</tbody>';
 $html .= '</table>';
 $pdf->writeHTML($html, true, false, true, false, '');
 $pdf->Ln();
-
 $pdf->SetFont('helvetica', 'B', 10);
 $location = '    Jakarta,';
 $currentDate = date('d F Y');
