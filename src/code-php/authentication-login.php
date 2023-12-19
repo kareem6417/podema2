@@ -3,7 +3,7 @@ session_start();
 
 $host = "mandiricoal.net";
 $db   = "podema";
-$user = "super";
+$user = "podema";
 $pass = "Jam10pagi#";
 
 if (isset($_POST['reset'])) {
